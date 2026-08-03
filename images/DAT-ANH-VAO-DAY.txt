@@ -1,0 +1,17 @@
+Đặt ảnh của bạn vào thư mục này với ĐÚNG TÊN FILE dưới đây, trang web sẽ tự hiển thị, không cần sửa code.
+
+hero.jpg            -> Ảnh nền trang đầu (khuyên dùng ảnh ngang, rộng tối thiểu 1600px)
+gallery-1.jpg        -> Ảnh 1 trong album
+gallery-2.jpg        -> Ảnh 2 trong album
+gallery-3.jpg        -> Ảnh 3 trong album
+gallery-4.jpg        -> Ảnh 4 trong album
+gallery-5.jpg        -> Ảnh 5 trong album
+gallery-6.jpg        -> Ảnh 6 trong album
+video-thumbnail.jpg  -> Ảnh đại diện (poster) hiện ra trước khi bấm play video
+qr-chu-re.jpg        -> Ảnh chụp mã QR chuyển khoản của chú rể Hữu Vinh
+qr-co-dau.jpg        -> Ảnh chụp mã QR chuyển khoản của cô dâu Yến Thi
+
+Lưu ý:
+- Nếu ảnh của bạn là định dạng .png hoặc .webp thay vì .jpg, chỉ cần đổi phần đuôi
+  file tương ứng trong index.html (tìm src="images/..." và sửa đuôi cho khớp).
+- Xoá file .txt này đi trước khi đưa trang web lên GitHub (không bắt buộc, chỉ để gọn).

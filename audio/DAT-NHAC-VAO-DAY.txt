@@ -1,0 +1,5 @@
+Đặt file nhạc nền của bạn vào thư mục này với tên:
+
+nhac-nen.mp3
+
+Nút nhạc góc màn hình sẽ tự phát file này khi khách bấm vào, không cần sửa code.

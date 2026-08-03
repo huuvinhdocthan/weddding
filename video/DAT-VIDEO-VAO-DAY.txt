@@ -1,0 +1,14 @@
+Đặt file video kỷ niệm của bạn vào thư mục này với tên:
+
+video-ky-niem.mp4
+
+Trang web sẽ tự động phát video này, không cần sửa code.
+
+Nếu bạn muốn dùng video YouTube thay vì file video tự quay:
+1. Mở index.html, tìm phần "VIDEO KỶ NIỆM" trong section Gallery.
+2. Xoá thẻ <video>...</video>.
+3. Dán vào đoạn iframe YouTube, ví dụ:
+   <iframe src="https://www.youtube.com/embed/ID_VIDEO_CUA_BAN"
+           class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+
+Lưu ý: file video nên nén nhẹ (dưới 20-30MB) để tải nhanh khi khách xem trên điện thoại.
