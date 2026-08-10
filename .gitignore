@@ -1,0 +1,5 @@
+# Bỏ qua các file hướng dẫn đặt ảnh/video/nhạc - chỉ dùng nội bộ, không cần push lên GitHub
+images/DAT-ANH-VAO-DAY.txt
+video/DAT-VIDEO-VAO-DAY.txt
+audio/DAT-NHAC-VAO-DAY.txt
+*.txt
