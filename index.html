@@ -19,10 +19,12 @@
       extend: {
         colors: {
           cream: '#FFFDF9',
-          blush: '#F7D9DE',
-          blushdark: '#E8B8C2',
-          gold: '#D4AF37',
-          goldlight: '#E9CE7A',
+          blush: '#E9F1E1',
+          blushdark: '#CFE0C2',
+          gold: '#75915F',
+          goldlight: '#A9C48C',
+          maroon: '#7E2434',
+          maroonlight: '#A8455A',
           ink: '#3A2E2A'
         },
         fontFamily: {
@@ -44,18 +46,18 @@
     overflow-x: hidden;
   }
 
-  /* ===== Đường viền hoa văn gold mảnh dùng chung ===== */
+  /* ===== Đường viền hoa văn xanh lý mảnh dùng chung ===== */
   .gold-divider {
     width: 90px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    background: linear-gradient(90deg, transparent, #75915F, transparent);
     margin: 0 auto;
   }
 
   .section-title {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(2.5rem, 6vw, 4rem);
-    color: #D4AF37;
+    color: #5C7449;
     line-height: 1.2;
   }
 
@@ -80,16 +82,16 @@
     transform: translateY(0);
   }
 
-  /* ===== Countdown box ===== */
+  /* ===== Countdown box (điểm nhấn đỏ đô cho nổi bật) ===== */
   .count-box {
-    background: linear-gradient(145deg, #FFFDF9, #FBF3E7);
-    border: 1.5px solid #D4AF37;
-    box-shadow: 0 4px 18px rgba(212,175,55,0.18);
+    background: linear-gradient(145deg, #FFFDF9, #FBF3EC);
+    border: 1.5px solid #7E2434;
+    box-shadow: 0 4px 18px rgba(126,36,52,0.16);
   }
 
   /* ===== Timeline (Our story) ===== */
   .timeline-line {
-    background: linear-gradient(180deg, transparent, #D4AF37 10%, #D4AF37 90%, transparent);
+    background: linear-gradient(180deg, transparent, #75915F 10%, #75915F 90%, transparent);
   }
 
   /* ===== Gallery hover zoom ===== */
@@ -107,7 +109,7 @@
 
   /* ===== Nút nhạc nổi, đĩa quay ===== */
   .music-btn {
-    box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+    box-shadow: 0 6px 20px rgba(117,145,95,0.4);
   }
   .vinyl {
     animation: spin 4s linear infinite;
@@ -141,28 +143,28 @@
   /* ===== Input form style ===== */
   .form-input {
     background: #FFFDF9;
-    border: 1px solid #E8CDA0;
+    border: 1px solid #CFE0C2;
   }
   .form-input:focus {
     outline: none;
-    border-color: #D4AF37;
-    box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+    border-color: #75915F;
+    box-shadow: 0 0 0 3px rgba(117,145,95,0.15);
   }
 
-  /* ===== Nút gold chung ===== */
+  /* ===== Nút CTA đỏ đô (nổi bật, cute) ===== */
   .btn-gold {
-    background: linear-gradient(135deg, #D4AF37, #E9CE7A);
-    color: #3A2E2A;
+    background: linear-gradient(135deg, #7E2434, #A8455A);
+    color: #FFFDF9;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .btn-gold:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(212,175,55,0.4);
+    box-shadow: 0 8px 20px rgba(126,36,52,0.4);
   }
 
-  /* Thanh cuộn màu gold */
+  /* Thanh cuộn màu xanh lý */
   ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #75915F; border-radius: 4px; }
 
   /* Ảnh chưa có: hiện khung placeholder xám nhẹ thay vì icon vỡ ảnh */
   img { background: #F3ECDD; }
@@ -180,7 +182,7 @@
       class="music-btn w-14 h-14 rounded-full bg-gradient-to-br from-gold to-goldlight flex items-center justify-center border-2 border-white/70">
       <svg id="vinylIcon" class="vinyl w-8 h-8 text-ink" viewBox="0 0 24 24" fill="currentColor">
         <circle cx="12" cy="12" r="10" fill="#3A2E2A"/>
-        <circle cx="12" cy="12" r="4" fill="#D4AF37"/>
+        <circle cx="12" cy="12" r="4" fill="#75915F"/>
         <circle cx="12" cy="12" r="1.4" fill="#3A2E2A"/>
       </svg>
     </button>
@@ -203,17 +205,17 @@
       <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
     </div>
 
-    <div class="relative z-10 text-center px-6 fade-in-up" style="animation-delay:0.2s;">
+    <div id="heroContent" class="relative z-10 text-center px-6 fade-in-up" style="animation-delay:0.2s;">
       <p class="text-white/90 tracking-[0.4em] text-xs md:text-sm font-sans mb-4 uppercase fade-in-up" style="animation-delay:0.4s;">Save The Date</p>
-      <h1 class="font-script text-white text-6xl sm:text-7xl md:text-8xl leading-tight drop-shadow-lg fade-in-up" style="animation-delay:0.6s;">
+      <h1 id="heroName" class="font-script text-white text-6xl sm:text-7xl md:text-8xl leading-tight drop-shadow-lg fade-in-up" style="animation-delay:0.6s;">
         Hữu Vinh <span class="text-goldlight">&amp;</span> Yến Thi
       </h1>
-      <div class="gold-divider my-6 fade-in-up" style="animation-delay:0.9s; background: linear-gradient(90deg, transparent, #E9CE7A, transparent);"></div>
+      <div class="gold-divider my-6 fade-in-up" style="animation-delay:0.9s; background: linear-gradient(90deg, transparent, #A9C48C, transparent);"></div>
       <p class="text-white text-lg md:text-2xl font-serif2 italic fade-in-up" style="animation-delay:1.1s;">
         "Hạnh phúc là khi được nắm tay nhau đi hết cuộc đời"
       </p>
       <p class="text-goldlight text-xl md:text-2xl font-sans tracking-widest mt-6 fade-in-up" style="animation-delay:1.4s;">
-        25 . 10 . 2026
+        24 - 25 . 10 . 2026
       </p>
     </div>
 
@@ -224,11 +226,62 @@
   </section>
 
   <!-- ============================================================ -->
+  <!-- 1.5 THIỆP MỜI (INVITATION CARD) -->
+  <!-- ============================================================ -->
+  <section id="invitation" class="py-16 md:py-24 bg-blush/30 reveal">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 Thiệp Mời</span>
+      <h2 class="section-title">Trân Trọng Kính Mời</h2>
+      <div class="gold-divider my-6"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-6 mt-8">
+      <div class="bg-white/80 border-2 border-gold/40 rounded-3xl p-8 md:p-12 text-center shadow-lg relative">
+        <div class="absolute top-4 left-4 text-gold/50 text-2xl">❧</div>
+        <div class="absolute top-4 right-4 text-gold/50 text-2xl" style="transform: scaleX(-1);">❧</div>
+
+        <p class="font-serif2 italic text-ink/70 text-base md:text-lg">Cùng với gia đình hai họ,</p>
+
+        <div class="grid sm:grid-cols-2 gap-6 mt-6 text-sm md:text-base">
+          <div>
+            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Nhà Trai</p>
+            <p class="text-ink font-medium">Ông Đoàn Văn Phúc</p>
+            <p class="text-ink font-medium">Bà Lê Thị Ngọc Thảo</p>
+          </div>
+          <div>
+            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Nhà Gái</p>
+            <p class="text-ink font-medium">Ông Huỳnh Văn Tú</p>
+            <p class="text-ink font-medium">Bà Đỗ Thị Yến Nhi</p>
+          </div>
+        </div>
+
+        <p class="font-serif2 italic text-ink/70 text-base md:text-lg mt-8 leading-relaxed">
+          Trân trọng kính mời quý khách đến chung vui và chúc phúc<br>
+          cho lễ thành hôn của hai con chúng tôi
+        </p>
+
+        <div class="my-6">
+          <p class="font-script text-4xl md:text-5xl text-maroon">Hữu Vinh <span class="text-gold">&amp;</span> Yến Thi</p>
+        </div>
+
+        <div class="gold-divider my-6"></div>
+
+        <p class="text-ink/80 text-sm md:text-base leading-relaxed">
+          Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi<br>
+          trong ngày vui trọng đại.
+        </p>
+
+        <p class="text-gold font-serif2 text-lg md:text-xl tracking-widest mt-6">24 - 25 . 10 . 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
   <!-- 2. COUNTDOWN TIMER -->
   <!-- ============================================================ -->
   <section id="countdown" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-ink/60 mb-2">Đếm ngược ngày trọng đại</p>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 Đếm ngược ngày trọng đại</span>
       <h2 class="section-title">Chúng Tôi Sắp Cưới</h2>
       <div class="gold-divider my-6"></div>
 
@@ -258,7 +311,7 @@
   <!-- ============================================================ -->
   <section id="story" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-ink/60 mb-2">Our Love Story</p>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌿 Our Love Story</span>
       <h2 class="section-title">Chuyện Tình Yêu</h2>
       <div class="gold-divider my-6"></div>
     </div>
@@ -306,7 +359,7 @@
         <div class="md:pl-10">
           <span class="text-3xl">👰🤵</span>
           <h3 class="font-serif2 text-2xl text-gold mt-2">Ngày Về Chung Một Nhà</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">25.10.2026 - Ngày Yến Thi &amp; Hữu Vinh chính thức nên duyên vợ chồng.</p>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">24 - 25.10.2026 - Ngày Yến Thi &amp; Hữu Vinh chính thức nên duyên vợ chồng.</p>
         </div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
@@ -318,7 +371,7 @@
   <!-- ============================================================ -->
   <section id="details" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-ink/60 mb-2">Wedding Ceremony</p>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💐 Wedding Ceremony</span>
       <h2 class="section-title">Thông Tin Hôn Lễ</h2>
       <div class="gold-divider my-6"></div>
     </div>
@@ -330,16 +383,17 @@
         <h3 class="font-script text-4xl text-gold mb-1">Nhà Trai</h3>
         <p class="text-ink font-serif2 text-xl mb-4">Chú rể Hữu Vinh</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
-          <p>⏰ 09:00 - Thứ Bảy, 25/10/2026</p>
-          <p>📍 Trung tâm Tiệc cưới Hoàng Gia,<br>123 Đường Nguyễn Huệ, Quận 1, TP.HCM</p>
+          <p>⏰ 11:00 - Chủ Nhật, 25/10/2026</p>
+          <p>📍 Tổ chức tại tư gia,<br>Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
+          <!-- <p class="text-xs text-ink/50">(Địa chỉ cũ: Khu phố 4, thị trấn Bến Cầu, Tây Ninh)</p> -->
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.395!2d106.700!3d10.776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzMzLjYiTiAxMDbCsDQyJzAwLjAiRQ!5e0!3m2!1svi!2s!4v1690000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.027894490542!2d106.16342317584105!3d11.111298952926104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310b3d4ddefc9ea9%3A0xd3489cf0eecab711!2zTsaw4bubYyBNw61hIFZpbmggUXVhbmc!5e0!3m2!1svi!2s!4v1786341757659!5m2!1svi!2s"
             width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" title="Bản đồ Nhà Trai"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" title="Bản đồ Nhà Trai"></iframe>
         </div>
-        <a href="https://maps.google.com/?q=123+Nguyen+Hue+Quan+1+TPHCM" target="_blank" rel="noopener"
+        <a href="https://www.google.com/maps/dir/?api=1&destination=11.1112937,106.1659981" target="_blank" rel="noopener"
            class="btn-gold inline-block px-6 py-3 rounded-full text-sm font-medium tracking-wide">
           Chỉ đường đến tiệc cưới
         </a>
@@ -350,16 +404,16 @@
         <h3 class="font-script text-4xl text-gold mb-1">Nhà Gái</h3>
         <p class="text-ink font-serif2 text-xl mb-4">Cô dâu Yến Thi</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
-          <p>⏰ 11:00 - Thứ Bảy, 25/10/2026</p>
-          <p>📍 Trung tâm Hội nghị Tiệc cưới Ánh Dương,<br>456 Đường Lê Lợi, Quận 3, TP.HCM</p>
+          <p>⏰ 11:00 - Thứ Bảy, 24/10/2026</p>
+          <p>📍 Tổ Chức tại tư gia, QL22B,<br>Khu phố 4/AC, Gò Dầu, tỉnh Tây Ninh</p>
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.395!2d106.690!3d10.780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzQ4LjAiTiAxMDbCsDQxJzI0LjAiRQ!5e0!3m2!1svi!2s!4v1690000000001"
+            src="https://www.google.com/maps?q=QL22B%2C+Khu+ph%E1%BB%91+4%2FAC%2C+G%C3%B2+D%E1%BA%A7u%2C+T%C3%A2y+Ninh%2C+Vi%E1%BB%87t+Nam&output=embed"
             width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade" title="Bản đồ Nhà Gái"></iframe>
         </div>
-        <a href="https://maps.google.com/?q=456+Le+Loi+Quan+3+TPHCM" target="_blank" rel="noopener"
+        <a href="https://www.google.com/maps/dir/?api=1&destination=QL22B%2C+Khu+ph%E1%BB%91+4%2FAC%2C+G%C3%B2+D%E1%BA%A7u%2C+T%C3%A2y+Ninh%2C+Vi%E1%BB%87t+Nam" target="_blank" rel="noopener"
            class="btn-gold inline-block px-6 py-3 rounded-full text-sm font-medium tracking-wide">
           Chỉ đường đến tiệc cưới
         </a>
@@ -372,7 +426,7 @@
   <!-- ============================================================ -->
   <section id="gallery" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-ink/60 mb-2">Moments</p>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">📸 Moments</span>
       <h2 class="section-title">Album Ảnh Cưới</h2>
       <div class="gold-divider my-6"></div>
     </div>
@@ -419,7 +473,7 @@
       <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white">
         <div class="aspect-video bg-ink/5">
           <video class="w-full h-full object-cover" controls preload="metadata" poster="images/video-thumbnail.jpg">
-            <source src="video/video-ky-niem.mp4" type="video/mp4">
+            <source src="video/a6e52b8db8840c3ef745e93fc6f8a846.mov">
             Trình duyệt của bạn không hỗ trợ phát video.
           </video>
         </div>
@@ -438,7 +492,7 @@
   <!-- ============================================================ -->
   <section id="rsvp" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-ink/60 mb-2">RSVP</p>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 RSVP</span>
       <h2 class="section-title">Xác Nhận Tham Dự</h2>
       <div class="gold-divider my-6"></div>
       <p class="text-ink/70 max-w-xl mx-auto text-sm md:text-base">Sự hiện diện của bạn là niềm vinh hạnh lớn lao đối với Hữu Vinh &amp; Yến Thi. Vui lòng xác nhận trước ngày cưới để chúng mình chuẩn bị chu đáo nhất nhé!</p>
@@ -473,7 +527,7 @@
         <button type="submit" class="btn-gold w-full rounded-full py-3 font-medium tracking-wide">
           Gửi Xác Nhận
         </button>
-        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💛 Cảm ơn bạn đã xác nhận tham dự!</p>
+        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 Cảm ơn bạn đã xác nhận tham dự!</p>
       </form>
     </div>
 
@@ -491,20 +545,20 @@
         <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
           <p class="font-serif2 text-xl text-ink mb-3">Chú rể - Hữu Vinh</p>
           <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-            <img src="images/qr-chu-re.jpg" alt="QR chuyển khoản Hữu Vinh" class="w-full h-full object-cover">
+            <img src="images/qr-chu-re.png" alt="QR chuyển khoản Hữu Vinh" class="w-full h-full object-cover">
           </div>
-          <p class="text-sm text-ink/70 mt-3">Vietcombank</p>
-          <p class="text-sm font-medium tracking-wide text-ink">STK: 0123 456 789</p>
+          <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
+          <p class="text-sm font-medium tracking-wide text-ink">STK: 0986 416 678</p>
         </div>
 
         <!-- QR cô dâu -->
         <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
           <p class="font-serif2 text-xl text-ink mb-3">Cô dâu - Yến Thi</p>
           <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-            <img src="images/qr-co-dau.jpg" alt="QR chuyển khoản Yến Thi" class="w-full h-full object-cover">
+            <img src="images/qr-co-dau.png" alt="QR chuyển khoản Yến Thi" class="w-full h-full object-cover">
           </div>
-          <p class="text-sm text-ink/70 mt-3">ACB</p>
-          <p class="text-sm font-medium tracking-wide text-ink">STK: 0987 654 321</p>
+          <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
+          <p class="text-sm font-medium tracking-wide text-ink">STK: 0326 358 906</p>
         </div>
       </div>
     </div>
@@ -515,8 +569,8 @@
   <!-- ============================================================ -->
   <footer class="py-10 bg-ink text-center">
     <p class="font-script text-3xl text-goldlight">Hữu Vinh &amp; Yến Thi</p>
-    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">25 . 10 . 2026</p>
-    <p class="text-white/40 text-xs mt-4">Rất hân hạnh được đón tiếp bạn trong ngày trọng đại của chúng tôi 💛</p>
+    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 - 25 . 10 . 2026</p>
+    <p class="text-white/40 text-xs mt-4">Rất hân hạnh được đón tiếp bạn trong ngày trọng đại của chúng tôi 💚</p>
   </footer>
 
 <script>
@@ -524,8 +578,8 @@
      TOÀN BỘ JAVASCRIPT THUẦN CHO THIỆP CƯỚI
      ================================================================ */
 
-  // ---------- 1. COUNTDOWN TIMER: đếm ngược chính xác đến 25/10/2026 09:00 ----------
-  const weddingDate = new Date('2026-10-25T09:00:00').getTime();
+  // ---------- 1. COUNTDOWN TIMER: đếm ngược đến lễ đầu tiên - Nhà Gái 24/10/2026 11:00 ----------
+  const weddingDate = new Date('2026-10-24T11:00:00').getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -584,7 +638,7 @@
 
   // ---------- 4. HIỆU ỨNG CÁNH HOA / TIM RƠI (nhẹ nhàng, tối ưu hiệu năng) ----------
   const fallingContainer = document.getElementById('falling-container');
-  const petalEmojis = ['🌸', '🌺', '💮', '❀'];
+  const petalEmojis = ['🌸', '🍃', '🌿', '💮'];
   const MAX_PETALS = 18; // giới hạn số lượng để không lag trên mobile
 
   function createPetal() {
@@ -636,6 +690,31 @@
     rsvpForm.reset();
     setTimeout(() => rsvpMessage.classList.add('hidden'), 5000);
   });
+
+  // ---------- 7. PARALLAX TÊN Ở TRANG BÌA: tên chạy lên xuống theo cuộn chuột ----------
+  const heroName = document.getElementById('heroName');
+  const heroSection = document.getElementById('hero');
+  let parallaxTicking = false;
+
+  function updateHeroParallax() {
+    if (heroName && heroSection) {
+      const heroHeight = heroSection.offsetHeight;
+      const scrollY = window.scrollY;
+      if (scrollY <= heroHeight) {
+        // Tên di chuyển chậm hơn tốc độ cuộn -> tạo hiệu ứng nổi/trôi lên xuống
+        const offset = scrollY * 0.45;
+        heroName.style.transform = `translateY(${offset}px)`;
+      }
+    }
+    parallaxTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!parallaxTicking) {
+      requestAnimationFrame(updateHeroParallax);
+      parallaxTicking = true;
+    }
+  }, { passive: true });
 </script>
 </body>
 </html>
