@@ -168,6 +168,134 @@
 
   /* Ảnh chưa có: hiện khung placeholder xám nhẹ thay vì icon vỡ ảnh */
   img { background: #F3ECDD; }
+
+  /* ===== RSVP: ô chọn tham dự / không tham dự ===== */
+  .attend-option:has(input:checked) {
+    border-color: #75915F;
+    background: rgba(117,145,95,0.08);
+    color: #5C7449;
+    font-weight: 500;
+  }
+
+  /* ===== Lịch cưới mini ===== */
+  .calendar-day {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+  }
+  .calendar-day.highlight {
+    background: linear-gradient(135deg, #7E2434, #A8455A);
+    color: #FFFDF9;
+    font-weight: 600;
+    position: relative;
+  }
+
+  /* ===== Phong bao thư mừng cưới - bấm vào để mở ===== */
+  .envelope {
+    width: 240px;
+    max-width: 80vw;
+    position: relative;
+  }
+  .envelope-flap {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 80px solid #A8455A;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transform-origin: top center;
+    filter: drop-shadow(0 4px 6px rgba(126,36,52,0.25));
+  }
+  .envelope-flap::after {
+    content: '💌';
+    position: absolute;
+    top: -66px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+  }
+  .envelope-body {
+    background: linear-gradient(160deg, #7E2434, #A8455A);
+    border-radius: 0 0 18px 18px;
+    padding: 34px 18px 26px;
+    text-align: center;
+    margin-top: -4px;
+    box-shadow: 0 14px 30px rgba(126,36,52,0.35);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  .envelope:hover .envelope-flap { transform: translateY(-4px); }
+  .envelope-flap.is-open {
+    transform: translateY(-70px) rotate(-8deg);
+    opacity: 0;
+  }
+  .envelope-body.is-open {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  /* ===== Hiệu ứng tim bay lên khi bấm "Bắn tim" ===== */
+  .flying-heart {
+    position: fixed;
+    bottom: 10%;
+    pointer-events: none;
+    z-index: 60;
+    font-size: 1.5rem;
+    animation: flyHeart 2.2s ease-out forwards;
+  }
+  @keyframes flyHeart {
+    0% { transform: translateY(0) scale(0.6); opacity: 0; }
+    15% { opacity: 1; }
+    100% { transform: translateY(-70vh) translateX(var(--hx, 0px)) scale(1.1); opacity: 0; }
+  }
+
+  /* ===== Thông báo xác nhận kiểu "live" (giống comment nổi trên TikTok Live) ===== */
+  #liveFeed {
+    position: fixed;
+    left: 14px;
+    bottom: 90px;
+    z-index: 55;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+    pointer-events: none;
+    max-width: 78vw;
+  }
+  .live-toast {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(58,46,42,0.88);
+    color: #FFFDF9;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    animation: liveToastRise 4.5s ease forwards;
+    width: fit-content;
+  }
+  .live-toast .live-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #75915F, #A9C48C);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+  @keyframes liveToastRise {
+    0% { transform: translateY(16px) scale(0.85); opacity: 0; }
+    10% { transform: translateY(0) scale(1); opacity: 1; }
+    82% { transform: translateY(-6px) scale(1); opacity: 1; }
+    100% { transform: translateY(-46px) scale(0.96); opacity: 0; }
+  }
 </style>
 </head>
 
@@ -175,6 +303,9 @@
 
   <!-- ============ HIỆU ỨNG CÁNH HOA / TIM RƠI (được JS sinh động) ============ -->
   <div id="falling-container" class="fixed inset-0 overflow-hidden pointer-events-none z-40"></div>
+
+  <!-- ============ THÔNG BÁO "LIVE" KHI CÓ NGƯỜI XÁC NHẬN THAM DỰ (kiểu TikTok Live) ============ -->
+  <div id="liveFeed"></div>
 
   <!-- ============ NÚT NHẠC NỀN NỔI ============ -->
   <div class="fixed bottom-5 right-5 z-50">
@@ -282,7 +413,7 @@
   <section id="countdown" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 Đếm ngược ngày trọng đại</span>
-      <h2 class="section-title">Chúng Tôi Sắp Cưới</h2>
+      <h2 class="section-title">Chúng Con Sắp Cưới</h2>
       <div class="gold-divider my-6"></div>
 
       <div class="grid grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto mt-10">
@@ -302,6 +433,31 @@
           <div id="cd-secs" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
           <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Giây</div>
         </div>
+      </div>
+
+      <!-- Lịch cưới mini: tháng 10/2026, đánh dấu 24 & 25 -->
+      <div class="max-w-xs mx-auto mt-12 bg-white/70 border border-gold/30 rounded-3xl p-5 shadow-sm">
+        <p class="font-serif2 text-lg text-ink mb-3">Tháng 10 . 2026</p>
+        <div class="grid grid-cols-7 gap-1 text-ink/50 text-[10px] uppercase mb-2">
+          <div class="calendar-day">T2</div><div class="calendar-day">T3</div><div class="calendar-day">T4</div>
+          <div class="calendar-day">T5</div><div class="calendar-day">T6</div><div class="calendar-day">T7</div>
+          <div class="calendar-day">CN</div>
+        </div>
+        <div class="grid grid-cols-7 gap-1 text-ink/80">
+          <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
+          <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div>
+          <div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div>
+          <div class="calendar-day">9</div><div class="calendar-day">10</div><div class="calendar-day">11</div>
+          <div class="calendar-day">12</div><div class="calendar-day">13</div><div class="calendar-day">14</div>
+          <div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div><div class="calendar-day">18</div>
+          <div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div>
+          <div class="calendar-day">22</div><div class="calendar-day">23</div>
+          <div class="calendar-day highlight">24</div>
+          <div class="calendar-day highlight">25</div>
+          <div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
+          <div class="calendar-day">29</div><div class="calendar-day">30</div><div class="calendar-day">31</div>
+        </div>
+        <p class="text-xs text-ink/50 mt-3">24: Lễ Nhà Gái &nbsp;•&nbsp; 25: Lễ Nhà Trai</p>
       </div>
     </div>
   </section>
@@ -405,15 +561,15 @@
         <p class="text-ink font-serif2 text-xl mb-4">Cô dâu Yến Thi</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
           <p>⏰ 11:00 - Thứ Bảy, 24/10/2026</p>
-          <p>📍 Tổ Chức tại tư gia, QL22B,<br>Khu phố 4/AC, Gò Dầu, tỉnh Tây Ninh</p>
+          <p>📍 Tổ chức tại tư gia,<br>Ô 4/19, Khu phố Thanh Bình C, thị trấn Gò Dầu, tỉnh Tây Ninh</p>
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <iframe
-            src="https://www.google.com/maps?q=QL22B%2C+Khu+ph%E1%BB%91+4%2FAC%2C+G%C3%B2+D%E1%BA%A7u%2C+T%C3%A2y+Ninh%2C+Vi%E1%BB%87t+Nam&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d266.86265015280617!2d106.26985261132663!3d11.08159534115691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zw7QgNC8xOSBraHUgcGhvIHRoYW5oIGLDrG5oIGMgdGjhu4sgdHLhuqVuIGfDsiBk4bqndSA!5e0!3m2!1svi!2s!4v1786535961209!5m2!1svi!2s"
             width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" title="Bản đồ Nhà Gái"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" title="Bản đồ Nhà Gái"></iframe>
         </div>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=QL22B%2C+Khu+ph%E1%BB%91+4%2FAC%2C+G%C3%B2+D%E1%BA%A7u%2C+T%C3%A2y+Ninh%2C+Vi%E1%BB%87t+Nam" target="_blank" rel="noopener"
+        <a href="https://www.google.com/maps/dir/?api=1&destination=11.08159534115691,106.26985261132663" target="_blank" rel="noopener"
            class="btn-gold inline-block px-6 py-3 rounded-full text-sm font-medium tracking-wide">
           Chỉ đường đến tiệc cưới
         </a>
@@ -505,12 +661,22 @@
           <input required type="text" name="guestName" placeholder="Nguyễn Văn A"
                  class="form-input w-full rounded-lg px-4 py-3 text-sm">
         </div>
+        <!-- Bạn sẽ tham dự chứ? -->
         <div>
-          <label class="block text-sm text-ink/70 mb-1">Số điện thoại</label>
-          <input required type="tel" name="guestPhone" placeholder="09xx xxx xxx"
-                 class="form-input w-full rounded-lg px-4 py-3 text-sm">
+          <label class="block text-sm text-ink/70 mb-2">Bạn sẽ tham dự chứ?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
+              <input type="radio" name="attend" value="yes" checked class="accent-gold">
+              Có, tôi sẽ tham dự
+            </label>
+            <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
+              <input type="radio" name="attend" value="no" class="accent-gold">
+              Tôi bận, rất tiếc không thể tham dự
+            </label>
+          </div>
         </div>
-        <div>
+
+        <div id="guestCountWrap">
           <label class="block text-sm text-ink/70 mb-1">Số người tham dự</label>
           <select name="guestCount" class="form-input w-full rounded-lg px-4 py-3 text-sm">
             <option>1 người</option>
@@ -531,34 +697,53 @@
       </form>
     </div>
 
-    <!-- Mừng cưới số hóa -->
+    <!-- Mừng cưới số hóa - dạng phong bao thư, bấm vào để mở -->
     <div class="max-w-4xl mx-auto px-6 mt-16">
-      <h3 class="text-center font-script text-4xl text-gold mb-2">Hộp Mừng Cưới</h3>
-      <p class="text-center text-ink/60 text-sm mb-10">Tấm lòng của bạn là món quà quý giá nhất với chúng mình</p>
 
-      <!--
-        MÃ QR NGÂN HÀNG: chụp/tải ảnh mã QR thật từ app ngân hàng của bạn,
-        đặt vào images/ với đúng tên qr-chu-re.jpg và qr-co-dau.jpg
-      -->
-      <div class="grid sm:grid-cols-2 gap-6">
-        <!-- QR chú rể -->
-        <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
-          <p class="font-serif2 text-xl text-ink mb-3">Chú rể - Hữu Vinh</p>
-          <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-            <img src="images/qr-chu-re.png" alt="QR chuyển khoản Hữu Vinh" class="w-full h-full object-cover">
-          </div>
-          <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
-          <p class="text-sm font-medium tracking-wide text-ink">STK: 0986 416 678</p>
+      <!-- Phong bao đóng: bấm vào để mở -->
+      <div id="envelopeClosed" class="envelope mx-auto cursor-pointer select-none" onclick="openEnvelope()">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <p class="font-script text-3xl text-cream">Hộp Mừng Cưới</p>
+          <p class="text-cream/80 text-[11px] mt-2 tracking-widest uppercase">Chạm vào phong bao để mở 💌</p>
+        </div>
+      </div>
+
+      <!-- Nội dung bên trong phong bao: ẩn cho tới khi bấm mở -->
+      <div id="giftContent" class="hidden opacity-0 scale-95 transition-all duration-700">
+        <h3 class="text-center font-script text-4xl text-gold mb-2 mt-2">Hộp Mừng Cưới</h3>
+        <p class="text-center text-ink/60 text-sm mb-4">Tấm lòng của bạn là món quà quý giá nhất với chúng mình 🌷</p>
+        <div class="text-center mb-10">
+          <button id="sendHeartBtn" type="button"
+            class="btn-gold inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide">
+            💗 Bắn tim chúc phúc
+          </button>
         </div>
 
-        <!-- QR cô dâu -->
-        <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
-          <p class="font-serif2 text-xl text-ink mb-3">Cô dâu - Yến Thi</p>
-          <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-            <img src="images/qr-co-dau.png" alt="QR chuyển khoản Yến Thi" class="w-full h-full object-cover">
+        <!--
+          MÃ QR NGÂN HÀNG: chụp/tải ảnh mã QR thật từ app ngân hàng của bạn,
+          đặt vào images/ với đúng tên qr-chu-re.jpg và qr-co-dau.jpg
+        -->
+        <div class="grid sm:grid-cols-2 gap-6">
+          <!-- QR chú rể -->
+          <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
+            <p class="font-serif2 text-xl text-ink mb-3">Chú rể - Hữu Vinh</p>
+            <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
+              <img src="images/qr-chu-re.png" alt="QR chuyển khoản Hữu Vinh" class="w-full h-full object-cover">
+            </div>
+            <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
+            <p class="text-sm font-medium tracking-wide text-ink">STK: 0986 416 678</p>
           </div>
-          <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
-          <p class="text-sm font-medium tracking-wide text-ink">STK: 0326 358 906</p>
+
+          <!-- QR cô dâu -->
+          <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
+            <p class="font-serif2 text-xl text-ink mb-3">Cô dâu - Yến Thi</p>
+            <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
+              <img src="images/qr-co-dau.png" alt="QR chuyển khoản Yến Thi" class="w-full h-full object-cover">
+            </div>
+            <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
+            <p class="text-sm font-medium tracking-wide text-ink">STK: 0326 358 906</p>
+          </div>
         </div>
       </div>
     </div>
@@ -679,17 +864,140 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => observer.observe(el));
 
-  // ---------- 6. RSVP FORM: xử lý gửi form (demo phía client) ----------
+  // ---------- 6. RSVP FORM: gửi dữ liệu về Google Sheet ----------
+  // Dán URL Web App Google Apps Script của bạn vào đây (dạng https://script.google.com/macros/s/XXXX/exec)
+  // Xem hướng dẫn tạo Google Sheet + Apps Script trong file GOOGLE-SHEET-SETUP.txt
+  const GOOGLE_SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpMessage = document.getElementById('rsvpMessage');
+  const guestCountWrap = document.getElementById('guestCountWrap');
+
+  // Ẩn ô "Số người tham dự" khi khách chọn "không thể tham dự"
+  document.querySelectorAll('input[name="attend"]').forEach((radio) => {
+    radio.addEventListener('change', () => {
+      guestCountWrap.style.display = radio.value === 'no' && radio.checked ? 'none' : 'block';
+    });
+  });
 
   rsvpForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    // Ở đây có thể tích hợp gửi dữ liệu tới Google Sheet / API backend nếu cần
+    const guestName = rsvpForm.querySelector('input[name="guestName"]').value.trim() || 'Khách mời';
+    const isAttending = rsvpForm.querySelector('input[name="attend"]:checked').value === 'yes';
+    const guestCount = rsvpForm.querySelector('select[name="guestCount"]').value;
+    const guestWish = rsvpForm.querySelector('textarea[name="guestWish"]').value.trim();
+
+    // 1) Ghi vào localStorage để chạy hiệu ứng live ngay trên máy khách (không cần chờ mạng)
+    saveRsvpRecord({ name: guestName, attending: isAttending, time: Date.now() });
+    showLiveToast(guestName, isAttending);
+
+    // 2) Gửi về Google Sheet để vợ chồng bạn có danh sách khách chung, xem được từ mọi nơi
+    if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.indexOf('PASTE_YOUR') === -1) {
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Apps Script không trả CORS header nên dùng no-cors, không đọc được response nhưng dữ liệu vẫn ghi vào Sheet
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          name: guestName,
+          attending: isAttending ? 'Có tham dự' : 'Không tham dự',
+          guestCount: guestCount,
+          wish: guestWish
+        })
+      }).catch((err) => console.error('Không gửi được lên Google Sheet:', err));
+    }
+
     rsvpMessage.classList.remove('hidden');
     rsvpForm.reset();
+    guestCountWrap.style.display = 'block';
     setTimeout(() => rsvpMessage.classList.add('hidden'), 5000);
   });
+
+  // ---------- 6c. GHI NHẬN + CHẠY LIVE LIÊN TỤC (LOOP) - không cần database ----------
+  // Toàn bộ danh sách xác nhận được lưu ngay trong trình duyệt (localStorage),
+  // đóng vai trò như 1 "file" nhẹ, không cần server hay database ngoài.
+  const RSVP_STORAGE_KEY = 'weddingRsvpRecords';
+
+  function getRsvpRecords() {
+    try {
+      return JSON.parse(localStorage.getItem(RSVP_STORAGE_KEY)) || [];
+    } catch (err) {
+      return [];
+    }
+  }
+
+  function saveRsvpRecord(record) {
+    const records = getRsvpRecords();
+    records.push(record);
+    localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(records));
+  }
+
+  function showLiveToast(name, isAttending) {
+    const liveFeed = document.getElementById('liveFeed');
+    if (!liveFeed) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'live-toast';
+    const initial = name.trim().charAt(0).toUpperCase() || '💌';
+    const message = isAttending ? 'vừa xác nhận tham dự! 🎉' : 'vừa gửi lời chúc 💌';
+    toast.innerHTML = `<span class="live-avatar">${initial}</span><span>${name} ${message}</span>`;
+
+    liveFeed.appendChild(toast);
+    setTimeout(() => toast.remove(), 4600);
+  }
+
+  // Chạy lặp liên tục (loop) qua toàn bộ danh sách đã ghi nhận, cứ hết danh sách
+  // lại quay vòng lại từ đầu - tạo cảm giác "live" luôn có hoạt động.
+  let rsvpLoopIndex = 0;
+  function loopLiveFeed() {
+    const records = getRsvpRecords();
+    if (records.length === 0) return;
+    const record = records[rsvpLoopIndex % records.length];
+    showLiveToast(record.name, record.attending);
+    rsvpLoopIndex++;
+  }
+  setInterval(loopLiveFeed, 5000);
+
+  // ---------- 6a. PHONG BAO THƯ MỪNG CƯỚI: bấm vào để mở ----------
+  function openEnvelope() {
+    const envelopeClosed = document.getElementById('envelopeClosed');
+    const giftContent = document.getElementById('giftContent');
+    const flap = envelopeClosed.querySelector('.envelope-flap');
+    const body = envelopeClosed.querySelector('.envelope-body');
+
+    flap.classList.add('is-open');
+    body.classList.add('is-open');
+
+    setTimeout(() => {
+      envelopeClosed.style.display = 'none';
+      giftContent.classList.remove('hidden');
+      // Chờ 1 khung hình để CSS transition áp dụng mượt
+      requestAnimationFrame(() => {
+        giftContent.classList.remove('opacity-0', 'scale-95');
+        giftContent.classList.add('opacity-100', 'scale-100');
+      });
+      giftContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 550);
+  }
+
+  // ---------- 6b. BẮN TIM: hiệu ứng tim bay lên khi bấm nút chúc phúc ----------
+  const sendHeartBtn = document.getElementById('sendHeartBtn');
+  const heartEmojis = ['💗', '💚', '💛', '💕'];
+
+  if (sendHeartBtn) {
+    sendHeartBtn.addEventListener('click', () => {
+      const rect = sendHeartBtn.getBoundingClientRect();
+      for (let i = 0; i < 8; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'flying-heart';
+        heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        heart.style.left = (rect.left + rect.width / 2 + (Math.random() - 0.5) * 60) + 'px';
+        heart.style.setProperty('--hx', (Math.random() - 0.5) * 120 + 'px');
+        heart.style.animationDelay = (Math.random() * 0.3) + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2600);
+      }
+    });
+  }
 
   // ---------- 7. PARALLAX TÊN Ở TRANG BÌA: tên chạy lên xuống theo cuộn chuột ----------
   const heroName = document.getElementById('heroName');
