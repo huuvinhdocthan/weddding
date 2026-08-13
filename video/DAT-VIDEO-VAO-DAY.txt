@@ -1,14 +1,19 @@
-Đặt file video kỷ niệm của bạn vào thư mục này với tên:
+Trang web hiện có 2 khung video kỷ niệm, hiển thị cạnh nhau (trên điện thoại thì xếp chồng).
 
-video-ky-niem.mp4
+Clip 1: đặt file vào video/ với tên hiện có (a6e52b8db8840c3ef745e93fc6f8a846.mov) - đã dùng sẵn.
+Clip 2: đặt file vào video/ với tên:
 
-Trang web sẽ tự động phát video này, không cần sửa code.
+video-ky-niem-2.mov
 
-Nếu bạn muốn dùng video YouTube thay vì file video tự quay:
-1. Mở index.html, tìm phần "VIDEO KỶ NIỆM" trong section Gallery.
-2. Xoá thẻ <video>...</video>.
+Trang web sẽ tự động phát 2 video này, không cần sửa code.
+(Ảnh đại diện/poster cho clip 2 là images/video-thumbnail-2.jpg - xem trong file
+images/DAT-ANH-VAO-DAY.txt để biết chi tiết ảnh cần đặt.)
+
+Nếu bạn muốn dùng video YouTube thay vì file video tự quay cho 1 hoặc cả 2 clip:
+1. Mở index.html, tìm phần "VIDEO KỶ NIỆM" trong section Gallery (có 2 khối "Clip 1" và "Clip 2").
+2. Xoá thẻ <video>...</video> của clip muốn đổi.
 3. Dán vào đoạn iframe YouTube, ví dụ:
    <iframe src="https://www.youtube.com/embed/ID_VIDEO_CUA_BAN"
            class="w-full h-full" frameborder="0" allowfullscreen></iframe>
 
-Lưu ý: file video nên nén nhẹ (dưới 20-30MB) để tải nhanh khi khách xem trên điện thoại.
+Lưu ý: file video nên nén nhẹ (dưới 20-30MB mỗi clip) để tải nhanh khi khách xem trên điện thoại.

@@ -1,13 +1,10 @@
 Đặt ảnh của bạn vào thư mục này với ĐÚNG TÊN FILE dưới đây, trang web sẽ tự hiển thị, không cần sửa code.
 
-hero.jpg            -> Ảnh nền trang đầu (khuyên dùng ảnh ngang, rộng tối thiểu 1600px)
-gallery-1.jpg        -> Ảnh 1 trong album
-gallery-2.jpg        -> Ảnh 2 trong album
-gallery-3.jpg        -> Ảnh 3 trong album
-gallery-4.jpg        -> Ảnh 4 trong album
-gallery-5.jpg        -> Ảnh 5 trong album
-gallery-6.jpg        -> Ảnh 6 trong album
-video-thumbnail.jpg  -> Ảnh đại diện (poster) hiện ra trước khi bấm play video
+hero.jpg              -> Ảnh nền trang đầu (khuyên dùng ảnh ngang, rộng tối thiểu 1600px)
+gallery-1.jpg ... gallery-20.jpg -> 20 ảnh trong album, cuộn ngang kiểu story
+                        (khuyên dùng ảnh dọc/tỉ lệ 3:4 cho đẹp trong khung cuộn ngang)
+video-thumbnail.jpg   -> Ảnh đại diện (poster) cho video clip 1, hiện trước khi bấm play
+video-thumbnail-2.jpg -> Ảnh đại diện (poster) cho video clip 2, hiện trước khi bấm play
 qr-chu-re.jpg        -> Ảnh chụp mã QR chuyển khoản của chú rể Hữu Vinh
 qr-co-dau.jpg        -> Ảnh chụp mã QR chuyển khoản của cô dâu Yến Thi
 

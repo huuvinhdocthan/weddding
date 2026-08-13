@@ -61,6 +61,12 @@
     line-height: 1.2;
   }
 
+  /* Tiêu đề dài "Trân Trọng Kính Mời" - luôn giữ 1 hàng, tự thu nhỏ chữ trên mobile thay vì xuống dòng */
+  .section-title.invite-title {
+    font-size: clamp(1.4rem, 7.5vw, 4rem);
+    white-space: nowrap;
+  }
+
   /* ===== Hiệu ứng Fade in cho Hero ===== */
   .fade-in-up {
     opacity: 0;
@@ -100,6 +106,15 @@
   }
   .gallery-item:hover img {
     transform: scale(1.08);
+  }
+
+  /* ===== Album cuộn ngang kiểu story: ẩn thanh cuộn cho gọn ===== */
+  .gallery-scroll {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge cũ */
+  }
+  .gallery-scroll::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
   }
 
   /* ===== Lightbox ===== */
@@ -175,6 +190,18 @@
     background: rgba(117,145,95,0.08);
     color: #5C7449;
     font-weight: 500;
+  }
+
+  /* ===== Nút chuyển clip video kỷ niệm ===== */
+  .video-tab {
+    color: #3A2E2A;
+    background: #FFFDF9;
+    transition: all 0.25s ease;
+  }
+  .video-tab.is-active {
+    background: linear-gradient(135deg, #7E2434, #A8455A);
+    border-color: transparent;
+    color: #FFFDF9;
   }
 
   /* ===== Lịch cưới mini ===== */
@@ -322,7 +349,7 @@
     NHẠC NỀN: đặt file nhạc của bạn vào thư mục audio/ với tên "nhac-nen.mp3"
     rồi đổi src bên dưới thành: audio/nhac-nen.mp3
   -->
-  <audio id="bgMusic" loop preload="none">
+  <audio id="bgMusic" loop preload="auto">
     <source src="audio/nhac-nen.mp3" type="audio/mpeg">
   </audio>
 
@@ -338,15 +365,17 @@
 
     <div id="heroContent" class="relative z-10 text-center px-6 fade-in-up" style="animation-delay:0.2s;">
       <p class="text-white/90 tracking-[0.4em] text-xs md:text-sm font-sans mb-4 uppercase fade-in-up" style="animation-delay:0.4s;">Save The Date</p>
-      <h1 id="heroName" class="font-script text-white text-6xl sm:text-7xl md:text-8xl leading-tight drop-shadow-lg fade-in-up" style="animation-delay:0.6s;">
-        Hữu Vinh <span class="text-goldlight">&amp;</span> Yến Thi
+      <h1 id="heroName" class="font-script text-white text-6xl sm:text-7xl md:text-8xl leading-tight drop-shadow-lg fade-in-up flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-4" style="animation-delay:0.6s;">
+        <span class="whitespace-nowrap">Hữu Vinh</span>
+        <span class="text-goldlight">&amp;</span>
+        <span class="whitespace-nowrap">Yến Thi</span>
       </h1>
       <div class="gold-divider my-6 fade-in-up" style="animation-delay:0.9s; background: linear-gradient(90deg, transparent, #A9C48C, transparent);"></div>
       <p class="text-white text-lg md:text-2xl font-serif2 italic fade-in-up" style="animation-delay:1.1s;">
         "Hạnh phúc là khi được nắm tay nhau đi hết cuộc đời"
       </p>
       <p class="text-goldlight text-xl md:text-2xl font-sans tracking-widest mt-6 fade-in-up" style="animation-delay:1.4s;">
-        24 - 25 . 10 . 2026
+        24 ❤️ 25 . 10 . 2026
       </p>
     </div>
 
@@ -362,7 +391,7 @@
   <section id="invitation" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 Thiệp Mời</span>
-      <h2 class="section-title">Trân Trọng Kính Mời</h2>
+      <h2 class="section-title invite-title">Trân Trọng Kính Mời</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
@@ -391,8 +420,10 @@
           cho lễ thành hôn của hai con chúng tôi
         </p>
 
-        <div class="my-6">
-          <p class="font-script text-4xl md:text-5xl text-maroon">Hữu Vinh <span class="text-gold">&amp;</span> Yến Thi</p>
+        <div class="my-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-3 font-script text-4xl md:text-5xl text-maroon">
+          <span class="whitespace-nowrap">Hữu Vinh</span>
+          <span class="text-gold">&amp;</span>
+          <span class="whitespace-nowrap">Yến Thi</span>
         </div>
 
         <div class="gold-divider my-6"></div>
@@ -402,7 +433,7 @@
           trong ngày vui trọng đại.
         </p>
 
-        <p class="text-gold font-serif2 text-lg md:text-xl tracking-widest mt-6">24 - 25 . 10 . 2026</p>
+        <p class="text-gold font-serif2 text-lg md:text-xl tracking-widest mt-6">24 & 25 . 10 . 2026</p>
       </div>
     </div>
   </section>
@@ -588,59 +619,93 @@
     </div>
 
     <!--
-      ALBUM ẢNH: chỉ cần đặt 6 file ảnh của bạn vào thư mục images/ với đúng tên
-      gallery-1.jpg, gallery-2.jpg ... gallery-6.jpg là ảnh sẽ tự động hiển thị,
+      ALBUM ẢNH: chỉ cần đặt 20 file ảnh của bạn vào thư mục images/ với đúng tên
+      gallery-1.jpg, gallery-2.jpg ... gallery-20.jpg là ảnh sẽ tự động hiển thị,
       không cần sửa gì trong code bên dưới.
     -->
-    <div class="max-w-6xl mx-auto px-6 mt-10 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-      <div class="gallery-item overflow-hidden rounded-xl cursor-pointer aspect-square">
-        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(this.src)"
-             src="images/gallery-1.jpg" alt="Ảnh cưới 1">
-      </div>
-      <div class="gallery-item overflow-hidden rounded-xl cursor-pointer aspect-square">
-        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(this.src)"
-             src="images/gallery-2.jpg" alt="Ảnh cưới 2">
-      </div>
-      <div class="gallery-item overflow-hidden rounded-xl cursor-pointer aspect-square">
-        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(this.src)"
-             src="images/gallery-3.jpg" alt="Ảnh cưới 3">
-      </div>
-      <div class="gallery-item overflow-hidden rounded-xl cursor-pointer aspect-square">
-        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(this.src)"
-             src="images/gallery-4.jpg" alt="Ảnh cưới 4">
-      </div>
-      <div class="gallery-item overflow-hidden rounded-xl cursor-pointer aspect-square">
-        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(this.src)"
-             src="images/gallery-5.jpg" alt="Ảnh cưới 5">
-      </div>
-      <div class="gallery-item overflow-hidden rounded-xl cursor-pointer aspect-square">
-        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(this.src)"
-             src="images/gallery-6.jpg" alt="Ảnh cưới 6">
-      </div>
+    <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">Tự động cuộn • chạm/vuốt để xem theo ý bạn</p>
+    <div id="galleryScroll" class="gallery-scroll flex gap-3 md:gap-4 overflow-x-auto px-6 md:px-[calc(50%-36rem)] pb-3">
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(0)" src="images/gallery-1.jpg" alt="Ảnh cưới 1"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(1)" src="images/gallery-2.jpg" alt="Ảnh cưới 2"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(2)" src="images/gallery-3.jpg" alt="Ảnh cưới 3"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(3)" src="images/gallery-4.jpg" alt="Ảnh cưới 4"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(4)" src="images/gallery-5.jpg" alt="Ảnh cưới 5"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(5)" src="images/gallery-6.jpg" alt="Ảnh cưới 6"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(6)" src="images/gallery-7.jpg" alt="Ảnh cưới 7"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(7)" src="images/gallery-8.jpg" alt="Ảnh cưới 8"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(8)" src="images/gallery-9.jpg" alt="Ảnh cưới 9"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(9)" src="images/gallery-10.jpg" alt="Ảnh cưới 10"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(10)" src="images/gallery-11.jpg" alt="Ảnh cưới 11"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(11)" src="images/gallery-12.jpg" alt="Ảnh cưới 12"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(12)" src="images/gallery-13.jpg" alt="Ảnh cưới 13"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(13)" src="images/gallery-14.jpg" alt="Ảnh cưới 14"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(14)" src="images/gallery-15.jpg" alt="Ảnh cưới 15"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(15)" src="images/gallery-16.jpg" alt="Ảnh cưới 16"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(16)" src="images/gallery-17.jpg" alt="Ảnh cưới 17"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(17)" src="images/gallery-18.jpg" alt="Ảnh cưới 18"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(18)" src="images/gallery-19.jpg" alt="Ảnh cưới 19"></div>
+      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
+        <img class="w-full h-full object-cover" loading="lazy" onclick="openLightbox(19)" src="images/gallery-20.jpg" alt="Ảnh cưới 20"></div>
     </div>
 
     <!--
-      VIDEO KỶ NIỆM: có 2 cách dùng, chọn 1 trong 2:
-      1) Video tự quay/dựng sẵn: đặt file vào video/video-ky-niem.mp4 (đang dùng bên dưới)
-      2) Video YouTube: xoá thẻ <video>...</video> bên dưới, dán lại khối
-         <iframe src="https://www.youtube.com/embed/ID_VIDEO_CUA_BAN" ...></iframe>
+      VIDEO KỶ NIỆM: 1 khung phát lớn + 2 nút chuyển clip bên dưới (kiểu playlist mini),
+      thay vì xếp 2 khung nhỏ cạnh nhau - video luôn hiển thị to, rõ trên cả mobile lẫn desktop.
+      Muốn dùng video YouTube thay vì file tự quay: xoá thẻ <video> bên dưới, dán khối
+      <iframe src="https://www.youtube.com/embed/ID_VIDEO_CUA_BAN" ...></iframe> vào đúng vị trí.
     -->
     <div class="max-w-3xl mx-auto px-6 mt-12">
       <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white">
         <div class="aspect-video bg-ink/5">
-          <video class="w-full h-full object-cover" controls preload="metadata" poster="images/video-thumbnail.jpg">
-            <source src="video/a6e52b8db8840c3ef745e93fc6f8a846.mov">
+          <video id="memoryVideo" class="w-full h-full object-cover" controls preload="metadata" poster="images/video-thumbnail.jpg">
+            <source id="memoryVideoSource" src="video/a6e52b8db8840c3ef745e93fc6f8a846.mov">
             Trình duyệt của bạn không hỗ trợ phát video.
           </video>
         </div>
       </div>
+
+      <!-- Chuyển clip -->
+      <div class="flex items-center justify-center gap-3 mt-4">
+        <button type="button" class="video-tab is-active px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
+          onclick="switchMemoryVideo(this, 'video/a6e52b8db8840c3ef745e93fc6f8a846.mov', 'images/video-thumbnail.jpg')">
+          🎬 Clip 1
+        </button>
+        <button type="button" class="video-tab px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
+          onclick="switchMemoryVideo(this, 'video/video-ky-niem-2.mov', 'images/video-thumbnail-2.jpg')">
+          🎬 Clip 2
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- Lightbox popup -->
+  <!-- Lightbox popup: xem ảnh lớn, có nút chuyển ảnh trước/sau vì album có 20 ảnh -->
   <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
-    <span class="absolute top-6 right-6 text-white text-4xl cursor-pointer">&times;</span>
-    <img id="lightbox-img" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl" src="" alt="Xem ảnh lớn">
+    <span class="absolute top-6 right-6 text-white text-4xl cursor-pointer z-10" onclick="closeLightbox()">&times;</span>
+    <span id="lightbox-counter" class="absolute top-7 left-6 text-white/70 text-sm tracking-widest"></span>
+    <button onclick="showPrevImage(event)" aria-label="Ảnh trước"
+      class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white text-2xl flex items-center justify-center">‹</button>
+    <img id="lightbox-img" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl" src="" alt="Xem ảnh lớn" onclick="event.stopPropagation()">
+    <button onclick="showNextImage(event)" aria-label="Ảnh sau"
+      class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white text-2xl flex items-center justify-center">›</button>
   </div>
 
   <!-- ============================================================ -->
@@ -657,21 +722,21 @@
     <div class="max-w-xl mx-auto px-6 mt-10">
       <form id="rsvpForm" class="bg-white/70 border border-gold/30 rounded-3xl p-6 md:p-10 shadow-sm space-y-5">
         <div>
-          <label class="block text-sm text-ink/70 mb-1">Họ và tên khách mời</label>
-          <input required type="text" name="guestName" placeholder="Nguyễn Văn A"
+          <label class="block text-sm text-ink/70 mb-1">Nick Name (Họ & Tên) </label>
+          <input required type="text" name="guestName" placeholder="Ronaldo cưới Messi"
                  class="form-input w-full rounded-lg px-4 py-3 text-sm">
         </div>
         <!-- Bạn sẽ tham dự chứ? -->
         <div>
-          <label class="block text-sm text-ink/70 mb-2">Bạn sẽ tham dự chứ?</label>
+          <label class="block text-sm text-ink/70 mb-2">Chốt đơn tham gia chưa?</label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
               <input type="radio" name="attend" value="yes" checked class="accent-gold">
-              Có, tôi sẽ tham dự
+            Yên tâm, uy tín luôn!
             </label>
             <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
               <input type="radio" name="attend" value="no" class="accent-gold">
-              Tôi bận, rất tiếc không thể tham dự
+              Kèo này tớ lỗi, nợ 2 bro bữa sau bù nha.
             </label>
           </div>
         </div>
@@ -686,12 +751,12 @@
           </select>
         </div>
         <div>
-          <label class="block text-sm text-ink/70 mb-1">Lời chúc gửi đến Yến Thi &amp; Hữu Vinh</label>
-          <textarea name="guestWish" rows="3" placeholder="Chúc mừng hạnh phúc hai bạn..."
+          <label class="block text-sm text-ink/70 mb-1">Thả xíu tim và lời chúc tại đây Yến Thi &amp; Hữu Vinh 👇</label>
+          <textarea name="guestWish" rows="3" placeholder="Thả xíu 'vitamin hạnh phúc' vào đây nha..."
                     class="form-input w-full rounded-lg px-4 py-3 text-sm"></textarea>
         </div>
         <button type="submit" class="btn-gold w-full rounded-full py-3 font-medium tracking-wide">
-          Gửi Xác Nhận
+          Chốt đơn!
         </button>
         <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 Cảm ơn bạn đã xác nhận tham dự!</p>
       </form>
@@ -791,10 +856,20 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ---------- 2. LIGHTBOX: phóng to ảnh khi click ----------
-  function openLightbox(src) {
+  // ---------- 2. LIGHTBOX: phóng to ảnh, chuyển ảnh trước/sau (album 20 ảnh) ----------
+  const galleryImages = Array.from({ length: 20 }, (_, i) => `images/gallery-${i + 1}.jpg`);
+  let currentLightboxIndex = 0;
+
+  function updateLightboxImage() {
+    document.getElementById('lightbox-img').src = galleryImages[currentLightboxIndex];
+    document.getElementById('lightbox-counter').textContent =
+      (currentLightboxIndex + 1) + ' / ' + galleryImages.length;
+  }
+
+  function openLightbox(index) {
+    currentLightboxIndex = index;
+    updateLightboxImage();
     const lb = document.getElementById('lightbox');
-    document.getElementById('lightbox-img').src = src;
     lb.classList.remove('hidden');
     lb.classList.add('flex');
   }
@@ -803,22 +878,141 @@
     lb.classList.add('hidden');
     lb.classList.remove('flex');
   }
+  function showNextImage(e) {
+    if (e) e.stopPropagation();
+    currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+    updateLightboxImage();
+  }
+  function showPrevImage(e) {
+    if (e) e.stopPropagation();
+    currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateLightboxImage();
+  }
 
-  // ---------- 3. NHẠC NỀN: bật/tắt + xoay đĩa than ----------
+  // Điều hướng bằng phím mũi tên / Esc khi lightbox đang mở
+  document.addEventListener('keydown', (e) => {
+    const lb = document.getElementById('lightbox');
+    if (lb.classList.contains('hidden')) return;
+    if (e.key === 'ArrowRight') showNextImage();
+    if (e.key === 'ArrowLeft') showPrevImage();
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Vuốt trái/phải trên điện thoại để chuyển ảnh trong lightbox
+  (function enableLightboxSwipe() {
+    const lb = document.getElementById('lightbox');
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        diff < 0 ? showNextImage() : showPrevImage();
+      }
+    }, { passive: true });
+  })();
+
+  // ---------- 2b. ALBUM ẢNH: tự động cuộn ngang liên tục, vẫn cuộn/vuốt thủ công được ----------
+  (function enableAutoScrollGallery() {
+    const track = document.getElementById('galleryScroll');
+    if (!track) return;
+
+    // Nhân đôi danh sách ảnh để cuộn lặp vô hạn liền mạch (hết vòng 1 nối ngay vào vòng 2 giống hệt)
+    const originalItems = Array.from(track.children);
+    originalItems.forEach((item) => track.appendChild(item.cloneNode(true)));
+
+    let singleSetWidth = 0;
+    const measure = () => { singleSetWidth = track.scrollWidth / 2; };
+    requestAnimationFrame(measure);
+    window.addEventListener('resize', measure);
+
+    let paused = false;
+    let resumeTimer = null;
+    const pause = () => { paused = true; clearTimeout(resumeTimer); };
+    const scheduleResume = () => {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { paused = false; }, 3000);
+    };
+
+    // Người dùng chạm/kéo/lăn chuột để cuộn thủ công -> tạm dừng tự động cuộn, tự chạy lại sau vài giây
+    track.addEventListener('pointerdown', pause);
+    track.addEventListener('touchstart', pause, { passive: true });
+    track.addEventListener('wheel', () => { pause(); scheduleResume(); }, { passive: true });
+    track.addEventListener('pointerup', scheduleResume);
+    track.addEventListener('touchend', scheduleResume, { passive: true });
+    track.addEventListener('mouseenter', pause);
+    track.addEventListener('mouseleave', scheduleResume);
+
+    function step() {
+      if (!paused && singleSetWidth > 0) {
+        track.scrollLeft += 0.6;
+        if (track.scrollLeft >= singleSetWidth) {
+          track.scrollLeft -= singleSetWidth;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  })();
+
+  // ---------- 2c. VIDEO KỶ NIỆM: chuyển giữa Clip 1 / Clip 2 trong cùng 1 khung phát ----------
+  function switchMemoryVideo(btn, src, poster) {
+    const video = document.getElementById('memoryVideo');
+    const source = document.getElementById('memoryVideoSource');
+    if (!video || !source) return;
+
+    source.src = src;
+    video.poster = poster;
+    video.load();
+
+    document.querySelectorAll('.video-tab').forEach((tab) => tab.classList.remove('is-active'));
+    btn.classList.add('is-active');
+  }
+
+  // ---------- 3. NHẠC NỀN: tự phát khi mở trang, bật/tắt + xoay đĩa than ----------
   const musicBtn = document.getElementById('musicToggle');
   const bgMusic = document.getElementById('bgMusic');
   const vinylIcon = document.getElementById('vinylIcon');
   let isPlaying = false;
 
+  function armAutoplayFallback() {
+    // Chỉ gọi khi tự phát bị chặn: chờ đúng 1 lần tương tác đầu tiên của khách để bật nhạc,
+    // sau đó gỡ hết lắng nghe - tránh việc tự bật lại nhạc nếu khách chủ động bấm nút tắt sau này.
+    const tryStartOnce = () => {
+      ['click', 'touchstart', 'scroll', 'keydown'].forEach((evt) => {
+        document.removeEventListener(evt, tryStartOnce);
+      });
+      if (isPlaying) return;
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        vinylIcon.classList.add('playing');
+      }).catch(() => {});
+    };
+    ['click', 'touchstart', 'scroll', 'keydown'].forEach((evt) => {
+      document.addEventListener(evt, tryStartOnce, { once: true, passive: true });
+    });
+  }
+
+  // Thử tự phát ngay khi trang tải xong
+  window.addEventListener('load', () => {
+    bgMusic.play().then(() => {
+      isPlaying = true;
+      vinylIcon.classList.add('playing');
+    }).catch(() => {
+      // Trình duyệt chặn tự phát có tiếng -> chờ tương tác đầu tiên của khách
+      armAutoplayFallback();
+    });
+  });
+
   musicBtn.addEventListener('click', () => {
     if (isPlaying) {
       bgMusic.pause();
       vinylIcon.classList.remove('playing');
+      isPlaying = false;
     } else {
-      bgMusic.play().catch(() => {}); // Trình duyệt có thể chặn autoplay, cần tương tác người dùng
+      bgMusic.play().catch(() => {});
       vinylIcon.classList.add('playing');
+      isPlaying = true;
     }
-    isPlaying = !isPlaying;
   });
 
   // ---------- 4. HIỆU ỨNG CÁNH HOA / TIM RƠI (nhẹ nhàng, tối ưu hiệu năng) ----------
@@ -867,7 +1061,7 @@
   // ---------- 6. RSVP FORM: gửi dữ liệu về Google Sheet ----------
   // Dán URL Web App Google Apps Script của bạn vào đây (dạng https://script.google.com/macros/s/XXXX/exec)
   // Xem hướng dẫn tạo Google Sheet + Apps Script trong file GOOGLE-SHEET-SETUP.txt
-  const GOOGLE_SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzXB7imp2bd6A-4krjOOEF-6ZVvyvbZT1KbK5wTvJSsNs3jAmfS5qmT6-GstHS3aJ5Ohw/exec';
 
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpMessage = document.getElementById('rsvpMessage');
