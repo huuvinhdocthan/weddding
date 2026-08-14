@@ -1,6 +1,7 @@
 Đặt ảnh của bạn vào thư mục này với ĐÚNG TÊN FILE dưới đây, trang web sẽ tự hiển thị, không cần sửa code.
 
-hero.jpg              -> Ảnh nền trang đầu (khuyên dùng ảnh ngang, rộng tối thiểu 1600px)
+hero.jpg              -> Ảnh trang bìa, hiện trong khung ngang cỡ 5906x4134px (tỉ lệ ~1.43:1)
+                        (dùng đúng ảnh sẵn có cỡ này, không cần ảnh nền phủ toàn màn hình)
 gallery-1.jpg ... gallery-20.jpg -> 20 ảnh trong album, cuộn ngang kiểu story
                         (khuyên dùng ảnh dọc/tỉ lệ 3:4 cho đẹp trong khung cuộn ngang)
 video-thumbnail.jpg   -> Ảnh đại diện (poster) cho video clip 1, hiện trước khi bấm play

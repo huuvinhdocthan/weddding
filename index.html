@@ -354,33 +354,41 @@
   </audio>
 
   <!-- ============================================================ -->
-  <!-- 1. HERO SECTION -->
+  <!-- 1. HERO SECTION - dùng 1 ảnh chân dung cỡ 25x35 (dọc), không cần ảnh nền lớn -->
   <!-- ============================================================ -->
-  <section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-    <!-- ẢNH NỀN TRANG ĐẦU: đặt ảnh của bạn vào images/hero.jpg (khuyên dùng ảnh ngang, tối thiểu 1600px) -->
-    <div class="absolute inset-0">
-      <img src="images/hero.jpg" alt="Wedding background" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
-    </div>
+  <section id="hero" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush/50 via-cream to-cream py-16">
+    <!-- Vài đốm hoa văn nền nhẹ cho đỡ trống, không dùng ảnh lớn -->
+    <div class="absolute -top-10 -left-10 w-56 h-56 rounded-full bg-blushdark/30 blur-3xl"></div>
+    <div class="absolute -bottom-10 -right-10 w-56 h-56 rounded-full bg-blushdark/30 blur-3xl"></div>
 
-    <div id="heroContent" class="relative z-10 text-center px-6 fade-in-up" style="animation-delay:0.2s;">
-      <p class="text-white/90 tracking-[0.4em] text-xs md:text-sm font-sans mb-4 uppercase fade-in-up" style="animation-delay:0.4s;">Save The Date</p>
-      <h1 id="heroName" class="font-script text-white text-6xl sm:text-7xl md:text-8xl leading-tight drop-shadow-lg fade-in-up flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-4" style="animation-delay:0.6s;">
+    <div id="heroContent" class="relative z-10 text-center px-6 fade-in-up max-w-md mx-auto" style="animation-delay:0.2s;">
+      <p class="text-gold tracking-[0.4em] text-xs md:text-sm font-sans mb-5 uppercase fade-in-up" style="animation-delay:0.4s;">Save The Date</p>
+
+      <!-- Khung ảnh cỡ 5906 x 4134 px (ngang, tỉ lệ ~1.4288:1) -->
+      <div class="mx-auto fade-in-up" style="animation-delay:0.3s; width: min(88vw, 400px);">
+        <div class="relative rounded-2xl overflow-hidden border-[6px] border-white shadow-2xl" style="aspect-ratio: 5906 / 4134;">
+          <!-- ẢNH TRANG ĐẦU: đặt ảnh cỡ 5906x4134px của cô dâu chú rể vào images/hero.jpg -->
+          <img src="images/hero.jpg" alt="Hữu Vinh & Yến Thi" class="w-full h-full object-cover">
+          <div class="absolute inset-0 rounded-xl border border-gold/40 pointer-events-none"></div>
+        </div>
+      </div>
+
+      <h1 id="heroName" class="font-script text-ink text-5xl sm:text-6xl md:text-7xl leading-tight fade-in-up flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-3 mt-7" style="animation-delay:0.6s;">
         <span class="whitespace-nowrap">Hữu Vinh</span>
-        <span class="text-goldlight">&amp;</span>
+        <span class="text-maroon">&amp;</span>
         <span class="whitespace-nowrap">Yến Thi</span>
       </h1>
-      <div class="gold-divider my-6 fade-in-up" style="animation-delay:0.9s; background: linear-gradient(90deg, transparent, #A9C48C, transparent);"></div>
-      <p class="text-white text-lg md:text-2xl font-serif2 italic fade-in-up" style="animation-delay:1.1s;">
+      <div class="gold-divider my-5 fade-in-up" style="animation-delay:0.9s;"></div>
+      <p class="text-ink/70 text-base md:text-xl font-serif2 italic fade-in-up" style="animation-delay:1.1s;">
         "Hạnh phúc là khi được nắm tay nhau đi hết cuộc đời"
       </p>
-      <p class="text-goldlight text-xl md:text-2xl font-sans tracking-widest mt-6 fade-in-up" style="animation-delay:1.4s;">
+      <p class="text-maroon text-lg md:text-2xl font-sans tracking-widest mt-5 fade-in-up" style="animation-delay:1.4s;">
         24 ❤️ 25 . 10 . 2026
       </p>
     </div>
 
     <!-- Mũi tên cuộn xuống -->
-    <a href="#countdown" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white animate-bounce">
+    <a href="#countdown" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-gold animate-bounce">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
     </a>
   </section>
