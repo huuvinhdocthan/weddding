@@ -67,6 +67,35 @@
     white-space: nowrap;
   }
 
+  /* ===== Màn hình mở thiệp khi vừa vào trang ===== */
+  body.intro-active {
+    overflow: hidden;
+    height: 100vh;
+  }
+  .intro-panel {
+    transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  #introLeft.is-open {
+    transform: translateX(-100%);
+  }
+  #introRight.is-open {
+    transform: translateX(100%);
+  }
+  #introContent {
+    transition: opacity 0.4s ease;
+  }
+  #introContent.is-hiding {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .tap-hint {
+    animation: tapPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes tapPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.75; }
+  }
+
   /* ===== Hiệu ứng Fade in cho Hero ===== */
   .fade-in-up {
     opacity: 0;
@@ -326,7 +355,28 @@
 </style>
 </head>
 
-<body class="bg-cream font-sans">
+<body class="bg-cream font-sans intro-active">
+
+  <!-- ============================================================ -->
+  <!-- MÀN HÌNH MỞ THIỆP: hiện khi vừa vào trang, chạm vào để "mở thiệp" -->
+  <!-- ============================================================ -->
+  <div id="introOverlay" class="fixed inset-0 z-[100] flex">
+    <div id="introLeft" class="intro-panel w-1/2 h-full bg-gradient-to-br from-maroon to-maroonlight"></div>
+    <div id="introRight" class="intro-panel w-1/2 h-full bg-gradient-to-bl from-maroon to-maroonlight"></div>
+
+    <div id="introContent" class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 cursor-pointer" onclick="openInvitation()">
+      <p class="uppercase tracking-[0.35em] text-[11px] md:text-xs text-cream/70 mb-4 fade-in-up">Thiệp Mời Cưới</p>
+      <p class="font-script text-4xl sm:text-5xl md:text-6xl text-cream leading-tight fade-in-up" style="animation-delay:0.2s;">
+        Hữu Vinh <span class="text-blushdark">&amp;</span> Yến Thi
+      </p>
+      <p class="text-cream/70 text-sm md:text-base tracking-[0.3em] mt-3 fade-in-up" style="animation-delay:0.4s;">24 ❤️ 25 . 10 . 2026</p>
+
+      <div class="tap-hint mt-10 fade-in-up" style="animation-delay:0.7s;">
+        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-cream/50 flex items-center justify-center text-2xl md:text-3xl">💌</div>
+      </div>
+      <p class="text-cream/80 text-[11px] md:text-xs uppercase tracking-[0.3em] mt-4 fade-in-up" style="animation-delay:0.9s;">Chạm để mở thiệp</p>
+    </div>
+  </div>
 
   <!-- ============ HIỆU ỨNG CÁNH HOA / TIM RƠI (được JS sinh động) ============ -->
   <div id="falling-container" class="fixed inset-0 overflow-hidden pointer-events-none z-40"></div>
@@ -827,7 +877,7 @@
   <!-- ============================================================ -->
   <footer class="py-10 bg-ink text-center">
     <p class="font-script text-3xl text-goldlight">Hữu Vinh &amp; Yến Thi</p>
-    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 - 25 . 10 . 2026</p>
+    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 ❤️ 25 . 10 . 2026</p>
     <p class="text-white/40 text-xs mt-4">Rất hân hạnh được đón tiếp bạn trong ngày trọng đại của chúng con/em 💚</p>
   </footer>
 
@@ -961,6 +1011,22 @@
     }
     requestAnimationFrame(step);
   })();
+
+  // ---------- 1b. MỞ THIỆP: 2 cánh trượt ra khi khách chạm vào màn hình mở đầu ----------
+  function openInvitation() {
+    const overlay = document.getElementById('introOverlay');
+    if (!overlay || overlay.dataset.opened === 'true') return;
+    overlay.dataset.opened = 'true';
+
+    document.getElementById('introContent').classList.add('is-hiding');
+    document.getElementById('introLeft').classList.add('is-open');
+    document.getElementById('introRight').classList.add('is-open');
+    document.body.classList.remove('intro-active');
+
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 1000);
+  }
 
   // ---------- 2c. VIDEO KỶ NIỆM: chuyển giữa Clip 1 / Clip 2 trong cùng 1 khung phát ----------
   function switchMemoryVideo(btn, src, poster) {
