@@ -141,6 +141,13 @@
   #lightbox {
     background: rgba(30, 20, 15, 0.92);
   }
+  /* Ảnh trong lightbox chỉ hiện ra khi đã giải mã xong -> chuyển ảnh mượt, không giật khựng */
+  #lightbox-img {
+    transition: opacity 0.2s ease;
+  }
+  #lightbox-img.is-loading {
+    opacity: 0;
+  }
 
   /* ===== Nút nhạc nổi, đĩa quay ===== */
   .music-btn {
@@ -902,20 +909,59 @@
   const galleryImages = Array.from({ length: 20 }, (_, i) => `images/gallery-${i + 1}.jpg`);
   let currentLightboxIndex = 0;
 
+  // Nhớ ảnh nào đã tải/giải mã rồi để lần sau hiện ra ngay lập tức, không phải chờ lại
+  const decodedImageCache = new Set();
+
   function updateLightboxImage() {
-    document.getElementById('lightbox-img').src = galleryImages[currentLightboxIndex];
+    const targetSrc = galleryImages[currentLightboxIndex];
+    const imgEl = document.getElementById('lightbox-img');
     document.getElementById('lightbox-counter').textContent =
       (currentLightboxIndex + 1) + ' / ' + galleryImages.length;
+
+    // Ảnh đã từng xem/giải mã rồi -> đổi ngay, không cần chờ, không giật
+    if (decodedImageCache.has(targetSrc)) {
+      imgEl.src = targetSrc;
+      preloadNeighborImages();
+      return;
+    }
+
+    // Ảnh chưa xem lần nào: âm thầm tải + giải mã xong xuôi rồi mới cho hiện ra (mờ dần vào),
+    // tránh tình trạng đổi ảnh xong màn hình khựng lại giữa chừng lúc trình duyệt còn đang giải mã.
+    imgEl.classList.add('is-loading');
+    const preloadImg = new Image();
+    preloadImg.src = targetSrc;
+
+    const reveal = () => {
+      decodedImageCache.add(targetSrc);
+      imgEl.src = targetSrc;
+      requestAnimationFrame(() => imgEl.classList.remove('is-loading'));
+    };
+
+    if (preloadImg.decode) {
+      preloadImg.decode().then(reveal).catch(reveal);
+    } else {
+      preloadImg.onload = reveal;
+      preloadImg.onerror = reveal;
+    }
+
     preloadNeighborImages();
   }
 
-  // Tải trước ảnh liền trước/sau để vuốt chuyển ảnh trong lightbox mượt hơn trên điện thoại
+  // Tải trước + giải mã sẵn ảnh liền trước/sau để chuyển ảnh trong lightbox mượt hơn trên điện thoại
   function preloadNeighborImages() {
     const nextIndex = (currentLightboxIndex + 1) % galleryImages.length;
     const prevIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
     [nextIndex, prevIndex].forEach((i) => {
+      const src = galleryImages[i];
+      if (decodedImageCache.has(src)) return;
       const img = new Image();
-      img.src = galleryImages[i];
+      img.src = src;
+      const markReady = () => decodedImageCache.add(src);
+      if (img.decode) {
+        img.decode().then(markReady).catch(() => {});
+      } else {
+        img.onload = markReady;
+      }
     });
   }
 
