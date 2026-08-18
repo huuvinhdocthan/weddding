@@ -5,15 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hữu Vinh & Yến Thi | Wedding Invitation</title>
 
-<!-- Google Fonts: font viết tay quý phái + font hiện đại dễ đọc -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Tailwind CSS qua CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-  // Cấu hình mở rộng Tailwind: màu sắc & font chữ theo tone cưới sang trọng
   tailwind.config = {
     theme: {
       extend: {
@@ -38,7 +35,6 @@
 </script>
 
 <style>
-  /* ===== Reset & nền tổng thể ===== */
   html { scroll-behavior: smooth; }
   body {
     background-color: #FFFDF9;
@@ -46,7 +42,6 @@
     overflow-x: hidden;
   }
 
-  /* ===== Đường viền hoa văn xanh lý mảnh dùng chung ===== */
   .gold-divider {
     width: 90px;
     height: 2px;
@@ -61,13 +56,11 @@
     line-height: 1.2;
   }
 
-  /* Tiêu đề dài "Trân Trọng Kính Mời" - luôn giữ 1 hàng, tự thu nhỏ chữ trên mobile thay vì xuống dòng */
   .section-title.invite-title {
     font-size: clamp(1.4rem, 7.5vw, 4rem);
     white-space: nowrap;
   }
 
-  /* ===== Màn hình mở thiệp khi vừa vào trang ===== */
   body.intro-active {
     overflow: hidden;
     height: 100vh;
@@ -96,7 +89,6 @@
     50% { transform: scale(1.1); opacity: 0.75; }
   }
 
-  /* ===== Hiệu ứng Fade in cho Hero ===== */
   .fade-in-up {
     opacity: 0;
     transform: translateY(24px);
@@ -106,7 +98,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ===== Hiệu ứng xuất hiện khi cuộn (reveal on scroll) ===== */
   .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -117,19 +108,16 @@
     transform: translateY(0);
   }
 
-  /* ===== Countdown box (điểm nhấn đỏ đô cho nổi bật) ===== */
   .count-box {
     background: linear-gradient(145deg, #FFFDF9, #FBF3EC);
     border: 1.5px solid #7E2434;
     box-shadow: 0 4px 18px rgba(126,36,52,0.16);
   }
 
-  /* ===== Timeline (Our story) ===== */
   .timeline-line {
     background: linear-gradient(180deg, transparent, #75915F 10%, #75915F 90%, transparent);
   }
 
-  /* ===== Gallery hover zoom ===== */
   .gallery-item img {
     transition: transform 0.6s ease, filter 0.6s ease;
   }
@@ -137,11 +125,9 @@
     transform: scale(1.08);
   }
 
-  /* ===== Lightbox ===== */
   #lightbox {
     background: rgba(30, 20, 15, 0.92);
   }
-  /* Ảnh trong lightbox chỉ hiện ra khi đã giải mã xong -> chuyển ảnh mượt, không giật khựng */
   #lightbox-img {
     transition: opacity 0.2s ease;
   }
@@ -149,7 +135,6 @@
     opacity: 0;
   }
 
-  /* ===== Nút nhạc nổi, đĩa quay ===== */
   .music-btn {
     box-shadow: 0 6px 20px rgba(117,145,95,0.4);
   }
@@ -165,7 +150,6 @@
     to { transform: rotate(360deg); }
   }
 
-  /* ===== Hiệu ứng cánh hoa / tim rơi ===== */
   .falling-item {
     position: fixed;
     top: -5vh;
@@ -182,7 +166,6 @@
     100% { transform: translateY(105vh) translateX(var(--drift, 40px)) rotate(360deg); opacity: 0.3; }
   }
 
-  /* ===== Input form style ===== */
   .form-input {
     background: #FFFDF9;
     border: 1px solid #CFE0C2;
@@ -193,7 +176,6 @@
     box-shadow: 0 0 0 3px rgba(117,145,95,0.15);
   }
 
-  /* ===== Nút CTA đỏ đô (nổi bật, cute) ===== */
   .btn-gold {
     background: linear-gradient(135deg, #7E2434, #A8455A);
     color: #FFFDF9;
@@ -204,14 +186,11 @@
     box-shadow: 0 8px 20px rgba(126,36,52,0.4);
   }
 
-  /* Thanh cuộn màu xanh lý */
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-thumb { background: #75915F; border-radius: 4px; }
 
-  /* Ảnh chưa có: hiện khung placeholder xám nhẹ thay vì icon vỡ ảnh */
   img { background: #F3ECDD; }
 
-  /* ===== RSVP: ô chọn tham dự / không tham dự ===== */
   .attend-option:has(input:checked) {
     border-color: #75915F;
     background: rgba(117,145,95,0.08);
@@ -219,7 +198,6 @@
     font-weight: 500;
   }
 
-  /* ===== Nút chuyển clip video kỷ niệm ===== */
   .video-tab {
     color: #3A2E2A;
     background: #FFFDF9;
@@ -231,7 +209,6 @@
     color: #FFFDF9;
   }
 
-  /* ===== Lịch cưới mini ===== */
   .calendar-day {
     aspect-ratio: 1 / 1;
     display: flex;
@@ -247,7 +224,6 @@
     position: relative;
   }
 
-  /* ===== Phong bao thư mừng cưới - bo tròn tông xanh lý, bấm vào để mở ===== */
   .envelope {
     width: 260px;
     max-width: 82vw;
@@ -281,7 +257,6 @@
     opacity: 0;
   }
 
-  /* ===== Hiệu ứng tim bay lên khi bấm "Bắn tim" ===== */
   .flying-heart {
     position: fixed;
     bottom: 10%;
@@ -296,7 +271,6 @@
     100% { transform: translateY(-70vh) translateX(var(--hx, 0px)) scale(1.1); opacity: 0; }
   }
 
-  /* ===== Thông báo xác nhận kiểu "live" (giống comment nổi trên TikTok Live) ===== */
   #liveFeed {
     position: fixed;
     left: 14px;
@@ -343,9 +317,6 @@
 
 <body class="bg-cream font-sans intro-active">
 
-  <!-- ============================================================ -->
-  <!-- MÀN HÌNH MỞ THIỆP: hiện khi vừa vào trang, chạm vào để "mở thiệp" -->
-  <!-- ============================================================ -->
   <div id="introOverlay" class="fixed inset-0 z-[100] flex">
     <div id="introLeft" class="intro-panel w-1/2 h-full bg-gradient-to-br from-gold to-goldlight"></div>
     <div id="introRight" class="intro-panel w-1/2 h-full bg-gradient-to-bl from-gold to-goldlight"></div>
@@ -364,13 +335,10 @@
     </div>
   </div>
 
-  <!-- ============ HIỆU ỨNG CÁNH HOA / TIM RƠI (được JS sinh động) ============ -->
   <div id="falling-container" class="fixed inset-0 overflow-hidden pointer-events-none z-40"></div>
 
-  <!-- ============ THÔNG BÁO "LIVE" KHI CÓ NGƯỜI XÁC NHẬN THAM DỰ (kiểu TikTok Live) ============ -->
   <div id="liveFeed"></div>
 
-  <!-- ============ NÚT NHẠC NỀN NỔI ============ -->
   <div class="fixed bottom-5 right-5 z-50">
     <button id="musicToggle" aria-label="Bật/tắt nhạc nền"
       class="music-btn w-14 h-14 rounded-full bg-gradient-to-br from-gold to-goldlight flex items-center justify-center border-2 border-white/70">
@@ -381,29 +349,19 @@
       </svg>
     </button>
   </div>
-  <!--
-    NHẠC NỀN: đặt file nhạc của bạn vào thư mục audio/ với tên "nhac-nen.mp3"
-    rồi đổi src bên dưới thành: audio/nhac-nen.mp3
-  -->
   <audio id="bgMusic" loop preload="auto">
     <source src="audio/nhac-nen.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- ============================================================ -->
-  <!-- 1. HERO SECTION - dùng 1 ảnh chân dung cỡ 25x35 (dọc), không cần ảnh nền lớn -->
-  <!-- ============================================================ -->
   <section id="hero" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush/50 via-cream to-cream py-16">
-    <!-- Vài đốm hoa văn nền nhẹ cho đỡ trống, không dùng ảnh lớn -->
     <div class="absolute -top-10 -left-10 w-56 h-56 rounded-full bg-blushdark/30 blur-3xl"></div>
     <div class="absolute -bottom-10 -right-10 w-56 h-56 rounded-full bg-blushdark/30 blur-3xl"></div>
 
     <div id="heroContent" class="relative z-10 text-center px-6 fade-in-up max-w-md mx-auto" style="animation-delay:0.2s;">
       <p class="text-gold tracking-[0.4em] text-xs md:text-sm font-sans mb-5 uppercase fade-in-up" style="animation-delay:0.4s;">Save The Date</p>
 
-      <!-- Khung ảnh cỡ 5906 x 4134 px (ngang, tỉ lệ ~1.4288:1) -->
       <div class="mx-auto fade-in-up" style="animation-delay:0.3s; width: min(88vw, 400px);">
         <div class="relative rounded-2xl overflow-hidden border-[6px] border-white shadow-2xl" style="aspect-ratio: 5906 / 4134;">
-          <!-- ẢNH TRANG ĐẦU: đặt ảnh cỡ 5906x4134px của cô dâu chú rể vào images/hero.jpg -->
           <img src="images/hero.jpg" alt="Hữu Vinh & Yến Thi" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
           <div class="absolute inset-0 rounded-xl border border-gold/40 pointer-events-none"></div>
         </div>
@@ -423,15 +381,11 @@
       </p>
     </div>
 
-    <!-- Mũi tên cuộn xuống -->
     <a href="#countdown" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-gold animate-bounce">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
     </a>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- 1.5 THIỆP MỜI (INVITATION CARD) -->
-  <!-- ============================================================ -->
   <section id="invitation" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 Thiệp Mời</span>
@@ -451,14 +405,12 @@
             <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Nhà Trai</p>
             <p class="text-ink font-medium">Ông Đoàn Văn Phúc</p>
             <p class="text-ink font-medium">Bà Lê Thị Ngọc Thảo</p>
-            <!-- <p class="text-ink/60 text-xs md:text-sm mt-2">⏰ 11:00 - Chủ Nhật, 25/10/2026</p> -->
             <p class="text-ink/60 text-xs md:text-sm"> Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
           </div>
           <div>
             <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Nhà Gái</p>
             <p class="text-ink font-medium">Ông Huỳnh Cẩm Tú</p>
             <p class="text-ink font-medium">Bà Đỗ Thị Yến Nhi</p>
-            <!-- <p class="text-ink/60 text-xs md:text-sm mt-2">⏰ 11:00 - Thứ Bảy, 24/10/2026</p> -->
             <p class="text-ink/60 text-xs md:text-sm"> Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
           </div>
         </div>
@@ -486,9 +438,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- 2. COUNTDOWN TIMER -->
-  <!-- ============================================================ -->
   <section id="countdown" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 Đếm ngược ngày trọng đại</span>
@@ -514,7 +463,6 @@
         </div>
       </div>
 
-      <!-- Lịch cưới mini: tháng 10/2026, đánh dấu 24 & 25 -->
       <div class="max-w-xs mx-auto mt-12 bg-white/70 border border-gold/30 rounded-3xl p-5 shadow-sm">
         <p class="font-serif2 text-lg text-ink mb-3">Tháng 10 . 2026</p>
         <div class="grid grid-cols-7 gap-1 text-ink/50 text-[10px] uppercase mb-2">
@@ -541,9 +489,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- 3. OUR STORY - CHUYỆN TÌNH YÊU -->
-  <!-- ============================================================ -->
   <section id="story" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌿 Our Love Story</span>
@@ -552,10 +497,8 @@
     </div>
 
     <div class="max-w-3xl mx-auto px-6 mt-14 relative">
-      <!-- Đường timeline dọc -->
       <div class="timeline-line absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] hidden md:block"></div>
 
-      <!-- Mốc 1 -->
       <div class="relative md:grid md:grid-cols-2 gap-8 mb-14 items-center">
         <div class="md:text-right md:pr-10">
           <span class="text-3xl">💫</span>
@@ -566,7 +509,6 @@
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
 
-      <!-- Mốc 2 -->
       <div class="relative md:grid md:grid-cols-2 gap-8 mb-14 items-center">
         <div></div>
         <div class="md:pl-10">
@@ -577,7 +519,6 @@
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
 
-      <!-- Mốc 3 -->
       <div class="relative md:grid md:grid-cols-2 gap-8 mb-14 items-center">
         <div class="md:text-right md:pr-10">
           <span class="text-3xl">💍</span>
@@ -588,7 +529,6 @@
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
 
-      <!-- Mốc 4 -->
       <div class="relative md:grid md:grid-cols-2 gap-8 items-center">
         <div></div>
         <div class="md:pl-10">
@@ -601,9 +541,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- 4. EVENT DETAILS - THÔNG TIN HÔN LỄ -->
-  <!-- ============================================================ -->
   <section id="details" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💐 Wedding Ceremony</span>
@@ -613,14 +550,12 @@
 
     <div class="max-w-6xl mx-auto px-6 mt-12 grid md:grid-cols-2 gap-8">
 
-      <!-- NHÀ TRAI -->
       <div class="bg-white/70 border border-gold/30 rounded-3xl p-8 text-center shadow-sm">
         <h3 class="font-script text-4xl text-gold mb-1">Nhà Trai</h3>
         <p class="text-ink font-serif2 text-xl mb-4">Chú rể Hữu Vinh</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
           <p>⏰ 11:00 - Chủ Nhật, 25/10/2026</p>
           <p>📍 Tổ chức tại tư gia,<br>Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
-          <!-- <p class="text-xs text-ink/50">(Địa chỉ cũ: Khu phố 4, thị trấn Bến Cầu, Tây Ninh)</p> -->
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <iframe
@@ -634,7 +569,6 @@
         </a>
       </div>
 
-      <!-- NHÀ GÁI -->
       <div class="bg-white/70 border border-gold/30 rounded-3xl p-8 text-center shadow-sm">
         <h3 class="font-script text-4xl text-gold mb-1">Nhà Gái</h3>
         <p class="text-ink font-serif2 text-xl mb-4">Cô dâu Yến Thi</p>
@@ -656,9 +590,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- 5. GALLERY - ALBUM ẢNH & VIDEO -->
-  <!-- ============================================================ -->
   <section id="gallery" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">📸 Moments</span>
@@ -710,12 +641,6 @@
         <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(19)" src="images/gallery-20.jpg" alt="Ảnh cưới 20"></div>
     </div>
 
-    <!--
-      VIDEO KỶ NIỆM: 1 khung phát lớn + 2 nút chuyển clip bên dưới (kiểu playlist mini),
-      thay vì xếp 2 khung nhỏ cạnh nhau - video luôn hiển thị to, rõ trên cả mobile lẫn desktop.
-      Muốn dùng video YouTube thay vì file tự quay: xoá thẻ <video> bên dưới, dán khối
-      <iframe src="https://www.youtube.com/embed/ID_VIDEO_CUA_BAN" ...></iframe> vào đúng vị trí.
-    -->
     <div class="max-w-3xl mx-auto px-6 mt-12">
       <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white">
         <div class="aspect-video bg-ink/5">
@@ -726,7 +651,6 @@
         </div>
       </div>
 
-      <!-- Chuyển clip -->
       <div class="flex items-center justify-center gap-3 mt-4">
         <button type="button" class="video-tab is-active px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
           onclick="switchMemoryVideo(this, 'video/a6e52b8db8840c3ef745e93fc6f8a846.mov', 'images/video-thumbnail.jpg')">
@@ -740,7 +664,6 @@
     </div>
   </section>
 
-  <!-- Lightbox popup: xem ảnh lớn, có nút chuyển ảnh trước/sau vì album có 20 ảnh -->
   <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
     <span class="absolute top-6 right-6 text-white text-4xl cursor-pointer z-10" onclick="closeLightbox()">&times;</span>
     <span id="lightbox-counter" class="absolute top-7 left-6 text-white/70 text-sm tracking-widest"></span>
@@ -751,9 +674,6 @@
       class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white text-2xl flex items-center justify-center">›</button>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- 6. RSVP & WEDDING FUND -->
-  <!-- ============================================================ -->
   <section id="rsvp" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 RSVP</span>
@@ -769,7 +689,6 @@
           <input required type="text" name="guestName" placeholder="Ronaldo cưới Messi"
                  class="form-input w-full rounded-lg px-4 py-3 text-sm">
         </div>
-        <!-- Bạn sẽ tham dự chứ? -->
         <div>
           <label class="block text-sm text-ink/70 mb-2">Chốt đơn tham gia chưa?</label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -805,10 +724,8 @@
       </form>
     </div>
 
-    <!-- Mừng cưới số hóa - dạng phong bao thư, bấm vào để mở -->
     <div class="max-w-4xl mx-auto px-6 mt-16">
 
-      <!-- Phong bao đóng: bấm vào để mở -->
       <div id="envelopeClosed" class="envelope mx-auto cursor-pointer select-none" onclick="openEnvelope()">
         <div class="envelope-card">
           <div class="envelope-seal">💌</div>
@@ -817,7 +734,6 @@
         </div>
       </div>
 
-      <!-- Nội dung bên trong phong bao: ẩn cho tới khi bấm mở -->
       <div id="giftContent" class="hidden opacity-0 scale-95 transition-all duration-700">
         <h3 class="text-center font-script text-4xl text-gold mb-2 mt-2">Hộp Mừng Cưới</h3>
         <p class="text-center text-ink/60 text-sm mb-4">Tấm lòng của bạn là món quà quý giá nhất với chúng mình 🌷</p>
@@ -828,12 +744,7 @@
           </button>
         </div>
 
-        <!--
-          MÃ QR NGÂN HÀNG: chụp/tải ảnh mã QR thật từ app ngân hàng của bạn,
-          đặt vào images/ với đúng tên qr-chu-re.jpg và qr-co-dau.jpg
-        -->
         <div class="grid sm:grid-cols-2 gap-6">
-          <!-- QR chú rể -->
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
             <p class="font-serif2 text-xl text-ink mb-3">Chú rể - Hữu Vinh</p>
             <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
@@ -843,7 +754,6 @@
             <p class="text-sm font-medium tracking-wide text-ink">STK: 0986 416 678</p>
           </div>
 
-          <!-- QR cô dâu -->
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
             <p class="font-serif2 text-xl text-ink mb-3">Cô dâu - Yến Thi</p>
             <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
@@ -857,9 +767,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ -->
-  <!-- FOOTER -->
-  <!-- ============================================================ -->
   <footer class="py-10 bg-ink text-center">
     <p class="font-script text-3xl text-goldlight">Hữu Vinh &amp; Yến Thi</p>
     <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 ❤️ 25 . 10 . 2026</p>
@@ -867,11 +774,6 @@
   </footer>
 
 <script>
-  /* ================================================================
-     TOÀN BỘ JAVASCRIPT THUẦN CHO THIỆP CƯỚI
-     ================================================================ */
-
-  // ---------- 1. COUNTDOWN TIMER: đếm ngược đến lễ đầu tiên - Nhà Gái 24/10/2026 11:00 ----------
   const weddingDate = new Date('2026-10-24T11:00:00').getTime();
 
   function updateCountdown() {
@@ -899,11 +801,9 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ---------- 2. LIGHTBOX: phóng to ảnh, chuyển ảnh trước/sau (album 20 ảnh) ----------
   const galleryImages = Array.from({ length: 20 }, (_, i) => `images/gallery-${i + 1}.jpg`);
   let currentLightboxIndex = 0;
 
-  // Nhớ ảnh nào đã tải/giải mã rồi để lần sau hiện ra ngay lập tức, không phải chờ lại
   const decodedImageCache = new Set();
 
   function updateLightboxImage() {
@@ -912,15 +812,12 @@
     document.getElementById('lightbox-counter').textContent =
       (currentLightboxIndex + 1) + ' / ' + galleryImages.length;
 
-    // Ảnh đã từng xem/giải mã rồi -> đổi ngay, không cần chờ, không giật
     if (decodedImageCache.has(targetSrc)) {
       imgEl.src = targetSrc;
       preloadNeighborImages();
       return;
     }
 
-    // Ảnh chưa xem lần nào: âm thầm tải + giải mã xong xuôi rồi mới cho hiện ra (mờ dần vào),
-    // tránh tình trạng đổi ảnh xong màn hình khựng lại giữa chừng lúc trình duyệt còn đang giải mã.
     imgEl.classList.add('is-loading');
     const preloadImg = new Image();
     preloadImg.src = targetSrc;
@@ -941,7 +838,6 @@
     preloadNeighborImages();
   }
 
-  // Tải trước + giải mã sẵn ảnh liền trước/sau để chuyển ảnh trong lightbox mượt hơn trên điện thoại
   function preloadNeighborImages() {
     const nextIndex = (currentLightboxIndex + 1) % galleryImages.length;
     const prevIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
@@ -982,7 +878,6 @@
     updateLightboxImage();
   }
 
-  // Điều hướng bằng phím mũi tên / Esc khi lightbox đang mở
   document.addEventListener('keydown', (e) => {
     const lb = document.getElementById('lightbox');
     if (lb.classList.contains('hidden')) return;
@@ -991,7 +886,6 @@
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Vuốt trái/phải trên điện thoại để chuyển ảnh trong lightbox
   (function enableLightboxSwipe() {
     const lb = document.getElementById('lightbox');
     let touchStartX = 0;
@@ -1004,7 +898,6 @@
     }, { passive: true });
   })();
 
-  // ---------- 1b. MỞ THIỆP: 2 cánh trượt ra khi khách chạm vào màn hình mở đầu ----------
   function openInvitation() {
     const overlay = document.getElementById('introOverlay');
     if (!overlay || overlay.dataset.opened === 'true') return;
@@ -1020,7 +913,6 @@
     }, 1000);
   }
 
-  // ---------- 2c. VIDEO KỶ NIỆM: chuyển giữa Clip 1 / Clip 2 trong cùng 1 khung phát ----------
   function switchMemoryVideo(btn, src, poster) {
     const video = document.getElementById('memoryVideo');
     const source = document.getElementById('memoryVideoSource');
@@ -1034,15 +926,12 @@
     btn.classList.add('is-active');
   }
 
-  // ---------- 3. NHẠC NỀN: tự phát khi mở trang, bật/tắt + xoay đĩa than ----------
   const musicBtn = document.getElementById('musicToggle');
   const bgMusic = document.getElementById('bgMusic');
   const vinylIcon = document.getElementById('vinylIcon');
   let isPlaying = false;
 
   function armAutoplayFallback() {
-    // Chỉ gọi khi tự phát bị chặn: chờ đúng 1 lần tương tác đầu tiên của khách để bật nhạc,
-    // sau đó gỡ hết lắng nghe - tránh việc tự bật lại nhạc nếu khách chủ động bấm nút tắt sau này.
     const tryStartOnce = () => {
       ['click', 'touchstart', 'scroll', 'keydown'].forEach((evt) => {
         document.removeEventListener(evt, tryStartOnce);
@@ -1058,13 +947,11 @@
     });
   }
 
-  // Thử tự phát ngay khi trang tải xong
   window.addEventListener('load', () => {
     bgMusic.play().then(() => {
       isPlaying = true;
       vinylIcon.classList.add('playing');
     }).catch(() => {
-      // Trình duyệt chặn tự phát có tiếng -> chờ tương tác đầu tiên của khách
       armAutoplayFallback();
     });
   });
@@ -1081,8 +968,6 @@
     }
   });
 
-  // Tự tắt nhạc khi khách chuyển sang tab khác (hoặc thu nhỏ trình duyệt),
-  // tự bật lại đúng bài đang phát khi khách quay lại tab này.
   let pausedByTabHidden = false;
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
@@ -1101,15 +986,12 @@
     }
   });
 
-  // Tắt hẳn nhạc khi khách đóng tab/đóng web
   window.addEventListener('pagehide', () => {
     bgMusic.pause();
   });
 
-  // ---------- 4. HIỆU ỨNG CÁNH HOA / TIM RƠI (nhẹ nhàng, tối ưu hiệu năng) ----------
   const fallingContainer = document.getElementById('falling-container');
   const petalEmojis = ['🌸', '🍃', '🌿', '💮'];
-  // Điện thoại máy yếu hơn desktop -> giảm số lượng cánh hoa cùng lúc để mượt hơn
   const isMobileScreen = window.matchMedia('(max-width: 768px)').matches;
   const MAX_PETALS = isMobileScreen ? 9 : 18;
   const PETAL_INTERVAL = isMobileScreen ? 1500 : 900;
@@ -1121,10 +1003,10 @@
     petal.className = 'falling-item';
     petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
 
-    const startLeft = Math.random() * 100; // vị trí ngang %
-    const duration = 8 + Math.random() * 7; // tốc độ rơi
+    const startLeft = Math.random() * 100;
+    const duration = 8 + Math.random() * 7;
     const size = 14 + Math.random() * 14;
-    const drift = (Math.random() - 0.5) * 150; // độ lệch ngang khi rơi
+    const drift = (Math.random() - 0.5) * 150;
 
     petal.style.left = startLeft + 'vw';
     petal.style.fontSize = size + 'px';
@@ -1133,14 +1015,11 @@
 
     fallingContainer.appendChild(petal);
 
-    // Xoá phần tử sau khi rơi xong để tránh rò rỉ bộ nhớ
     setTimeout(() => petal.remove(), duration * 1000);
   }
 
-  // Sinh cánh hoa đều đặn, tần suất thấp để mượt trên mọi thiết bị
   setInterval(createPetal, PETAL_INTERVAL);
 
-  // ---------- 5. REVEAL ON SCROLL: các section xuất hiện mượt khi cuộn tới ----------
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1152,16 +1031,12 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => observer.observe(el));
 
-  // ---------- 6. RSVP FORM: gửi dữ liệu về Google Sheet ----------
-  // Dán URL Web App Google Apps Script của bạn vào đây (dạng https://script.google.com/macros/s/XXXX/exec)
-  // Xem hướng dẫn tạo Google Sheet + Apps Script trong file GOOGLE-SHEET-SETUP.txt
   const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzXB7imp2bd6A-4krjOOEF-6ZVvyvbZT1KbK5wTvJSsNs3jAmfS5qmT6-GstHS3aJ5Ohw/exec';
 
   const rsvpForm = document.getElementById('rsvpForm');
   const rsvpMessage = document.getElementById('rsvpMessage');
   const guestCountWrap = document.getElementById('guestCountWrap');
 
-  // Ẩn ô "Số người tham dự" khi khách chọn "không thể tham dự"
   document.querySelectorAll('input[name="attend"]').forEach((radio) => {
     radio.addEventListener('change', () => {
       guestCountWrap.style.display = radio.value === 'no' && radio.checked ? 'none' : 'block';
@@ -1175,15 +1050,13 @@
     const guestCount = rsvpForm.querySelector('select[name="guestCount"]').value;
     const guestWish = rsvpForm.querySelector('textarea[name="guestWish"]').value.trim();
 
-    // 1) Ghi vào localStorage để chạy hiệu ứng live ngay trên máy khách (không cần chờ mạng)
     saveRsvpRecord({ name: guestName, attending: isAttending, time: Date.now() });
     showLiveToast(guestName, isAttending);
 
-    // 2) Gửi về Google Sheet để vợ chồng bạn có danh sách khách chung, xem được từ mọi nơi
     if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.indexOf('PASTE_YOUR') === -1) {
       fetch(GOOGLE_SHEET_URL, {
         method: 'POST',
-        mode: 'no-cors', // Apps Script không trả CORS header nên dùng no-cors, không đọc được response nhưng dữ liệu vẫn ghi vào Sheet
+        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({
           name: guestName,
@@ -1200,9 +1073,6 @@
     setTimeout(() => rsvpMessage.classList.add('hidden'), 5000);
   });
 
-  // ---------- 6c. GHI NHẬN + CHẠY LIVE LIÊN TỤC (LOOP) - không cần database ----------
-  // Toàn bộ danh sách xác nhận được lưu ngay trong trình duyệt (localStorage),
-  // đóng vai trò như 1 "file" nhẹ, không cần server hay database ngoài.
   const RSVP_STORAGE_KEY = 'weddingRsvpRecords';
 
   function getRsvpRecords() {
@@ -1233,8 +1103,6 @@
     setTimeout(() => toast.remove(), 4600);
   }
 
-  // Chạy lặp liên tục (loop) qua toàn bộ danh sách đã ghi nhận, cứ hết danh sách
-  // lại quay vòng lại từ đầu - tạo cảm giác "live" luôn có hoạt động.
   let rsvpLoopIndex = 0;
   function loopLiveFeed() {
     const records = getRsvpRecords();
@@ -1245,7 +1113,6 @@
   }
   setInterval(loopLiveFeed, 5000);
 
-  // ---------- 6a. PHONG BAO THƯ MỪNG CƯỚI: bấm vào để mở ----------
   function openEnvelope() {
     const envelopeClosed = document.getElementById('envelopeClosed');
     const giftContent = document.getElementById('giftContent');
@@ -1256,7 +1123,6 @@
     setTimeout(() => {
       envelopeClosed.style.display = 'none';
       giftContent.classList.remove('hidden');
-      // Chờ 1 khung hình để CSS transition áp dụng mượt
       requestAnimationFrame(() => {
         giftContent.classList.remove('opacity-0', 'scale-95');
         giftContent.classList.add('opacity-100', 'scale-100');
@@ -1265,7 +1131,6 @@
     }, 550);
   }
 
-  // ---------- 6b. BẮN TIM: hiệu ứng tim bay lên khi bấm nút chúc phúc ----------
   const sendHeartBtn = document.getElementById('sendHeartBtn');
   const heartEmojis = ['💚', '🌿', '💚', '🍃'];
 
@@ -1285,7 +1150,6 @@
     });
   }
 
-  // ---------- 7. PARALLAX TÊN Ở TRANG BÌA: tên chạy lên xuống theo cuộn chuột ----------
   const heroName = document.getElementById('heroName');
   const heroSection = document.getElementById('hero');
   let parallaxTicking = false;
@@ -1295,7 +1159,6 @@
       const heroHeight = heroSection.offsetHeight;
       const scrollY = window.scrollY;
       if (scrollY <= heroHeight) {
-        // Tên di chuyển chậm hơn tốc độ cuộn -> tạo hiệu ứng nổi/trôi lên xuống
         const offset = scrollY * 0.45;
         heroName.style.transform = `translateY(${offset}px)`;
       }

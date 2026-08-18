@@ -3,3 +3,8 @@ images/DAT-ANH-VAO-DAY.txt
 video/DAT-VIDEO-VAO-DAY.txt
 audio/DAT-NHAC-VAO-DAY.txt
 *.txt
+
+# File dev có comment - chỉ xem/sửa local, không upload lên GitHub
+index-dev.html
+style-dev.css
+script-dev.js
