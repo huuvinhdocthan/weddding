@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hữu Vinh & Yến Thi | Wedding Invitation</title>
 
 <!-- Google Fonts: font viết tay quý phái + font hiện đại dễ đọc -->
@@ -137,15 +137,6 @@
     transform: scale(1.08);
   }
 
-  /* ===== Album cuộn ngang kiểu story: ẩn thanh cuộn cho gọn ===== */
-  .gallery-scroll {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge cũ */
-  }
-  .gallery-scroll::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-  }
-
   /* ===== Lightbox ===== */
   #lightbox {
     background: rgba(30, 20, 15, 0.92);
@@ -228,7 +219,7 @@
     transition: all 0.25s ease;
   }
   .video-tab.is-active {
-    background: linear-gradient(135deg, #7E2434, #A8455A);
+    background: linear-gradient(135deg, #75915F, #A9C48C);
     border-color: transparent;
     color: #FFFDF9;
   }
@@ -249,49 +240,37 @@
     position: relative;
   }
 
-  /* ===== Phong bao thư mừng cưới - bấm vào để mở ===== */
+  /* ===== Phong bao thư mừng cưới - bo tròn tông xanh lý, bấm vào để mở ===== */
   .envelope {
-    width: 240px;
-    max-width: 80vw;
+    width: 260px;
+    max-width: 82vw;
     position: relative;
   }
-  .envelope-flap {
-    width: 0;
-    height: 0;
-    margin: 0 auto;
-    border-left: 120px solid transparent;
-    border-right: 120px solid transparent;
-    border-top: 80px solid #A8455A;
-    position: relative;
-    z-index: 2;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-    transform-origin: top center;
-    filter: drop-shadow(0 4px 6px rgba(126,36,52,0.25));
-  }
-  .envelope-flap::after {
-    content: '💌';
-    position: absolute;
-    top: -66px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.6rem;
-  }
-  .envelope-body {
-    background: linear-gradient(160deg, #7E2434, #A8455A);
-    border-radius: 0 0 18px 18px;
-    padding: 34px 18px 26px;
+  .envelope-card {
+    background: linear-gradient(160deg, #75915F, #A9C48C);
+    border-radius: 32px;
+    padding: 46px 20px 32px;
     text-align: center;
-    margin-top: -4px;
-    box-shadow: 0 14px 30px rgba(126,36,52,0.35);
+    box-shadow: 0 16px 34px rgba(117,145,95,0.35);
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
-  .envelope:hover .envelope-flap { transform: translateY(-4px); }
-  .envelope-flap.is-open {
-    transform: translateY(-70px) rotate(-8deg);
-    opacity: 0;
+  .envelope-card:hover {
+    transform: translateY(-4px);
   }
-  .envelope-body.is-open {
-    transform: scale(0.9);
+  .envelope-seal {
+    width: 68px;
+    height: 68px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.18);
+    border: 2px solid rgba(255,255,255,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    margin: 0 auto 18px;
+  }
+  .envelope-card.is-open {
+    transform: scale(0.85);
     opacity: 0;
   }
 
@@ -679,50 +658,51 @@
     <!--
       ALBUM ẢNH: chỉ cần đặt 20 file ảnh của bạn vào thư mục images/ với đúng tên
       gallery-1.jpg, gallery-2.jpg ... gallery-20.jpg là ảnh sẽ tự động hiển thị,
-      không cần sửa gì trong code bên dưới.
+      không cần sửa gì trong code bên dưới. Lưới masonry giữ đúng tỉ lệ gốc từng ảnh,
+      không ép cùng 1 khung nên ảnh dọc/ngang/vuông đều hiển thị đẹp, không bị cắt méo.
     -->
-    <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">Tự động cuộn • chạm/vuốt để xem theo ý bạn</p>
-    <div id="galleryScroll" class="gallery-scroll flex gap-3 md:gap-4 overflow-x-auto px-6 md:px-[calc(50%-36rem)] pb-3">
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.jpg" alt="Ảnh cưới 1"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.jpg" alt="Ảnh cưới 2"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.jpg" alt="Ảnh cưới 3"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.jpg" alt="Ảnh cưới 4"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.jpg" alt="Ảnh cưới 5"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.jpg" alt="Ảnh cưới 6"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.jpg" alt="Ảnh cưới 7"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.jpg" alt="Ảnh cưới 8"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.jpg" alt="Ảnh cưới 9"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.jpg" alt="Ảnh cưới 10"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(10)" src="images/gallery-11.jpg" alt="Ảnh cưới 11"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(11)" src="images/gallery-12.jpg" alt="Ảnh cưới 12"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(12)" src="images/gallery-13.jpg" alt="Ảnh cưới 13"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(13)" src="images/gallery-14.jpg" alt="Ảnh cưới 14"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(14)" src="images/gallery-15.jpg" alt="Ảnh cưới 15"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(15)" src="images/gallery-16.jpg" alt="Ảnh cưới 16"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(16)" src="images/gallery-17.jpg" alt="Ảnh cưới 17"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(17)" src="images/gallery-18.jpg" alt="Ảnh cưới 18"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(18)" src="images/gallery-19.jpg" alt="Ảnh cưới 19"></div>
-      <div class="gallery-item flex-shrink-0 w-40 sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer snap-center border-2 border-white shadow-md">
-        <img class="w-full h-full object-cover" loading="lazy" decoding="async" onclick="openLightbox(19)" src="images/gallery-20.jpg" alt="Ảnh cưới 20"></div>
+    <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">Chạm vào ảnh để xem lớn</p>
+    <div class="max-w-6xl mx-auto px-6 mt-6 columns-2 sm:columns-3 gap-3 md:gap-4">
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.jpg" alt="Ảnh cưới 1"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.jpg" alt="Ảnh cưới 2"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.jpg" alt="Ảnh cưới 3"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.jpg" alt="Ảnh cưới 4"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.jpg" alt="Ảnh cưới 5"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.jpg" alt="Ảnh cưới 6"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.jpg" alt="Ảnh cưới 7"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.jpg" alt="Ảnh cưới 8"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.jpg" alt="Ảnh cưới 9"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.jpg" alt="Ảnh cưới 10"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(10)" src="images/gallery-11.jpg" alt="Ảnh cưới 11"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(11)" src="images/gallery-12.jpg" alt="Ảnh cưới 12"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(12)" src="images/gallery-13.jpg" alt="Ảnh cưới 13"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(13)" src="images/gallery-14.jpg" alt="Ảnh cưới 14"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(14)" src="images/gallery-15.jpg" alt="Ảnh cưới 15"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(15)" src="images/gallery-16.jpg" alt="Ảnh cưới 16"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(16)" src="images/gallery-17.jpg" alt="Ảnh cưới 17"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(17)" src="images/gallery-18.jpg" alt="Ảnh cưới 18"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(18)" src="images/gallery-19.jpg" alt="Ảnh cưới 19"></div>
+      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(19)" src="images/gallery-20.jpg" alt="Ảnh cưới 20"></div>
     </div>
 
     <!--
@@ -745,11 +725,11 @@
       <div class="flex items-center justify-center gap-3 mt-4">
         <button type="button" class="video-tab is-active px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
           onclick="switchMemoryVideo(this, 'video/a6e52b8db8840c3ef745e93fc6f8a846.mov', 'images/video-thumbnail.jpg')">
-          🎬 Nhấn vào đây nha
+          🎬 Đám hỏi nè !
         </button>
         <button type="button" class="video-tab px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
           onclick="switchMemoryVideo(this, 'video/video-ky-niem-2.mov', 'images/video-thumbnail-2.jpg')">
-          🎬 Nhấn bên này nữa
+          🎬 Đám cưới nè !
         </button>
       </div>
     </div>
@@ -813,7 +793,7 @@
           <textarea name="guestWish" rows="3" placeholder="Viết 'vitamin hạnh phúc' vào đây nha..."
                     class="form-input w-full rounded-lg px-4 py-3 text-sm"></textarea>
         </div>
-        <button type="submit" class="btn-gold w-full rounded-full py-3 font-medium tracking-wide">
+        <button type="submit" class="bg-gradient-to-br from-gold to-goldlight text-cream w-full rounded-full py-3 font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
           Chốt đơn!
         </button>
         <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 Cảm ơn bạn đã xác nhận tham dự!</p>
@@ -825,10 +805,10 @@
 
       <!-- Phong bao đóng: bấm vào để mở -->
       <div id="envelopeClosed" class="envelope mx-auto cursor-pointer select-none" onclick="openEnvelope()">
-        <div class="envelope-flap"></div>
-        <div class="envelope-body">
+        <div class="envelope-card">
+          <div class="envelope-seal">💌</div>
           <p class="font-script text-3xl text-cream">Hộp Mừng Cưới</p>
-          <p class="text-cream/80 text-[11px] mt-2 tracking-widest uppercase">Chạm vào phong bao để mở 💌</p>
+          <p class="text-cream/80 text-[11px] mt-2 tracking-widest uppercase">Chạm vào phong bao để mở</p>
         </div>
       </div>
 
@@ -838,8 +818,8 @@
         <p class="text-center text-ink/60 text-sm mb-4">Tấm lòng của bạn là món quà quý giá nhất với chúng mình 🌷</p>
         <div class="text-center mb-10">
           <button id="sendHeartBtn" type="button"
-            class="btn-gold inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide">
-            💗 Bắn tim chúc phúc
+            class="bg-gradient-to-br from-gold to-goldlight text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
+            💚 Bắn tim chúc phúc
           </button>
         </div>
 
@@ -980,59 +960,6 @@
     }, { passive: true });
   })();
 
-  // ---------- 2b. ALBUM ẢNH: tự động cuộn ngang liên tục, vẫn cuộn/vuốt thủ công được ----------
-  (function enableAutoScrollGallery() {
-    const track = document.getElementById('galleryScroll');
-    if (!track) return;
-
-    // Nhân đôi danh sách ảnh để cuộn lặp vô hạn liền mạch (hết vòng 1 nối ngay vào vòng 2 giống hệt)
-    const originalItems = Array.from(track.children);
-    originalItems.forEach((item) => track.appendChild(item.cloneNode(true)));
-
-    let singleSetWidth = 0;
-    const measure = () => { singleSetWidth = track.scrollWidth / 2; };
-    requestAnimationFrame(measure);
-    window.addEventListener('resize', measure);
-
-    let paused = false;
-    let resumeTimer = null;
-    const pause = () => { paused = true; clearTimeout(resumeTimer); };
-    const scheduleResume = () => {
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => { paused = false; }, 3000);
-    };
-
-    // Người dùng chạm/kéo/lăn chuột để cuộn thủ công -> tạm dừng tự động cuộn, tự chạy lại sau vài giây
-    track.addEventListener('pointerdown', pause);
-    track.addEventListener('touchstart', pause, { passive: true });
-    track.addEventListener('wheel', () => { pause(); scheduleResume(); }, { passive: true });
-    track.addEventListener('pointerup', scheduleResume);
-    track.addEventListener('touchend', scheduleResume, { passive: true });
-    track.addEventListener('mouseenter', pause);
-    track.addEventListener('mouseleave', scheduleResume);
-
-    // Chỉ chạy vòng lặp tự động cuộn khi album đang thực sự hiển thị trên màn hình,
-    // tránh tốn CPU/giật lag khi khách đang xem phần khác của trang (đặc biệt trên điện thoại yếu)
-    let inView = true;
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => { inView = entry.isIntersecting; });
-      }, { threshold: 0.05 });
-      io.observe(track);
-    }
-
-    function step() {
-      if (!paused && inView && singleSetWidth > 0) {
-        track.scrollLeft += 0.6;
-        if (track.scrollLeft >= singleSetWidth) {
-          track.scrollLeft -= singleSetWidth;
-        }
-      }
-      requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  })();
-
   // ---------- 1b. MỞ THIỆP: 2 cánh trượt ra khi khách chạm vào màn hình mở đầu ----------
   function openInvitation() {
     const overlay = document.getElementById('introOverlay');
@@ -1108,6 +1035,31 @@
       vinylIcon.classList.add('playing');
       isPlaying = true;
     }
+  });
+
+  // Tự tắt nhạc khi khách chuyển sang tab khác (hoặc thu nhỏ trình duyệt),
+  // tự bật lại đúng bài đang phát khi khách quay lại tab này.
+  let pausedByTabHidden = false;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (isPlaying) {
+        bgMusic.pause();
+        vinylIcon.classList.remove('playing');
+        isPlaying = false;
+        pausedByTabHidden = true;
+      }
+    } else if (pausedByTabHidden) {
+      pausedByTabHidden = false;
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        vinylIcon.classList.add('playing');
+      }).catch(() => {});
+    }
+  });
+
+  // Tắt hẳn nhạc khi khách đóng tab/đóng web
+  window.addEventListener('pagehide', () => {
+    bgMusic.pause();
   });
 
   // ---------- 4. HIỆU ỨNG CÁNH HOA / TIM RƠI (nhẹ nhàng, tối ưu hiệu năng) ----------
@@ -1253,11 +1205,9 @@
   function openEnvelope() {
     const envelopeClosed = document.getElementById('envelopeClosed');
     const giftContent = document.getElementById('giftContent');
-    const flap = envelopeClosed.querySelector('.envelope-flap');
-    const body = envelopeClosed.querySelector('.envelope-body');
+    const card = envelopeClosed.querySelector('.envelope-card');
 
-    flap.classList.add('is-open');
-    body.classList.add('is-open');
+    card.classList.add('is-open');
 
     setTimeout(() => {
       envelopeClosed.style.display = 'none';
@@ -1273,7 +1223,7 @@
 
   // ---------- 6b. BẮN TIM: hiệu ứng tim bay lên khi bấm nút chúc phúc ----------
   const sendHeartBtn = document.getElementById('sendHeartBtn');
-  const heartEmojis = ['💗', '💚', '💛', '💕'];
+  const heartEmojis = ['💚', '🌿', '💚', '🍃'];
 
   if (sendHeartBtn) {
     sendHeartBtn.addEventListener('click', () => {
