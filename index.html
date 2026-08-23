@@ -209,6 +209,29 @@
     color: #FFFDF9;
   }
 
+  .memory-video-frame {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #3A2E2A;
+  }
+  .memory-video-backdrop,
+  .memory-video-foreground {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .memory-video-backdrop {
+    object-fit: cover;
+    filter: blur(24px) brightness(0.72);
+    transform: scale(1.12);
+  }
+  .memory-video-foreground {
+    object-fit: contain;
+    z-index: 1;
+  }
+
   .calendar-day {
     aspect-ratio: 1 / 1;
     display: flex;
@@ -643,8 +666,11 @@
 
     <div class="max-w-3xl mx-auto px-6 mt-12">
       <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-        <div class="aspect-video bg-ink/5">
-          <video id="memoryVideo" class="w-full h-full object-cover" controls preload="metadata" poster="images/video-thumbnail.jpg">
+        <div class="memory-video-frame aspect-video">
+          <video id="memoryVideoBackdrop" class="memory-video-backdrop" autoplay muted loop playsinline aria-hidden="true" preload="metadata">
+            <source src="video/a6e52b8db8840c3ef745e93fc6f8a846.mov">
+          </video>
+          <video id="memoryVideo" class="memory-video-foreground" controls preload="metadata" poster="images/video-thumbnail.jpg">
             <source id="memoryVideoSource" src="video/a6e52b8db8840c3ef745e93fc6f8a846.mov">
             Trình duyệt của bạn không hỗ trợ phát video.
           </video>
@@ -915,12 +941,19 @@
 
   function switchMemoryVideo(btn, src, poster) {
     const video = document.getElementById('memoryVideo');
+    const backdrop = document.getElementById('memoryVideoBackdrop');
     const source = document.getElementById('memoryVideoSource');
     if (!video || !source) return;
 
     source.src = src;
     video.poster = poster;
     video.load();
+
+    if (backdrop) {
+      backdrop.src = src;
+      backdrop.load();
+      backdrop.play().catch(() => {});
+    }
 
     document.querySelectorAll('.video-tab').forEach((tab) => tab.classList.remove('is-active'));
     btn.classList.add('is-active');
@@ -929,7 +962,30 @@
   const musicBtn = document.getElementById('musicToggle');
   const bgMusic = document.getElementById('bgMusic');
   const vinylIcon = document.getElementById('vinylIcon');
+  const memoryVideo = document.getElementById('memoryVideo');
   let isPlaying = false;
+  let pausedByVideo = false;
+
+  function pauseMusicForVideo() {
+    if (!isPlaying) return;
+    bgMusic.pause();
+    vinylIcon.classList.remove('playing');
+    isPlaying = false;
+    pausedByVideo = true;
+  }
+
+  function resumeMusicAfterVideo() {
+    if (!pausedByVideo || document.hidden) return;
+    pausedByVideo = false;
+    bgMusic.play().then(() => {
+      isPlaying = true;
+      vinylIcon.classList.add('playing');
+    }).catch(() => {});
+  }
+
+  memoryVideo.addEventListener('play', pauseMusicForVideo);
+  memoryVideo.addEventListener('pause', resumeMusicAfterVideo);
+  memoryVideo.addEventListener('ended', resumeMusicAfterVideo);
 
   function armAutoplayFallback() {
     const tryStartOnce = () => {
@@ -957,6 +1013,12 @@
   });
 
   musicBtn.addEventListener('click', () => {
+    if (memoryVideo && !memoryVideo.paused) {
+      bgMusic.pause();
+      vinylIcon.classList.remove('playing');
+      isPlaying = false;
+      return;
+    }
     if (isPlaying) {
       bgMusic.pause();
       vinylIcon.classList.remove('playing');
