@@ -17,3 +17,7 @@ Nếu bạn muốn dùng video YouTube thay vì file video tự quay cho 1 hoặ
            class="w-full h-full" frameborder="0" allowfullscreen></iframe>
 
 Lưu ý: file video nên nén nhẹ (dưới 20-30MB mỗi clip) để tải nhanh khi khách xem trên điện thoại.
+
+
+a6e52b8db8840c3ef745e93fc6f8a846.mov
+video-ky-niem-2.mov
