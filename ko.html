@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hữu Vinh & Yến Thi | Wedding Invitation</title>
+<title>Hữu Vinh & Yến Thi | 청첩장</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -25,9 +25,9 @@
           ink: '#3A2E2A'
         },
         fontFamily: {
-          script: ['"Great Vibes"', 'cursive'],
-          serif2: ['"Cormorant Garamond"', 'serif'],
-          sans: ['Montserrat', 'sans-serif']
+          script: ['"Great Vibes"', '"Gowun Batang"', 'cursive'],
+          serif2: ['"Cormorant Garamond"', '"Noto Serif KR"', 'serif'],
+          sans: ['Montserrat', '"Noto Sans KR"', 'sans-serif']
         }
       }
     }
@@ -50,8 +50,9 @@
   }
 
   .section-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-family: 'Great Vibes', "Gowun Batang", cursive;
+    font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+    letter-spacing: 0.06em;
     color: #5C7449;
     line-height: 1.2;
   }
@@ -443,16 +444,17 @@
     82% { transform: translateY(-6px) scale(1); opacity: 1; }
     100% { transform: translateY(-46px) scale(0.96); opacity: 0; }
   }
+  body { word-break: keep-all; }
 </style>
 </head>
 
 <body class="bg-cream font-sans intro-active">
 
-  <nav class="lang-switch" aria-label="Choose language">
+  <nav class="lang-switch" aria-label="언어 선택">
     <a href="index.html" hreflang="vi" lang="vi">VI</a>
-    <span class="lang-switch-active">EN</span>
+    <a href="en.html" hreflang="en" lang="en">EN</a>
     <a href="zh.html" hreflang="zh-CN" lang="zh-CN">中文</a>
-    <a href="ko.html" hreflang="ko" lang="ko">한국어</a>
+    <span class="lang-switch-active">한국어</span>
   </nav>
 
   <div id="introOverlay" class="fixed inset-0 z-[100] flex">
@@ -460,7 +462,7 @@
     <div id="introRight" class="intro-panel w-1/2 h-full bg-gradient-to-bl from-gold to-goldlight"></div>
 
     <div id="introContent" class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 cursor-pointer" onclick="openInvitation()">
-      <p class="uppercase tracking-[0.35em] text-[11px] md:text-xs text-cream/80 mb-4 fade-in-up">Wedding Invitation</p>
+      <p class="uppercase tracking-[0.35em] text-[11px] md:text-xs text-cream/80 mb-4 fade-in-up">청첩장</p>
       <p class="font-script text-4xl sm:text-5xl md:text-6xl text-cream leading-tight fade-in-up" style="animation-delay:0.2s;">
         Hữu Vinh <span class="text-white">&amp;</span> Yến Thi
       </p>
@@ -469,7 +471,7 @@
       <div class="tap-hint mt-10 fade-in-up" style="animation-delay:0.7s;">
         <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-cream/50 flex items-center justify-center text-2xl md:text-3xl">💌</div>
       </div>
-      <p class="text-cream/80 text-[11px] md:text-xs uppercase tracking-[0.3em] mt-4 fade-in-up" style="animation-delay:0.9s;">Tap to open</p>
+      <p class="text-cream/80 text-[11px] md:text-xs uppercase tracking-[0.3em] mt-4 fade-in-up" style="animation-delay:0.9s;">터치하여 열기</p>
     </div>
   </div>
 
@@ -478,7 +480,7 @@
   <div id="liveFeed"></div>
 
   <div class="fixed bottom-5 right-5 z-50">
-    <button id="musicToggle" aria-label="Toggle background music"
+    <button id="musicToggle" aria-label="배경 음악 켜기/끄기"
       class="music-btn w-14 h-14 rounded-full bg-gradient-to-br from-gold to-goldlight flex items-center justify-center border-2 border-white/70">
       <svg id="vinylIcon" class="vinyl w-8 h-8 text-ink" viewBox="0 0 24 24" fill="currentColor">
         <circle cx="12" cy="12" r="10" fill="#3A2E2A"/>
@@ -512,7 +514,7 @@
       </h1>
       <div class="gold-divider my-5 fade-in-up" style="animation-delay:0.9s;"></div>
       <p class="text-ink/70 text-base md:text-xl font-serif2 italic fade-in-up" style="animation-delay:1.1s;">
-        "Happiness is holding each other's hand for the rest of our lives"
+        “행복이란 평생 서로의 손을 잡고 걷는 것”
       </p>
       <p class="text-maroon text-lg md:text-2xl font-sans tracking-widest mt-5 fade-in-up" style="animation-delay:1.4s;">
         24 ❤️ 25 . 10 . 2026
@@ -526,8 +528,8 @@
 
   <section id="invitation" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 Invitation</span>
-      <h2 class="section-title invite-title">You Are Cordially Invited</h2>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 초대장</span>
+      <h2 class="section-title invite-title">소중한 분을 초대합니다</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
@@ -536,26 +538,26 @@
         <div class="absolute top-4 left-4 text-gold/50 text-2xl">❧</div>
         <div class="absolute top-4 right-4 text-gold/50 text-2xl" style="transform: scaleX(-1);">❧</div>
 
-        <p class="font-serif2 italic text-ink/70 text-base md:text-lg">Together with both of our families</p>
+        <p class="font-serif2 italic text-ink/70 text-base md:text-lg">양가 부모님과 함께</p>
 
         <div class="grid sm:grid-cols-2 gap-6 mt-6 text-sm md:text-base">
           <div>
-            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Groom's Parents</p>
-            <p class="text-ink font-medium">Mr. Đoàn Văn Phúc</p>
-            <p class="text-ink font-medium">Mrs. Lê Thị Ngọc Thảo</p>
+            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">신랑 측 혼주</p>
+            <p class="text-ink font-medium">Đoàn Văn Phúc</p>
+            <p class="text-ink font-medium">Lê Thị Ngọc Thảo</p>
             <p class="text-ink/60 text-xs md:text-sm"> Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
           </div>
           <div>
-            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Bride's Parents</p>
-            <p class="text-ink font-medium">Mr. Huỳnh Cẩm Tú</p>
-            <p class="text-ink font-medium">Mrs. Đỗ Thị Yến Nhi</p>
+            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">신부 측 혼주</p>
+            <p class="text-ink font-medium">Huỳnh Cẩm Tú</p>
+            <p class="text-ink font-medium">Đỗ Thị Yến Nhi</p>
             <p class="text-ink/60 text-xs md:text-sm"> Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
           </div>
         </div>
 
         <p class="font-serif2 italic text-ink/70 text-base md:text-lg mt-8 leading-relaxed">
-          request the honour of your presence<br>
-          at the wedding celebration of their children
+          저희 자녀의 결혼식에 귀한 걸음 하시어<br>
+          축복해 주시기 바랍니다
         </p>
 
         <div class="my-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-3 font-script text-4xl md:text-5xl text-maroon">
@@ -567,8 +569,8 @@
         <div class="gold-divider my-6"></div>
 
         <p class="text-ink/80 text-sm md:text-base leading-relaxed">
-          Your presence would be a great honour to our families<br>
-          on this joyful day.
+          기쁜 날 함께해 주신다면<br>
+          저희 가족에게 더없는 영광이겠습니다.
         </p>
 
         <p class="text-gold font-serif2 text-lg md:text-xl tracking-widest mt-6">24 & 25 . 10 . 2026</p>
@@ -578,35 +580,35 @@
 
   <section id="countdown" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 Counting down to the big day</span>
-      <h2 class="section-title">We're Getting Married</h2>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 결혼식까지 카운트다운</span>
+      <h2 class="section-title">저희 결혼합니다</h2>
       <div class="gold-divider my-6"></div>
 
       <div class="grid grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto mt-10">
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-days" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Days</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">일</div>
         </div>
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-hours" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Hours</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">시간</div>
         </div>
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-mins" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Mins</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">분</div>
         </div>
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-secs" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Secs</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">초</div>
         </div>
       </div>
 
       <div class="max-w-xs mx-auto mt-12 bg-white/70 border border-gold/30 rounded-3xl p-5 shadow-sm">
-        <p class="font-serif2 text-lg text-ink mb-3">October . 2026</p>
+        <p class="font-serif2 text-lg text-ink mb-3">2026년 10월</p>
         <div class="grid grid-cols-7 gap-1 text-ink/50 text-[10px] uppercase mb-2">
-          <div class="calendar-day">Mo</div><div class="calendar-day">Tu</div><div class="calendar-day">We</div>
-          <div class="calendar-day">Th</div><div class="calendar-day">Fr</div><div class="calendar-day">Sa</div>
-          <div class="calendar-day">Su</div>
+          <div class="calendar-day">월</div><div class="calendar-day">화</div><div class="calendar-day">수</div>
+          <div class="calendar-day">목</div><div class="calendar-day">금</div><div class="calendar-day">토</div>
+          <div class="calendar-day">일</div>
         </div>
         <div class="grid grid-cols-7 gap-1 text-ink/80">
           <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
@@ -622,15 +624,15 @@
           <div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
           <div class="calendar-day">29</div><div class="calendar-day">30</div><div class="calendar-day">31</div>
         </div>
-        <p class="text-xs text-ink/50 mt-3">24: Bride's Family &nbsp;•&nbsp; 25: Groom's Family</p>
+        <p class="text-xs text-ink/50 mt-3">24일: 신부 측 &nbsp;•&nbsp; 25일: 신랑 측</p>
       </div>
     </div>
   </section>
 
   <section id="story" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌿 Our Love Story</span>
-      <h2 class="section-title">Our Story</h2>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌿 우리의 러브 스토리</span>
+      <h2 class="section-title">우리 이야기</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
@@ -640,8 +642,8 @@
       <div class="relative md:grid md:grid-cols-2 gap-8 mb-14 items-center">
         <div class="md:text-right md:pr-10">
           <span class="text-3xl">💫</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">The First Meeting</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">The venue: a countryside "Casino" during Lunar New Year. The groom ruthlessly won every last bit of the bride's lucky money. With nothing left to bet, the bride had no choice but to "claim" the groom as her husband, so his salary could pay off the debt.</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">첫 만남</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">장소: 설날 시골의 “카지노”. 신랑은 신부의 세뱃돈을 한 푼도 남김없이 무자비하게 따 갔습니다. 더 걸 것이 없던 신부는 어쩔 수 없이 신랑을 남편으로 “압류”해 월급으로 빚을 갚게 하기로 했죠.</p>
         </div>
         <div></div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
@@ -651,8 +653,8 @@
         <div></div>
         <div class="md:pl-10">
           <span class="text-3xl">💌</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">The "Payback" Era</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">Date after date after date. The bride's real mission: drain the groom's wallet to recover her Tết losses. The result: the groom went completely bankrupt, surrendered willingly, and begged to take care of the bride for free, for life.</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">“복수”의 시대</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">데이트, 또 데이트, 또 데이트. 신부의 진짜 임무는 설날에 잃은 돈을 되찾기 위해 신랑의 지갑을 털어 가는 것. 결과는? 신랑은 완전히 파산해 기꺼이 항복했고, 평생 무료로 신부를 돌보게 해 달라고 애원했답니다.</p>
         </div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
@@ -660,8 +662,8 @@
       <div class="relative md:grid md:grid-cols-2 gap-8 mb-14 items-center">
         <div class="md:text-right md:pr-10">
           <span class="text-3xl">💍</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">The Proposal - Cards on the Table</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">A warm evening on a breezy beach. The groom gave the bride a diamond ring bought from the one and only Ms. Phương Hằng and proposed a "shared home" deal. And so the card game from that year officially ends with a happy wedding: two rival players, now one family!</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">프러포즈 - 패를 공개하다</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">바닷바람이 부는 따뜻한 저녁, 신랑은 단 하나뿐인 Phương Hằng 여사에게서 산 다이아몬드 반지를 건네며 “한 지붕” 계약을 제안했습니다. 그렇게 그해의 카드 게임은 행복한 결혼으로 공식 마무리됩니다. 라이벌이었던 두 플레이어가 이제 한 가족이 되었어요!</p>
         </div>
         <div></div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
@@ -671,8 +673,8 @@
         <div></div>
         <div class="md:pl-10">
           <span class="text-3xl">👰🤵</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">Under One Roof</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">24 - 25.10.2026 - the day Yến Thi &amp; Hữu Vinh officially become husband and wife. The chapter that began with a losing hand at Tết closes, and a new journey begins: "One home, together!"</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">한 지붕 아래</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">2026년 10월 24–25일 - Yến Thi &amp; Hữu Vinh이 정식으로 부부가 되는 날. 설날의 지는 패로 시작된 이야기가 막을 내리고, 새로운 여정이 시작됩니다: “한 집, 함께!”</p>
         </div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
@@ -681,38 +683,38 @@
 
   <section id="details" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💐 Wedding Ceremony</span>
-      <h2 class="section-title">Wedding Details</h2>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💐 예식 안내</span>
+      <h2 class="section-title">예식 정보</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 mt-12 grid md:grid-cols-2 gap-8">
 
       <div class="bg-white/70 border border-gold/30 rounded-3xl p-8 text-center shadow-sm">
-        <h3 class="font-script text-4xl text-gold mb-1">Groom's Family</h3>
-        <p class="text-ink font-serif2 text-xl mb-4">Groom Hữu Vinh</p>
+        <h3 class="font-script text-4xl text-gold mb-1">신랑 측</h3>
+        <p class="text-ink font-serif2 text-xl mb-4">신랑 Hữu Vinh</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
-          <p>⏰ 11:00 AM - Sunday, October 25, 2026</p>
-          <p>📍 At the family home,<br>Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
+          <p>⏰ 2026년 10월 25일 (일) 오전 11:00</p>
+          <p>📍 장소: 신랑 댁<br>Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.027894490542!2d106.16342317584105!3d11.111298952926104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310b3d4ddefc9ea9%3A0xd3489cf0eecab711!2zTsaw4bubYyBNw61hIFZpbmggUXVhbmc!5e0!3m2!1svi!2s!4v1786341757659!5m2!1svi!2s"
             width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin" title="Map to the Groom's home"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" title="신랑 댁 지도"></iframe>
         </div>
         <a href="https://www.google.com/maps/dir/?api=1&destination=11.1112937,106.1659981" target="_blank" rel="noopener"
            class="btn-gold inline-block px-6 py-3 rounded-full text-sm font-medium tracking-wide">
-          Directions to the Groom's home
+          신랑 댁 길찾기
         </a>
       </div>
 
       <div class="bg-white/70 border border-gold/30 rounded-3xl p-8 text-center shadow-sm">
-        <h3 class="font-script text-4xl text-gold mb-1">Bride's Family</h3>
-        <p class="text-ink font-serif2 text-xl mb-4">Bride Yến Thi</p>
+        <h3 class="font-script text-4xl text-gold mb-1">신부 측</h3>
+        <p class="text-ink font-serif2 text-xl mb-4">신부 Yến Thi</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
-          <p>⏰ 11:00 AM - Saturday, October 24, 2026</p>
-          <p>📍 At the family home,<br>Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
+          <p>⏰ 2026년 10월 24일 (토) 오전 11:00</p>
+          <p>📍 장소: 신부 댁<br>Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <!-- <iframe
@@ -722,11 +724,11 @@
              <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3915.430056684183!2d106.26725397504624!3d11.08129118908661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDA0JzUyLjciTiAxMDbCsDE2JzExLjQiRQ!5e0!3m2!1svi!2s!4v1788333032766!5m2!1svi!2s"
             width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin" title="Map to the Bride's home"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" title="신부 댁 지도"></iframe>
         </div>
         <a href="https://maps.app.goo.gl/Yzk5Dyeac7FzYf5z7" target="_blank" rel="noopener"
            class="btn-gold inline-block px-6 py-3 rounded-full text-sm font-medium tracking-wide">
-          Directions to the Bride's home
+          신부 댁 길찾기
         </a>
       </div>
     </div>
@@ -734,70 +736,70 @@
 
   <section id="gallery" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">📸 Moments</span>
-      <h2 class="section-title">Wedding Album</h2>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">📸 소중한 순간</span>
+      <h2 class="section-title">웨딩 앨범</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
-    <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">Tap a photo to enlarge</p>
+    <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">사진을 터치하면 크게 볼 수 있어요</p>
     <div class="max-w-6xl mx-auto px-6 mt-6 columns-2 sm:columns-3 gap-3 md:gap-4">
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.webp" width="1067" height="1600" alt="Wedding photo 1"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.webp" width="1067" height="1600" alt="웨딩 사진 1"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.webp" width="1067" height="1600" alt="Wedding photo 2"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.webp" width="1067" height="1600" alt="웨딩 사진 2"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.webp" width="1066" height="1600" alt="Wedding photo 3"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.webp" width="1066" height="1600" alt="웨딩 사진 3"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.webp" width="1066" height="1600" alt="Wedding photo 4"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.webp" width="1066" height="1600" alt="웨딩 사진 4"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.webp" width="1066" height="1600" alt="Wedding photo 5"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.webp" width="1066" height="1600" alt="웨딩 사진 5"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.webp" width="1067" height="1600" alt="Wedding photo 6"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.webp" width="1067" height="1600" alt="웨딩 사진 6"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.webp" width="1066" height="1600" alt="Wedding photo 7"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.webp" width="1066" height="1600" alt="웨딩 사진 7"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.webp" width="1067" height="1600" alt="Wedding photo 8"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.webp" width="1067" height="1600" alt="웨딩 사진 8"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.webp" width="1600" height="1067" alt="Wedding photo 9"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.webp" width="1600" height="1067" alt="웨딩 사진 9"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.webp" width="1066" height="1600" alt="Wedding photo 10"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.webp" width="1066" height="1600" alt="웨딩 사진 10"></div>
     </div>
 
     <div id="galleryCoverflow" class="coverflow mt-8 md:mt-10">
       <div class="coverflow-stage">
-        <div class="coverflow-slide" data-index="10"><img data-src="images/gallery-11.webp" decoding="async" alt="Wedding photo 11"></div>
-        <div class="coverflow-slide" data-index="11"><img data-src="images/gallery-12.webp" decoding="async" alt="Wedding photo 12"></div>
-        <div class="coverflow-slide" data-index="12"><img data-src="images/gallery-13.webp" decoding="async" alt="Wedding photo 13"></div>
-        <div class="coverflow-slide" data-index="13"><img data-src="images/gallery-14.webp" decoding="async" alt="Wedding photo 14"></div>
-        <div class="coverflow-slide" data-index="14"><img data-src="images/gallery-15.webp" decoding="async" alt="Wedding photo 15"></div>
-        <div class="coverflow-slide" data-index="15"><img data-src="images/gallery-16.webp" decoding="async" alt="Wedding photo 16"></div>
-        <div class="coverflow-slide" data-index="16"><img data-src="images/gallery-17.webp" decoding="async" alt="Wedding photo 17"></div>
-        <div class="coverflow-slide" data-index="17"><img data-src="images/gallery-18.webp" decoding="async" alt="Wedding photo 18"></div>
-        <div class="coverflow-slide" data-index="18"><img data-src="images/gallery-19.webp" decoding="async" alt="Wedding photo 19"></div>
-        <div class="coverflow-slide" data-index="19"><img data-src="images/gallery-20.webp" decoding="async" alt="Wedding photo 20"></div>
-        <div class="coverflow-slide" data-index="20"><img data-src="images/gallery-21.webp" decoding="async" alt="Wedding photo 21"></div>
-        <div class="coverflow-slide" data-index="21"><img data-src="images/gallery-22.webp" decoding="async" alt="Wedding photo 22"></div>
-        <div class="coverflow-slide" data-index="22"><img data-src="images/gallery-23.webp" decoding="async" alt="Wedding photo 23"></div>
-        <div class="coverflow-slide" data-index="23"><img data-src="images/gallery-24.webp" decoding="async" alt="Wedding photo 24"></div>
-        <div class="coverflow-slide" data-index="24"><img data-src="images/gallery-25.webp" decoding="async" alt="Wedding photo 25"></div>
-        <div class="coverflow-slide" data-index="25"><img data-src="images/gallery-26.webp" decoding="async" alt="Wedding photo 26"></div>
-        <div class="coverflow-slide" data-index="26"><img data-src="images/gallery-27.webp" decoding="async" alt="Wedding photo 27"></div>
-        <div class="coverflow-slide" data-index="27"><img data-src="images/gallery-28.webp" decoding="async" alt="Wedding photo 28"></div>
-        <div class="coverflow-slide" data-index="28"><img data-src="images/gallery-29.webp" decoding="async" alt="Wedding photo 29"></div>
-        <div class="coverflow-slide" data-index="29"><img data-src="images/gallery-30.webp" decoding="async" alt="Wedding photo 30"></div>
-        <div class="coverflow-slide" data-index="30"><img data-src="images/gallery-31.webp" decoding="async" alt="Wedding photo 31"></div>
-        <div class="coverflow-slide" data-index="31"><img data-src="images/gallery-32.webp" decoding="async" alt="Wedding photo 32"></div>
-        <div class="coverflow-slide" data-index="32"><img data-src="images/gallery-33.webp" decoding="async" alt="Wedding photo 33"></div>
-        <div class="coverflow-slide" data-index="33"><img data-src="images/gallery-34.webp" decoding="async" alt="Wedding photo 34"></div>
-        <div class="coverflow-slide" data-index="34"><img data-src="images/gallery-35.webp" decoding="async" alt="Wedding photo 35"></div>
-        <div class="coverflow-slide" data-index="35"><img data-src="images/gallery-36.webp" decoding="async" alt="Wedding photo 36"></div>
-        <div class="coverflow-slide" data-index="36"><img data-src="images/gallery-37.webp" decoding="async" alt="Wedding photo 37"></div>
-        <div class="coverflow-slide" data-index="37"><img data-src="images/gallery-38.webp" decoding="async" alt="Wedding photo 38"></div>
-        <div class="coverflow-slide" data-index="38"><img data-src="images/gallery-39.webp" decoding="async" alt="Wedding photo 39"></div>
-        <div class="coverflow-slide" data-index="39"><img data-src="images/gallery-40.webp" decoding="async" alt="Wedding photo 40"></div>
+        <div class="coverflow-slide" data-index="10"><img data-src="images/gallery-11.webp" decoding="async" alt="웨딩 사진 11"></div>
+        <div class="coverflow-slide" data-index="11"><img data-src="images/gallery-12.webp" decoding="async" alt="웨딩 사진 12"></div>
+        <div class="coverflow-slide" data-index="12"><img data-src="images/gallery-13.webp" decoding="async" alt="웨딩 사진 13"></div>
+        <div class="coverflow-slide" data-index="13"><img data-src="images/gallery-14.webp" decoding="async" alt="웨딩 사진 14"></div>
+        <div class="coverflow-slide" data-index="14"><img data-src="images/gallery-15.webp" decoding="async" alt="웨딩 사진 15"></div>
+        <div class="coverflow-slide" data-index="15"><img data-src="images/gallery-16.webp" decoding="async" alt="웨딩 사진 16"></div>
+        <div class="coverflow-slide" data-index="16"><img data-src="images/gallery-17.webp" decoding="async" alt="웨딩 사진 17"></div>
+        <div class="coverflow-slide" data-index="17"><img data-src="images/gallery-18.webp" decoding="async" alt="웨딩 사진 18"></div>
+        <div class="coverflow-slide" data-index="18"><img data-src="images/gallery-19.webp" decoding="async" alt="웨딩 사진 19"></div>
+        <div class="coverflow-slide" data-index="19"><img data-src="images/gallery-20.webp" decoding="async" alt="웨딩 사진 20"></div>
+        <div class="coverflow-slide" data-index="20"><img data-src="images/gallery-21.webp" decoding="async" alt="웨딩 사진 21"></div>
+        <div class="coverflow-slide" data-index="21"><img data-src="images/gallery-22.webp" decoding="async" alt="웨딩 사진 22"></div>
+        <div class="coverflow-slide" data-index="22"><img data-src="images/gallery-23.webp" decoding="async" alt="웨딩 사진 23"></div>
+        <div class="coverflow-slide" data-index="23"><img data-src="images/gallery-24.webp" decoding="async" alt="웨딩 사진 24"></div>
+        <div class="coverflow-slide" data-index="24"><img data-src="images/gallery-25.webp" decoding="async" alt="웨딩 사진 25"></div>
+        <div class="coverflow-slide" data-index="25"><img data-src="images/gallery-26.webp" decoding="async" alt="웨딩 사진 26"></div>
+        <div class="coverflow-slide" data-index="26"><img data-src="images/gallery-27.webp" decoding="async" alt="웨딩 사진 27"></div>
+        <div class="coverflow-slide" data-index="27"><img data-src="images/gallery-28.webp" decoding="async" alt="웨딩 사진 28"></div>
+        <div class="coverflow-slide" data-index="28"><img data-src="images/gallery-29.webp" decoding="async" alt="웨딩 사진 29"></div>
+        <div class="coverflow-slide" data-index="29"><img data-src="images/gallery-30.webp" decoding="async" alt="웨딩 사진 30"></div>
+        <div class="coverflow-slide" data-index="30"><img data-src="images/gallery-31.webp" decoding="async" alt="웨딩 사진 31"></div>
+        <div class="coverflow-slide" data-index="31"><img data-src="images/gallery-32.webp" decoding="async" alt="웨딩 사진 32"></div>
+        <div class="coverflow-slide" data-index="32"><img data-src="images/gallery-33.webp" decoding="async" alt="웨딩 사진 33"></div>
+        <div class="coverflow-slide" data-index="33"><img data-src="images/gallery-34.webp" decoding="async" alt="웨딩 사진 34"></div>
+        <div class="coverflow-slide" data-index="34"><img data-src="images/gallery-35.webp" decoding="async" alt="웨딩 사진 35"></div>
+        <div class="coverflow-slide" data-index="35"><img data-src="images/gallery-36.webp" decoding="async" alt="웨딩 사진 36"></div>
+        <div class="coverflow-slide" data-index="36"><img data-src="images/gallery-37.webp" decoding="async" alt="웨딩 사진 37"></div>
+        <div class="coverflow-slide" data-index="37"><img data-src="images/gallery-38.webp" decoding="async" alt="웨딩 사진 38"></div>
+        <div class="coverflow-slide" data-index="38"><img data-src="images/gallery-39.webp" decoding="async" alt="웨딩 사진 39"></div>
+        <div class="coverflow-slide" data-index="39"><img data-src="images/gallery-40.webp" decoding="async" alt="웨딩 사진 40"></div>
       </div>
-      <button type="button" class="coverflow-btn coverflow-prev" aria-label="Previous photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button type="button" class="coverflow-btn coverflow-next" aria-label="Next photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button type="button" class="coverflow-btn coverflow-prev" aria-label="이전 사진"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="coverflow-btn coverflow-next" aria-label="다음 사진"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
       <p class="coverflow-counter"></p>
     </div>
 
@@ -809,7 +811,7 @@
           </video>
           <video id="memoryVideo" class="memory-video-foreground" controls preload="metadata" poster="images/video-thumbnail.webp">
             <source id="memoryVideoSource" src="video/a6e52b8db8840c3ef745e93fc6f8a846.mov">
-            Your browser does not support video playback.
+            브라우저가 동영상 재생을 지원하지 않습니다.
           </video>
         </div>
       </div>
@@ -817,7 +819,7 @@
       <div class="flex items-center justify-center gap-3 mt-4">
         <button type="button" class="video-tab is-active px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
           onclick="switchMemoryVideo(this, 'video/a6e52b8db8840c3ef745e93fc6f8a846.mov', 'images/video-thumbnail.webp')">
-          🎬 Our engagement!
+          🎬 우리의 약혼식!
         </button>
         <!-- <button type="button" class="video-tab px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
           onclick="switchMemoryVideo(this, 'video/video-ky-niem-2.mov', 'images/video-thumbnail-2.webp')">
@@ -830,60 +832,60 @@
   <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
     <span class="absolute top-6 right-6 text-white text-4xl cursor-pointer z-10" onclick="closeLightbox()">&times;</span>
     <span id="lightbox-counter" class="absolute top-7 left-6 text-white/70 text-sm tracking-widest"></span>
-    <button onclick="showPrevImage(event)" aria-label="Previous photo"
+    <button onclick="showPrevImage(event)" aria-label="이전 사진"
       class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white text-2xl flex items-center justify-center">‹</button>
-    <img id="lightbox-img" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl" src="" alt="Enlarged photo" onclick="event.stopPropagation()">
-    <button onclick="showNextImage(event)" aria-label="Next photo"
+    <img id="lightbox-img" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl" src="" alt="크게 보기" onclick="event.stopPropagation()">
+    <button onclick="showNextImage(event)" aria-label="다음 사진"
       class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white text-2xl flex items-center justify-center">›</button>
   </div>
 
   <section id="rsvp" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 RSVP</span>
-      <h2 class="section-title">Will You Join Us?</h2>
+      <h2 class="section-title">함께해 주실 거죠?</h2>
       <div class="gold-divider my-6"></div>
-      <p class="text-ink/70 max-w-xl mx-auto text-sm md:text-base">Having you there would mean the world to Hữu Vinh &amp; Yến Thi. Please let us know before the big day so we can get everything ready for you!</p>
+      <p class="text-ink/70 max-w-xl mx-auto text-sm md:text-base">여러분이 함께해 주신다면 Hữu Vinh &amp; Yến Thi에게 큰 의미가 됩니다. 저희가 모든 준비를 할 수 있도록 결혼식 전에 꼭 알려 주세요!</p>
     </div>
 
     <div class="max-w-xl mx-auto px-6 mt-10">
       <form id="rsvpForm" class="bg-white/70 border border-gold/30 rounded-3xl p-6 md:p-10 shadow-sm space-y-5">
         <div>
-          <label class="block text-sm text-ink/70 mb-1">Your Name (or Nickname)</label>
-          <input required type="text" name="guestName" placeholder="Ronaldo marries Messi"
+          <label class="block text-sm text-ink/70 mb-1">이름 (또는 닉네임)</label>
+          <input required type="text" name="guestName" placeholder="호날두와 메시의 결혼"
                  class="form-input w-full rounded-lg px-4 py-3 text-sm">
         </div>
         <div>
-          <label class="block text-sm text-ink/70 mb-2">So, are you in?</label>
+          <label class="block text-sm text-ink/70 mb-2">그래서, 오시는 거죠?</label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
               <input type="radio" name="attend" value="yes" checked class="accent-gold">
-            Count me in, wouldn't miss it!
+            당연히 가죠, 절대 안 놓쳐요!
             </label>
             <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
               <input type="radio" name="attend" value="no" class="accent-gold">
-              Busy saving the world that day, sorry T.T
+              그날은 지구를 지키느라 바빠요, 미안해요 T.T
             </label>
           </div>
         </div>
 
         <div id="guestCountWrap">
-          <label class="block text-sm text-ink/70 mb-1">Number of guests</label>
+          <label class="block text-sm text-ink/70 mb-1">참석 인원</label>
           <select name="guestCount" class="form-input w-full rounded-lg px-4 py-3 text-sm">
-            <option>Just me</option>
-            <option>2 of us</option>
-            <option>3 of us</option>
-            <option>Too many to count</option>
+            <option>저 혼자요</option>
+            <option>2명이요</option>
+            <option>3명이요</option>
+            <option>셀 수 없을 만큼 많아요</option>
           </select>
         </div>
         <div>
-          <label class="block text-sm text-ink/70 mb-1">Leave some love and wishes for Yến Thi &amp; Hữu Vinh 👇</label>
-          <textarea name="guestWish" rows="3" placeholder="Drop your 'happiness vitamins' here..."
+          <label class="block text-sm text-ink/70 mb-1">Yến Thi &amp; Hữu Vinh에게 사랑과 축하의 한마디를 남겨 주세요 👇</label>
+          <textarea name="guestWish" rows="3" placeholder="여기에 '행복 비타민'을 넣어 주세요..."
                     class="form-input w-full rounded-lg px-4 py-3 text-sm"></textarea>
         </div>
         <button type="submit" class="bg-gradient-to-br from-gold to-goldlight text-cream w-full rounded-full py-3 font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
-          Send RSVP!
+          회신 보내기!
         </button>
-        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 Thank you for your RSVP!</p>
+        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 회신해 주셔서 감사합니다!</p>
       </form>
     </div>
 
@@ -892,38 +894,38 @@
       <div class="text-center mb-10">
         <button id="sendHeartBtn" type="button"
           class="bg-gradient-to-br from-gold to-goldlight text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
-          💚 Send your love
+          💚 하트로 축하하기
         </button>
       </div>
 
       <div id="envelopeClosed" class="envelope mx-auto cursor-pointer select-none" onclick="openEnvelope()">
         <div class="envelope-card">
           <div class="envelope-seal">💌</div>
-          <p class="font-script text-3xl text-cream">Wedding Gift</p>
-          <p class="text-cream/80 text-[11px] mt-2 tracking-widest uppercase">Tap the envelope to open</p>
+          <p class="font-script text-3xl text-cream">마음 전하실 곳</p>
+          <p class="text-cream/80 text-[11px] mt-2 tracking-widest uppercase">봉투를 터치하여 열기</p>
         </div>
       </div>
 
       <div id="giftContent" class="hidden opacity-0 scale-95 transition-all duration-700">
-        <h3 class="text-center font-script text-4xl text-gold mb-2 mt-2">Wedding Gift</h3>
-        <p class="text-center text-ink/60 text-sm mb-8">Your love and kindness are the most precious gifts to us 🌷</p>
+        <h3 class="text-center font-script text-4xl text-gold mb-2 mt-2">마음 전하실 곳</h3>
+        <p class="text-center text-ink/60 text-sm mb-8">여러분의 사랑과 마음이 저희에게 가장 소중한 선물입니다 🌷</p>
         <div class="grid sm:grid-cols-2 gap-6">
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
-            <p class="font-serif2 text-xl text-ink mb-3">Groom - Hữu Vinh</p>
+            <p class="font-serif2 text-xl text-ink mb-3">신랑 - Hữu Vinh</p>
             <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-              <img src="images/qr-chu-re.png" alt="Bank transfer QR for Hữu Vinh" class="w-full h-full object-cover">
+              <img src="images/qr-chu-re.png" alt="Hữu Vinh 계좌이체 QR" class="w-full h-full object-cover">
             </div>
-            <p class="text-sm text-ink/70 mt-3">Cake Bank</p>
-            <p class="text-sm font-medium tracking-wide text-ink">Account: 0986 416 678</p>
+            <p class="text-sm text-ink/70 mt-3">Cake 은행</p>
+            <p class="text-sm font-medium tracking-wide text-ink">계좌번호: 0986 416 678</p>
           </div>
 
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
-            <p class="font-serif2 text-xl text-ink mb-3">Bride - Yến Thi</p>
+            <p class="font-serif2 text-xl text-ink mb-3">신부 - Yến Thi</p>
             <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-              <img src="images/qr-co-dau.png" alt="Bank transfer QR for Yến Thi" class="w-full h-full object-cover">
+              <img src="images/qr-co-dau.png" alt="Yến Thi 계좌이체 QR" class="w-full h-full object-cover">
             </div>
-            <p class="text-sm text-ink/70 mt-3">Cake Bank</p>
-            <p class="text-sm font-medium tracking-wide text-ink">Account: 0326 358 906</p>
+            <p class="text-sm text-ink/70 mt-3">Cake 은행</p>
+            <p class="text-sm font-medium tracking-wide text-ink">계좌번호: 0326 358 906</p>
           </div>
         </div>
       </div>
@@ -933,7 +935,7 @@
   <footer class="py-10 bg-ink text-center">
     <p class="font-script text-3xl text-goldlight">Hữu Vinh &amp; Yến Thi</p>
     <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 ❤️ 25 . 10 . 2026</p>
-    <p class="text-white/40 text-xs mt-4">We can't wait to celebrate our big day with you 💚</p>
+    <p class="text-white/40 text-xs mt-4">여러분과 함께할 그날을 손꼽아 기다립니다 💚</p>
   </footer>
 
 <script>
@@ -1489,7 +1491,7 @@
 
   rsvpForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    const guestName = rsvpForm.querySelector('input[name="guestName"]').value.trim() || 'Guest';
+    const guestName = rsvpForm.querySelector('input[name="guestName"]').value.trim() || '하객';
     const isAttending = rsvpForm.querySelector('input[name="attend"]:checked').value === 'yes';
     const guestCount = rsvpForm.querySelector('select[name="guestCount"]').value;
     const guestWish = rsvpForm.querySelector('textarea[name="guestWish"]').value.trim();
@@ -1503,7 +1505,7 @@
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({
-          name: guestName + ' (EN)',
+          name: guestName + ' (KO)',
           attending: isAttending ? 'Có tham dự' : 'Không tham dự',
           guestCount: guestCount,
           wish: guestWish
@@ -1540,7 +1542,7 @@
     const toast = document.createElement('div');
     toast.className = 'live-toast';
     const initial = name.trim().charAt(0).toUpperCase() || '💌';
-    const message = isAttending ? 'just RSVP\'d! 🎉' : 'just sent their wishes 💌';
+    const message = isAttending ? '님이 참석을 알려 주셨어요! 🎉' : '님이 축하 메시지를 보냈어요 💌';
     toast.innerHTML = `<span class="live-avatar">${initial}</span><span>${name} ${message}</span>`;
 
     liveFeed.appendChild(toast);

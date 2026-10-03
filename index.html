@@ -118,11 +118,85 @@
     background: linear-gradient(180deg, transparent, #75915F 10%, #75915F 90%, transparent);
   }
 
+  .hero-photo { width: min(88vw, 400px); }
+  @media (min-width: 1280px) and (min-height: 900px) {
+    #heroContent { max-width: 600px; }
+    .hero-photo { width: 540px; }
+  }
+
   .gallery-item img {
     transition: transform 0.6s ease, filter 0.6s ease;
   }
   .gallery-item:hover img {
     transform: scale(1.08);
+  }
+
+  .coverflow {
+    --cf-w: min(56vw, 290px);
+    position: relative;
+    max-width: 72rem;
+    margin-inline: auto;
+    overflow: hidden;
+  }
+  .coverflow-stage {
+    position: relative;
+    height: calc(var(--cf-w) * 1.5 + 32px);
+    touch-action: pan-y;
+    user-select: none;
+  }
+  .coverflow-slide {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    width: var(--cf-w);
+    aspect-ratio: 2 / 3;
+    margin-left: calc(var(--cf-w) / -2);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 3px solid #fff;
+    background: #F3E9E1;
+    box-shadow: 0 14px 34px rgba(60, 35, 25, 0.22);
+    cursor: pointer;
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.7s ease, filter 0.7s ease;
+    will-change: transform;
+  }
+  .coverflow-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+  .coverflow-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 253, 249, 0.92);
+    color: #7E2434;
+    box-shadow: 0 6px 18px rgba(60, 35, 25, 0.2);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .coverflow-btn:hover { transform: scale(1.08); background: #fff; }
+  .coverflow-btn:active { transform: scale(0.94); }
+  .coverflow-prev { left: 10px; }
+  .coverflow-next { right: 10px; }
+  .coverflow-counter {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: rgba(60, 40, 30, 0.45);
+  }
+  @media (min-width: 768px) {
+    .coverflow-prev { left: 24px; }
+    .coverflow-next { right: 24px; }
   }
 
   #lightbox {
@@ -377,6 +451,8 @@
   <nav class="lang-switch" aria-label="Chọn ngôn ngữ">
     <span class="lang-switch-active">VI</span>
     <a href="en.html" hreflang="en" lang="en">EN</a>
+    <a href="zh.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+    <a href="ko.html" hreflang="ko" lang="ko">한국어</a>
   </nav>
 
   <div id="introOverlay" class="fixed inset-0 z-[100] flex">
@@ -422,7 +498,7 @@
     <div id="heroContent" class="relative z-10 text-center px-6 fade-in-up max-w-md mx-auto" style="animation-delay:0.2s;">
       <p class="text-gold tracking-[0.4em] text-xs md:text-sm font-sans mb-5 uppercase fade-in-up" style="animation-delay:0.4s;">Save The Date</p>
 
-      <div class="mx-auto fade-in-up" style="animation-delay:0.3s; width: min(88vw, 400px);">
+      <div class="hero-photo mx-auto fade-in-up" style="animation-delay:0.3s;">
         <div class="relative rounded-2xl overflow-hidden border-[6px] border-white shadow-2xl" style="aspect-ratio: 5906 / 4134;">
           <img src="images/hero.webp" alt="Hữu Vinh & Yến Thi" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
           <div class="absolute inset-0 rounded-xl border border-gold/40 pointer-events-none"></div>
@@ -666,45 +742,63 @@
     <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">Chạm vào ảnh để xem lớn</p>
     <div class="max-w-6xl mx-auto px-6 mt-6 columns-2 sm:columns-3 gap-3 md:gap-4">
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.webp" alt="Ảnh cưới 1"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.webp" width="1067" height="1600" alt="Ảnh cưới 1"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.webp" alt="Ảnh cưới 2"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.webp" width="1067" height="1600" alt="Ảnh cưới 2"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.webp" alt="Ảnh cưới 3"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.webp" width="1066" height="1600" alt="Ảnh cưới 3"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.webp" alt="Ảnh cưới 4"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.webp" width="1066" height="1600" alt="Ảnh cưới 4"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.webp" alt="Ảnh cưới 5"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.webp" width="1066" height="1600" alt="Ảnh cưới 5"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.webp" alt="Ảnh cưới 6"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.webp" width="1067" height="1600" alt="Ảnh cưới 6"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.webp" alt="Ảnh cưới 7"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.webp" width="1066" height="1600" alt="Ảnh cưới 7"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.webp" alt="Ảnh cưới 8"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.webp" width="1067" height="1600" alt="Ảnh cưới 8"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.webp" alt="Ảnh cưới 9"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.webp" width="1600" height="1067" alt="Ảnh cưới 9"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.webp" alt="Ảnh cưới 10"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(10)" src="images/gallery-11.webp" alt="Ảnh cưới 11"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(11)" src="images/gallery-12.webp" alt="Ảnh cưới 12"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(12)" src="images/gallery-13.webp" alt="Ảnh cưới 13"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(13)" src="images/gallery-14.webp" alt="Ảnh cưới 14"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(14)" src="images/gallery-15.webp" alt="Ảnh cưới 15"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(15)" src="images/gallery-16.webp" alt="Ảnh cưới 16"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(16)" src="images/gallery-17.webp" alt="Ảnh cưới 17"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(17)" src="images/gallery-18.webp" alt="Ảnh cưới 18"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(18)" src="images/gallery-19.webp" alt="Ảnh cưới 19"></div>
-      <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(19)" src="images/gallery-20.webp" alt="Ảnh cưới 20"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.webp" width="1066" height="1600" alt="Ảnh cưới 10"></div>
+    </div>
+
+    <div id="galleryCoverflow" class="coverflow mt-8 md:mt-10">
+      <div class="coverflow-stage">
+        <div class="coverflow-slide" data-index="10"><img data-src="images/gallery-11.webp" decoding="async" alt="Ảnh cưới 11"></div>
+        <div class="coverflow-slide" data-index="11"><img data-src="images/gallery-12.webp" decoding="async" alt="Ảnh cưới 12"></div>
+        <div class="coverflow-slide" data-index="12"><img data-src="images/gallery-13.webp" decoding="async" alt="Ảnh cưới 13"></div>
+        <div class="coverflow-slide" data-index="13"><img data-src="images/gallery-14.webp" decoding="async" alt="Ảnh cưới 14"></div>
+        <div class="coverflow-slide" data-index="14"><img data-src="images/gallery-15.webp" decoding="async" alt="Ảnh cưới 15"></div>
+        <div class="coverflow-slide" data-index="15"><img data-src="images/gallery-16.webp" decoding="async" alt="Ảnh cưới 16"></div>
+        <div class="coverflow-slide" data-index="16"><img data-src="images/gallery-17.webp" decoding="async" alt="Ảnh cưới 17"></div>
+        <div class="coverflow-slide" data-index="17"><img data-src="images/gallery-18.webp" decoding="async" alt="Ảnh cưới 18"></div>
+        <div class="coverflow-slide" data-index="18"><img data-src="images/gallery-19.webp" decoding="async" alt="Ảnh cưới 19"></div>
+        <div class="coverflow-slide" data-index="19"><img data-src="images/gallery-20.webp" decoding="async" alt="Ảnh cưới 20"></div>
+        <div class="coverflow-slide" data-index="20"><img data-src="images/gallery-21.webp" decoding="async" alt="Ảnh cưới 21"></div>
+        <div class="coverflow-slide" data-index="21"><img data-src="images/gallery-22.webp" decoding="async" alt="Ảnh cưới 22"></div>
+        <div class="coverflow-slide" data-index="22"><img data-src="images/gallery-23.webp" decoding="async" alt="Ảnh cưới 23"></div>
+        <div class="coverflow-slide" data-index="23"><img data-src="images/gallery-24.webp" decoding="async" alt="Ảnh cưới 24"></div>
+        <div class="coverflow-slide" data-index="24"><img data-src="images/gallery-25.webp" decoding="async" alt="Ảnh cưới 25"></div>
+        <div class="coverflow-slide" data-index="25"><img data-src="images/gallery-26.webp" decoding="async" alt="Ảnh cưới 26"></div>
+        <div class="coverflow-slide" data-index="26"><img data-src="images/gallery-27.webp" decoding="async" alt="Ảnh cưới 27"></div>
+        <div class="coverflow-slide" data-index="27"><img data-src="images/gallery-28.webp" decoding="async" alt="Ảnh cưới 28"></div>
+        <div class="coverflow-slide" data-index="28"><img data-src="images/gallery-29.webp" decoding="async" alt="Ảnh cưới 29"></div>
+        <div class="coverflow-slide" data-index="29"><img data-src="images/gallery-30.webp" decoding="async" alt="Ảnh cưới 30"></div>
+        <div class="coverflow-slide" data-index="30"><img data-src="images/gallery-31.webp" decoding="async" alt="Ảnh cưới 31"></div>
+        <div class="coverflow-slide" data-index="31"><img data-src="images/gallery-32.webp" decoding="async" alt="Ảnh cưới 32"></div>
+        <div class="coverflow-slide" data-index="32"><img data-src="images/gallery-33.webp" decoding="async" alt="Ảnh cưới 33"></div>
+        <div class="coverflow-slide" data-index="33"><img data-src="images/gallery-34.webp" decoding="async" alt="Ảnh cưới 34"></div>
+        <div class="coverflow-slide" data-index="34"><img data-src="images/gallery-35.webp" decoding="async" alt="Ảnh cưới 35"></div>
+        <div class="coverflow-slide" data-index="35"><img data-src="images/gallery-36.webp" decoding="async" alt="Ảnh cưới 36"></div>
+        <div class="coverflow-slide" data-index="36"><img data-src="images/gallery-37.webp" decoding="async" alt="Ảnh cưới 37"></div>
+        <div class="coverflow-slide" data-index="37"><img data-src="images/gallery-38.webp" decoding="async" alt="Ảnh cưới 38"></div>
+        <div class="coverflow-slide" data-index="38"><img data-src="images/gallery-39.webp" decoding="async" alt="Ảnh cưới 39"></div>
+        <div class="coverflow-slide" data-index="39"><img data-src="images/gallery-40.webp" decoding="async" alt="Ảnh cưới 40"></div>
+      </div>
+      <button type="button" class="coverflow-btn coverflow-prev" aria-label="Ảnh trước"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="coverflow-btn coverflow-next" aria-label="Ảnh sau"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      <p class="coverflow-counter"></p>
     </div>
 
     <div class="max-w-3xl mx-auto px-6 mt-12">
@@ -795,6 +889,13 @@
 
     <div class="max-w-4xl mx-auto px-6 mt-16">
 
+      <div class="text-center mb-10">
+        <button id="sendHeartBtn" type="button"
+          class="bg-gradient-to-br from-gold to-goldlight text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
+          💚 Bắn tim chúc phúc
+        </button>
+      </div>
+
       <div id="envelopeClosed" class="envelope mx-auto cursor-pointer select-none" onclick="openEnvelope()">
         <div class="envelope-card">
           <div class="envelope-seal">💌</div>
@@ -805,14 +906,7 @@
 
       <div id="giftContent" class="hidden opacity-0 scale-95 transition-all duration-700">
         <h3 class="text-center font-script text-4xl text-gold mb-2 mt-2">Hộp Mừng Cưới</h3>
-        <p class="text-center text-ink/60 text-sm mb-4">Tấm lòng của bạn là món quà quý giá nhất với chúng mình 🌷</p>
-        <div class="text-center mb-10">
-          <button id="sendHeartBtn" type="button"
-            class="bg-gradient-to-br from-gold to-goldlight text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
-            💚 Bắn tim chúc phúc
-          </button>
-        </div>
-
+        <p class="text-center text-ink/60 text-sm mb-8">Tấm lòng của bạn là món quà quý giá nhất với chúng mình 🌷</p>
         <div class="grid sm:grid-cols-2 gap-6">
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
             <p class="font-serif2 text-xl text-ink mb-3">Chú rể - Hữu Vinh</p>
@@ -870,7 +964,98 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  const galleryImages = Array.from({ length: 20 }, (_, i) => `images/gallery-${i + 1}.webp`);
+  const galleryImages = Array.from({ length: 40 }, (_, i) => `images/gallery-${i + 1}.webp`);
+
+  // Ảnh coverflow: ảnh giữa to, hai bên nhỏ dần; nút trái/phải, vuốt, tự chạy
+  (function initCoverflow() {
+    const root = document.getElementById('galleryCoverflow');
+    if (!root) return;
+    const slides = Array.from(root.querySelectorAll('.coverflow-slide'));
+    const counter = root.querySelector('.coverflow-counter');
+    const total = slides.length;
+    const AUTOPLAY_MS = 3500;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const SCALES = [1, 0.8, 0.64, 0.52];
+    const OPACITY = [1, 0.92, 0.65, 0];
+    let current = 0;
+    let visible = false;
+    let hovering = false;
+    let lastMove = performance.now();
+
+    function offsetOf(i) {
+      let d = i - current;
+      if (d > total / 2) d -= total;
+      if (d < -total / 2) d += total;
+      return d;
+    }
+
+    function render() {
+      const w = slides[0].offsetWidth;
+      slides.forEach((slide, i) => {
+        const d = offsetOf(i);
+        const a = Math.min(Math.abs(d), 3);
+        const x = a === 0 ? 0 : Math.sign(d) * (w * 0.62 + (a - 1) * w * 0.42);
+        slide.style.transform = 'translateX(' + x + 'px) scale(' + SCALES[a] + ')';
+        slide.style.opacity = OPACITY[a];
+        slide.style.zIndex = String(50 - a);
+        slide.style.filter = a === 0 ? 'none' : 'brightness(0.92) saturate(0.9)';
+        slide.style.pointerEvents = a > 2 ? 'none' : '';
+        slide.setAttribute('aria-hidden', a === 0 ? 'false' : 'true');
+        const img = slide.querySelector('img');
+        if (a <= 3 && img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+      });
+      counter.textContent = (current + 1) + ' / ' + total;
+    }
+
+    function go(step) {
+      current = (current + step + total) % total;
+      lastMove = performance.now();
+      render();
+    }
+
+    root.querySelector('.coverflow-prev').addEventListener('click', () => go(-1));
+    root.querySelector('.coverflow-next').addEventListener('click', () => go(1));
+
+    let startX = null;
+    let swiped = false;
+    const stage = root.querySelector('.coverflow-stage');
+    stage.addEventListener('pointerdown', (e) => { startX = e.clientX; swiped = false; });
+    stage.addEventListener('pointerup', (e) => {
+      if (startX === null) return;
+      const dx = e.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 40) {
+        swiped = true;
+        go(dx < 0 ? 1 : -1);
+      }
+    });
+    stage.addEventListener('pointercancel', () => { startX = null; });
+
+    slides.forEach((slide, i) => {
+      slide.addEventListener('click', () => {
+        if (swiped) { swiped = false; return; }
+        const d = offsetOf(i);
+        if (d === 0) openLightbox(Number(slide.dataset.index));
+        else go(d);
+      });
+    });
+
+    root.addEventListener('mouseenter', () => { hovering = true; });
+    root.addEventListener('mouseleave', () => { hovering = false; lastMove = performance.now(); });
+    new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }).observe(root);
+    window.addEventListener('resize', render);
+
+    setInterval(() => {
+      const lightboxOpen = !document.getElementById('lightbox').classList.contains('hidden');
+      if (reduceMotion || !visible || hovering || lightboxOpen || document.hidden) return;
+      if (performance.now() - lastMove >= AUTOPLAY_MS) go(1);
+    }, 500);
+
+    render();
+  })();
   let currentLightboxIndex = 0;
 
   const decodedImageCache = new Set();
@@ -1391,12 +1576,12 @@
   }
 
   const sendHeartBtn = document.getElementById('sendHeartBtn');
-  const heartEmojis = ['💚', '🌿', '💚', '🍃'];
+  const heartEmojis = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🩷', '💖', '💕', '💗'];
 
   if (sendHeartBtn) {
     sendHeartBtn.addEventListener('click', () => {
       const rect = sendHeartBtn.getBoundingClientRect();
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 12; i++) {
         const heart = document.createElement('div');
         heart.className = 'flying-heart';
         heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
