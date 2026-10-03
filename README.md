@@ -20,9 +20,10 @@ Thiệp cưới online dạng Single Page, giao diện tone xanh lý - trắng k
 
 ```
 weddding/
-├── index.html          # File chính, đây là file duy nhất cần cho web chạy
+├── index.html          # Thiệp tiếng Việt (mặc định)
+├── en.html             # Thiệp tiếng Anh (nhạc nền riêng: audio/nhac-nen-en.mp3)
 ├── images/              # Ảnh: hero.jpg, gallery-1..20.jpg, qr-chu-re.png, qr-co-dau.png...
 ├── video/                # Video kỷ niệm (.mov/.mp4)
-├── audio/                # Nhạc nền (nhac-nen.mp3)
+├── audio/                # Nhạc nền: nhac-nen.mp3 (VI), nhac-nen-en.mp3 (EN)
 └── README.md
 ```

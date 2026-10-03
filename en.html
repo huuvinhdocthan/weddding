@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -374,9 +374,9 @@
 
 <body class="bg-cream font-sans intro-active">
 
-  <nav class="lang-switch" aria-label="Chọn ngôn ngữ">
-    <span class="lang-switch-active">VI</span>
-    <a href="en.html" hreflang="en" lang="en">EN</a>
+  <nav class="lang-switch" aria-label="Choose language">
+    <a href="index.html" hreflang="vi" lang="vi">VI</a>
+    <span class="lang-switch-active">EN</span>
   </nav>
 
   <div id="introOverlay" class="fixed inset-0 z-[100] flex">
@@ -384,7 +384,7 @@
     <div id="introRight" class="intro-panel w-1/2 h-full bg-gradient-to-bl from-gold to-goldlight"></div>
 
     <div id="introContent" class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 cursor-pointer" onclick="openInvitation()">
-      <p class="uppercase tracking-[0.35em] text-[11px] md:text-xs text-cream/80 mb-4 fade-in-up">Thiệp Mời Cưới</p>
+      <p class="uppercase tracking-[0.35em] text-[11px] md:text-xs text-cream/80 mb-4 fade-in-up">Wedding Invitation</p>
       <p class="font-script text-4xl sm:text-5xl md:text-6xl text-cream leading-tight fade-in-up" style="animation-delay:0.2s;">
         Hữu Vinh <span class="text-white">&amp;</span> Yến Thi
       </p>
@@ -393,7 +393,7 @@
       <div class="tap-hint mt-10 fade-in-up" style="animation-delay:0.7s;">
         <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-cream/50 flex items-center justify-center text-2xl md:text-3xl">💌</div>
       </div>
-      <p class="text-cream/80 text-[11px] md:text-xs uppercase tracking-[0.3em] mt-4 fade-in-up" style="animation-delay:0.9s;">Chạm để mở thiệp</p>
+      <p class="text-cream/80 text-[11px] md:text-xs uppercase tracking-[0.3em] mt-4 fade-in-up" style="animation-delay:0.9s;">Tap to open</p>
     </div>
   </div>
 
@@ -402,7 +402,7 @@
   <div id="liveFeed"></div>
 
   <div class="fixed bottom-5 right-5 z-50">
-    <button id="musicToggle" aria-label="Bật/tắt nhạc nền"
+    <button id="musicToggle" aria-label="Toggle background music"
       class="music-btn w-14 h-14 rounded-full bg-gradient-to-br from-gold to-goldlight flex items-center justify-center border-2 border-white/70">
       <svg id="vinylIcon" class="vinyl w-8 h-8 text-ink" viewBox="0 0 24 24" fill="currentColor">
         <circle cx="12" cy="12" r="10" fill="#3A2E2A"/>
@@ -412,7 +412,7 @@
     </button>
   </div>
   <audio id="bgMusic" loop preload="auto">
-    <source src="audio/nhac-nen.mp3" type="audio/mpeg">
+    <source src="audio/nhac-nen-en.mp3" type="audio/mpeg">
   </audio>
 
   <section id="hero" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-blush/50 via-cream to-cream py-16">
@@ -436,7 +436,7 @@
       </h1>
       <div class="gold-divider my-5 fade-in-up" style="animation-delay:0.9s;"></div>
       <p class="text-ink/70 text-base md:text-xl font-serif2 italic fade-in-up" style="animation-delay:1.1s;">
-        "Hạnh phúc là khi được nắm tay nhau đi hết cuộc đời"
+        "Happiness is holding each other's hand for the rest of our lives"
       </p>
       <p class="text-maroon text-lg md:text-2xl font-sans tracking-widest mt-5 fade-in-up" style="animation-delay:1.4s;">
         24 ❤️ 25 . 10 . 2026
@@ -450,8 +450,8 @@
 
   <section id="invitation" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 Thiệp Mời</span>
-      <h2 class="section-title invite-title">Trân Trọng Kính Mời</h2>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 Invitation</span>
+      <h2 class="section-title invite-title">You Are Cordially Invited</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
@@ -460,26 +460,26 @@
         <div class="absolute top-4 left-4 text-gold/50 text-2xl">❧</div>
         <div class="absolute top-4 right-4 text-gold/50 text-2xl" style="transform: scaleX(-1);">❧</div>
 
-        <p class="font-serif2 italic text-ink/70 text-base md:text-lg">Cùng với gia đình hai họ</p>
+        <p class="font-serif2 italic text-ink/70 text-base md:text-lg">Together with both of our families</p>
 
         <div class="grid sm:grid-cols-2 gap-6 mt-6 text-sm md:text-base">
           <div>
-            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Nhà Trai</p>
-            <p class="text-ink font-medium">Ông Đoàn Văn Phúc</p>
-            <p class="text-ink font-medium">Bà Lê Thị Ngọc Thảo</p>
+            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Groom's Parents</p>
+            <p class="text-ink font-medium">Mr. Đoàn Văn Phúc</p>
+            <p class="text-ink font-medium">Mrs. Lê Thị Ngọc Thảo</p>
             <p class="text-ink/60 text-xs md:text-sm"> Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
           </div>
           <div>
-            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Nhà Gái</p>
-            <p class="text-ink font-medium">Ông Huỳnh Cẩm Tú</p>
-            <p class="text-ink font-medium">Bà Đỗ Thị Yến Nhi</p>
+            <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">Bride's Parents</p>
+            <p class="text-ink font-medium">Mr. Huỳnh Cẩm Tú</p>
+            <p class="text-ink font-medium">Mrs. Đỗ Thị Yến Nhi</p>
             <p class="text-ink/60 text-xs md:text-sm"> Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
           </div>
         </div>
 
         <p class="font-serif2 italic text-ink/70 text-base md:text-lg mt-8 leading-relaxed">
-          Trân trọng kính mời quý khách đến chung vui và chúc phúc<br>
-          cho lễ thành hôn của hai con chúng tôi
+          request the honour of your presence<br>
+          at the wedding celebration of their children
         </p>
 
         <div class="my-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-3 font-script text-4xl md:text-5xl text-maroon">
@@ -491,8 +491,8 @@
         <div class="gold-divider my-6"></div>
 
         <p class="text-ink/80 text-sm md:text-base leading-relaxed">
-          Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi<br>
-          trong ngày vui trọng đại.
+          Your presence would be a great honour to our families<br>
+          on this joyful day.
         </p>
 
         <p class="text-gold font-serif2 text-lg md:text-xl tracking-widest mt-6">24 & 25 . 10 . 2026</p>
@@ -502,35 +502,35 @@
 
   <section id="countdown" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 Đếm ngược ngày trọng đại</span>
-      <h2 class="section-title">Chúng Con Sắp Cưới</h2>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 Counting down to the big day</span>
+      <h2 class="section-title">We're Getting Married</h2>
       <div class="gold-divider my-6"></div>
 
       <div class="grid grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto mt-10">
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-days" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Ngày</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Days</div>
         </div>
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-hours" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Giờ</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Hours</div>
         </div>
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-mins" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Phút</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Mins</div>
         </div>
         <div class="count-box rounded-2xl py-5 sm:py-8">
           <div id="cd-secs" class="text-3xl sm:text-5xl font-semibold text-ink font-serif2">00</div>
-          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Giây</div>
+          <div class="text-[10px] sm:text-xs uppercase tracking-widest text-gold mt-1">Secs</div>
         </div>
       </div>
 
       <div class="max-w-xs mx-auto mt-12 bg-white/70 border border-gold/30 rounded-3xl p-5 shadow-sm">
-        <p class="font-serif2 text-lg text-ink mb-3">Tháng 10 . 2026</p>
+        <p class="font-serif2 text-lg text-ink mb-3">October . 2026</p>
         <div class="grid grid-cols-7 gap-1 text-ink/50 text-[10px] uppercase mb-2">
-          <div class="calendar-day">T2</div><div class="calendar-day">T3</div><div class="calendar-day">T4</div>
-          <div class="calendar-day">T5</div><div class="calendar-day">T6</div><div class="calendar-day">T7</div>
-          <div class="calendar-day">CN</div>
+          <div class="calendar-day">Mo</div><div class="calendar-day">Tu</div><div class="calendar-day">We</div>
+          <div class="calendar-day">Th</div><div class="calendar-day">Fr</div><div class="calendar-day">Sa</div>
+          <div class="calendar-day">Su</div>
         </div>
         <div class="grid grid-cols-7 gap-1 text-ink/80">
           <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
@@ -546,7 +546,7 @@
           <div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
           <div class="calendar-day">29</div><div class="calendar-day">30</div><div class="calendar-day">31</div>
         </div>
-        <p class="text-xs text-ink/50 mt-3">24: Lễ Nhà Gái &nbsp;•&nbsp; 25: Lễ Nhà Trai</p>
+        <p class="text-xs text-ink/50 mt-3">24: Bride's Family &nbsp;•&nbsp; 25: Groom's Family</p>
       </div>
     </div>
   </section>
@@ -554,7 +554,7 @@
   <section id="story" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌿 Our Love Story</span>
-      <h2 class="section-title">Chuyện Tình Yêu</h2>
+      <h2 class="section-title">Our Story</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
@@ -564,8 +564,8 @@
       <div class="relative md:grid md:grid-cols-2 gap-8 mb-14 items-center">
         <div class="md:text-right md:pr-10">
           <span class="text-3xl">💫</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">Lần Đầu Gặp Gỡ</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">Địa điểm "Casino" miệt vườn. Chú rể gom sạch tiền lì xì của cô dâu không thương tiếc. Vì không còn tiền chung bài, cô dâu đành "bắt" chú rể về làm chồng để cống nạp tiền lương.</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">The First Meeting</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">The venue: a countryside "Casino" during Lunar New Year. The groom ruthlessly won every last bit of the bride's lucky money. With nothing left to bet, the bride had no choice but to "claim" the groom as her husband, so his salary could pay off the debt.</p>
         </div>
         <div></div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
@@ -575,8 +575,8 @@
         <div></div>
         <div class="md:pl-10">
           <span class="text-3xl">💌</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">Giai đoạn "Thu hồi vốn"</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">Những buổi hẹn hò đi chơi liên tục. Mục đích thực sự Cô dâu bào mòn ví tiền của chú rể để bù lại khoản lỗ mùa Tết. Kết quả: Chú rể phá sản hoàn toàn, tự nguyện đầu hàng và xin được chăm sóc cô dâu miễn phí trọn đời.</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">The "Payback" Era</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">Date after date after date. The bride's real mission: drain the groom's wallet to recover her Tết losses. The result: the groom went completely bankrupt, surrendered willingly, and begged to take care of the bride for free, for life.</p>
         </div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
@@ -584,8 +584,8 @@
       <div class="relative md:grid md:grid-cols-2 gap-8 mb-14 items-center">
         <div class="md:text-right md:pr-10">
           <span class="text-3xl">💍</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">Ngày Cầu Hôn - Ván bài lật ngửa</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">Buổi tối ấm áp tại một bờ biển lộng gió. Chú rể đã trao Cô dâu chiếc nhẫn kim cương mua từ cô Phương Hằng & ngỏ lời về một thương vụ "chung nhà" . Vậy là ván bài năm ấy chính thức khép lại bằng một đám cưới viên mãn, hai phe gộp lại thành một nhà!</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">The Proposal - Cards on the Table</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">A warm evening on a breezy beach. The groom gave the bride a diamond ring bought from the one and only Ms. Phương Hằng and proposed a "shared home" deal. And so the card game from that year officially ends with a happy wedding: two rival players, now one family!</p>
         </div>
         <div></div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
@@ -595,8 +595,8 @@
         <div></div>
         <div class="md:pl-10">
           <span class="text-3xl">👰🤵</span>
-          <h3 class="font-serif2 text-2xl text-gold mt-2">Ngày Về Chung Một Nhà</h3>
-          <p class="text-ink/70 mt-2 text-sm md:text-base">24 - 25.10.2026 - Ngày Yến Thi & Hữu Vinh chính thức nên duyên vợ chồng. Kết thúc hành trình "đón đưa" từ mùa Tết thua bài, kế tiếp là hành trình "Một mái nhà cùng nhau!" .</p>
+          <h3 class="font-serif2 text-2xl text-gold mt-2">Under One Roof</h3>
+          <p class="text-ink/70 mt-2 text-sm md:text-base">24 - 25.10.2026 - the day Yến Thi &amp; Hữu Vinh officially become husband and wife. The chapter that began with a losing hand at Tết closes, and a new journey begins: "One home, together!"</p>
         </div>
         <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-1 w-4 h-4 rounded-full bg-gold border-4 border-cream"></div>
       </div>
@@ -606,37 +606,37 @@
   <section id="details" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💐 Wedding Ceremony</span>
-      <h2 class="section-title">Thông Tin Hôn Lễ</h2>
+      <h2 class="section-title">Wedding Details</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 mt-12 grid md:grid-cols-2 gap-8">
 
       <div class="bg-white/70 border border-gold/30 rounded-3xl p-8 text-center shadow-sm">
-        <h3 class="font-script text-4xl text-gold mb-1">Nhà Trai</h3>
-        <p class="text-ink font-serif2 text-xl mb-4">Chú rể Hữu Vinh</p>
+        <h3 class="font-script text-4xl text-gold mb-1">Groom's Family</h3>
+        <p class="text-ink font-serif2 text-xl mb-4">Groom Hữu Vinh</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
-          <p>⏰ 11:00 - Chủ Nhật, 25/10/2026</p>
-          <p>📍 Tổ chức tại tư gia,<br>Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
+          <p>⏰ 11:00 AM - Sunday, October 25, 2026</p>
+          <p>📍 At the family home,<br>Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.027894490542!2d106.16342317584105!3d11.111298952926104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310b3d4ddefc9ea9%3A0xd3489cf0eecab711!2zTsaw4bubYyBNw61hIFZpbmggUXVhbmc!5e0!3m2!1svi!2s!4v1786341757659!5m2!1svi!2s"
             width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin" title="Bản đồ Nhà Trai"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" title="Map to the Groom's home"></iframe>
         </div>
         <a href="https://www.google.com/maps/dir/?api=1&destination=11.1112937,106.1659981" target="_blank" rel="noopener"
            class="btn-gold inline-block px-6 py-3 rounded-full text-sm font-medium tracking-wide">
-          Đường về nhà Chú rể
+          Directions to the Groom's home
         </a>
       </div>
 
       <div class="bg-white/70 border border-gold/30 rounded-3xl p-8 text-center shadow-sm">
-        <h3 class="font-script text-4xl text-gold mb-1">Nhà Gái</h3>
-        <p class="text-ink font-serif2 text-xl mb-4">Cô dâu Yến Thi</p>
+        <h3 class="font-script text-4xl text-gold mb-1">Bride's Family</h3>
+        <p class="text-ink font-serif2 text-xl mb-4">Bride Yến Thi</p>
         <div class="text-sm md:text-base text-ink/80 space-y-1 mb-5">
-          <p>⏰ 11:00 - Thứ Bảy, 24/10/2026</p>
-          <p>📍 Tổ chức tại tư gia,<br>Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
+          <p>⏰ 11:00 AM - Saturday, October 24, 2026</p>
+          <p>📍 At the family home,<br>Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
         </div>
         <div class="rounded-2xl overflow-hidden border-2 border-gold/40 shadow-md mb-5">
           <!-- <iframe
@@ -646,11 +646,11 @@
              <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3915.430056684183!2d106.26725397504624!3d11.08129118908661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDA0JzUyLjciTiAxMDbCsDE2JzExLjQiRQ!5e0!3m2!1svi!2s!4v1788333032766!5m2!1svi!2s"
             width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin" title="Bản đồ Nhà Gái"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" title="Map to the Bride's home"></iframe>
         </div>
         <a href="https://maps.app.goo.gl/Yzk5Dyeac7FzYf5z7" target="_blank" rel="noopener"
            class="btn-gold inline-block px-6 py-3 rounded-full text-sm font-medium tracking-wide">
-          Đường về nhà Cô dâu
+          Directions to the Bride's home
         </a>
       </div>
     </div>
@@ -659,52 +659,52 @@
   <section id="gallery" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">📸 Moments</span>
-      <h2 class="section-title">Album Ảnh Cưới</h2>
+      <h2 class="section-title">Wedding Album</h2>
       <div class="gold-divider my-6"></div>
     </div>
 
-    <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">Chạm vào ảnh để xem lớn</p>
+    <p class="text-center text-ink/40 text-xs uppercase tracking-widest mt-6 mb-1">Tap a photo to enlarge</p>
     <div class="max-w-6xl mx-auto px-6 mt-6 columns-2 sm:columns-3 gap-3 md:gap-4">
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.jpg" alt="Ảnh cưới 1"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(0)" src="images/gallery-1.jpg" alt="Wedding photo 1"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.jpg" alt="Ảnh cưới 2"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(1)" src="images/gallery-2.jpg" alt="Wedding photo 2"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.jpg" alt="Ảnh cưới 3"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(2)" src="images/gallery-3.jpg" alt="Wedding photo 3"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.jpg" alt="Ảnh cưới 4"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(3)" src="images/gallery-4.jpg" alt="Wedding photo 4"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.jpg" alt="Ảnh cưới 5"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(4)" src="images/gallery-5.jpg" alt="Wedding photo 5"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.jpg" alt="Ảnh cưới 6"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(5)" src="images/gallery-6.jpg" alt="Wedding photo 6"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.jpg" alt="Ảnh cưới 7"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(6)" src="images/gallery-7.jpg" alt="Wedding photo 7"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.jpg" alt="Ảnh cưới 8"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(7)" src="images/gallery-8.jpg" alt="Wedding photo 8"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.jpg" alt="Ảnh cưới 9"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(8)" src="images/gallery-9.jpg" alt="Wedding photo 9"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.jpg" alt="Ảnh cưới 10"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(9)" src="images/gallery-10.jpg" alt="Wedding photo 10"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(10)" src="images/gallery-11.jpg" alt="Ảnh cưới 11"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(10)" src="images/gallery-11.jpg" alt="Wedding photo 11"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(11)" src="images/gallery-12.jpg" alt="Ảnh cưới 12"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(11)" src="images/gallery-12.jpg" alt="Wedding photo 12"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(12)" src="images/gallery-13.jpg" alt="Ảnh cưới 13"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(12)" src="images/gallery-13.jpg" alt="Wedding photo 13"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(13)" src="images/gallery-14.jpg" alt="Ảnh cưới 14"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(13)" src="images/gallery-14.jpg" alt="Wedding photo 14"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(14)" src="images/gallery-15.jpg" alt="Ảnh cưới 15"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(14)" src="images/gallery-15.jpg" alt="Wedding photo 15"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(15)" src="images/gallery-16.jpg" alt="Ảnh cưới 16"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(15)" src="images/gallery-16.jpg" alt="Wedding photo 16"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(16)" src="images/gallery-17.jpg" alt="Ảnh cưới 17"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(16)" src="images/gallery-17.jpg" alt="Wedding photo 17"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(17)" src="images/gallery-18.jpg" alt="Ảnh cưới 18"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(17)" src="images/gallery-18.jpg" alt="Wedding photo 18"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(18)" src="images/gallery-19.jpg" alt="Ảnh cưới 19"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(18)" src="images/gallery-19.jpg" alt="Wedding photo 19"></div>
       <div class="gallery-item mb-3 md:mb-4 break-inside-avoid rounded-2xl overflow-hidden cursor-pointer border-2 border-white shadow-md">
-        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(19)" src="images/gallery-20.jpg" alt="Ảnh cưới 20"></div>
+        <img class="w-full h-auto block" loading="lazy" decoding="async" onclick="openLightbox(19)" src="images/gallery-20.jpg" alt="Wedding photo 20"></div>
     </div>
 
     <div class="max-w-3xl mx-auto px-6 mt-12">
@@ -715,7 +715,7 @@
           </video>
           <video id="memoryVideo" class="memory-video-foreground" controls preload="metadata" poster="images/video-thumbnail.jpg">
             <source id="memoryVideoSource" src="video/a6e52b8db8840c3ef745e93fc6f8a846.mov">
-            Trình duyệt của bạn không hỗ trợ phát video.
+            Your browser does not support video playback.
           </video>
         </div>
       </div>
@@ -723,11 +723,11 @@
       <div class="flex items-center justify-center gap-3 mt-4">
         <button type="button" class="video-tab is-active px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
           onclick="switchMemoryVideo(this, 'video/a6e52b8db8840c3ef745e93fc6f8a846.mov', 'images/video-thumbnail.jpg')">
-          🎬 Đám hỏi nè !
+          🎬 Our engagement!
         </button>
         <!-- <button type="button" class="video-tab px-5 py-2 rounded-full text-sm font-medium border border-gold/30"
           onclick="switchMemoryVideo(this, 'video/video-ky-niem-2.mov', 'images/video-thumbnail-2.jpg')">
-          🎬 Đám cưới nè !
+          🎬 Our wedding!
         </button> -->
       </div>
     </div>
@@ -736,60 +736,60 @@
   <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
     <span class="absolute top-6 right-6 text-white text-4xl cursor-pointer z-10" onclick="closeLightbox()">&times;</span>
     <span id="lightbox-counter" class="absolute top-7 left-6 text-white/70 text-sm tracking-widest"></span>
-    <button onclick="showPrevImage(event)" aria-label="Ảnh trước"
+    <button onclick="showPrevImage(event)" aria-label="Previous photo"
       class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white text-2xl flex items-center justify-center">‹</button>
-    <img id="lightbox-img" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl" src="" alt="Xem ảnh lớn" onclick="event.stopPropagation()">
-    <button onclick="showNextImage(event)" aria-label="Ảnh sau"
+    <img id="lightbox-img" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl" src="" alt="Enlarged photo" onclick="event.stopPropagation()">
+    <button onclick="showNextImage(event)" aria-label="Next photo"
       class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/25 text-white text-2xl flex items-center justify-center">›</button>
   </div>
 
   <section id="rsvp" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 RSVP</span>
-      <h2 class="section-title">Xác Nhận Tham Dự</h2>
+      <h2 class="section-title">Will You Join Us?</h2>
       <div class="gold-divider my-6"></div>
-      <p class="text-ink/70 max-w-xl mx-auto text-sm md:text-base">Sự hiện diện của bạn là niềm vinh hạnh lớn đối với Hữu Vinh &amp; Yến Thi. Vui lòng xác nhận trước ngày cưới để chúng mình chuẩn bị chu đáo nhất nhé!</p>
+      <p class="text-ink/70 max-w-xl mx-auto text-sm md:text-base">Having you there would mean the world to Hữu Vinh &amp; Yến Thi. Please let us know before the big day so we can get everything ready for you!</p>
     </div>
 
     <div class="max-w-xl mx-auto px-6 mt-10">
       <form id="rsvpForm" class="bg-white/70 border border-gold/30 rounded-3xl p-6 md:p-10 shadow-sm space-y-5">
         <div>
-          <label class="block text-sm text-ink/70 mb-1">Nick Name (Họ & Tên) </label>
-          <input required type="text" name="guestName" placeholder="Ronaldo cưới Messi"
+          <label class="block text-sm text-ink/70 mb-1">Your Name (or Nickname)</label>
+          <input required type="text" name="guestName" placeholder="Ronaldo marries Messi"
                  class="form-input w-full rounded-lg px-4 py-3 text-sm">
         </div>
         <div>
-          <label class="block text-sm text-ink/70 mb-2">Chốt đơn tham gia chưa?</label>
+          <label class="block text-sm text-ink/70 mb-2">So, are you in?</label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
               <input type="radio" name="attend" value="yes" checked class="accent-gold">
-            Yên tâm, uy tín luôn!
+            Count me in, wouldn't miss it!
             </label>
             <label class="attend-option flex items-center gap-2 border border-gold/30 rounded-lg px-4 py-3 text-sm cursor-pointer">
               <input type="radio" name="attend" value="no" class="accent-gold">
-              Trùng lịch giải cứu thế giới rồi bro T.T
+              Busy saving the world that day, sorry T.T
             </label>
           </div>
         </div>
 
         <div id="guestCountWrap">
-          <label class="block text-sm text-ink/70 mb-1">Số người tham dự</label>
+          <label class="block text-sm text-ink/70 mb-1">Number of guests</label>
           <select name="guestCount" class="form-input w-full rounded-lg px-4 py-3 text-sm">
-            <option>1 mình à</option>
-            <option>2 người nha</option>
-            <option>3 người luôn</option>
-            <option>Nhiều lắm đếm không hết</option>
+            <option>Just me</option>
+            <option>2 of us</option>
+            <option>3 of us</option>
+            <option>Too many to count</option>
           </select>
         </div>
         <div>
-          <label class="block text-sm text-ink/70 mb-1">Thả xíu tim và lời chúc tại đây cho Yến Thi &amp; Hữu Vinh 👇</label>
-          <textarea name="guestWish" rows="3" placeholder="Viết 'vitamin hạnh phúc' vào đây nha..."
+          <label class="block text-sm text-ink/70 mb-1">Leave some love and wishes for Yến Thi &amp; Hữu Vinh 👇</label>
+          <textarea name="guestWish" rows="3" placeholder="Drop your 'happiness vitamins' here..."
                     class="form-input w-full rounded-lg px-4 py-3 text-sm"></textarea>
         </div>
         <button type="submit" class="bg-gradient-to-br from-gold to-goldlight text-cream w-full rounded-full py-3 font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
-          Chốt đơn!
+          Send RSVP!
         </button>
-        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 Cảm ơn bạn đã xác nhận tham dự!</p>
+        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 Thank you for your RSVP!</p>
       </form>
     </div>
 
@@ -798,38 +798,38 @@
       <div id="envelopeClosed" class="envelope mx-auto cursor-pointer select-none" onclick="openEnvelope()">
         <div class="envelope-card">
           <div class="envelope-seal">💌</div>
-          <p class="font-script text-3xl text-cream">Hộp Mừng Cưới</p>
-          <p class="text-cream/80 text-[11px] mt-2 tracking-widest uppercase">Chạm vào phong bao để mở</p>
+          <p class="font-script text-3xl text-cream">Wedding Gift</p>
+          <p class="text-cream/80 text-[11px] mt-2 tracking-widest uppercase">Tap the envelope to open</p>
         </div>
       </div>
 
       <div id="giftContent" class="hidden opacity-0 scale-95 transition-all duration-700">
-        <h3 class="text-center font-script text-4xl text-gold mb-2 mt-2">Hộp Mừng Cưới</h3>
-        <p class="text-center text-ink/60 text-sm mb-4">Tấm lòng của bạn là món quà quý giá nhất với chúng mình 🌷</p>
+        <h3 class="text-center font-script text-4xl text-gold mb-2 mt-2">Wedding Gift</h3>
+        <p class="text-center text-ink/60 text-sm mb-4">Your love and kindness are the most precious gifts to us 🌷</p>
         <div class="text-center mb-10">
           <button id="sendHeartBtn" type="button"
             class="bg-gradient-to-br from-gold to-goldlight text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
-            💚 Bắn tim chúc phúc
+            💚 Send your love
           </button>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-6">
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
-            <p class="font-serif2 text-xl text-ink mb-3">Chú rể - Hữu Vinh</p>
+            <p class="font-serif2 text-xl text-ink mb-3">Groom - Hữu Vinh</p>
             <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-              <img src="images/qr-chu-re.png" alt="QR chuyển khoản Hữu Vinh" class="w-full h-full object-cover">
+              <img src="images/qr-chu-re.png" alt="Bank transfer QR for Hữu Vinh" class="w-full h-full object-cover">
             </div>
-            <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
-            <p class="text-sm font-medium tracking-wide text-ink">STK: 0986 416 678</p>
+            <p class="text-sm text-ink/70 mt-3">Cake Bank</p>
+            <p class="text-sm font-medium tracking-wide text-ink">Account: 0986 416 678</p>
           </div>
 
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
-            <p class="font-serif2 text-xl text-ink mb-3">Cô dâu - Yến Thi</p>
+            <p class="font-serif2 text-xl text-ink mb-3">Bride - Yến Thi</p>
             <div class="w-40 h-40 mx-auto rounded-xl overflow-hidden border-2 border-gold/40">
-              <img src="images/qr-co-dau.png" alt="QR chuyển khoản Yến Thi" class="w-full h-full object-cover">
+              <img src="images/qr-co-dau.png" alt="Bank transfer QR for Yến Thi" class="w-full h-full object-cover">
             </div>
-            <p class="text-sm text-ink/70 mt-3">Ngân hàng Cake</p>
-            <p class="text-sm font-medium tracking-wide text-ink">STK: 0326 358 906</p>
+            <p class="text-sm text-ink/70 mt-3">Cake Bank</p>
+            <p class="text-sm font-medium tracking-wide text-ink">Account: 0326 358 906</p>
           </div>
         </div>
       </div>
@@ -839,7 +839,7 @@
   <footer class="py-10 bg-ink text-center">
     <p class="font-script text-3xl text-goldlight">Hữu Vinh &amp; Yến Thi</p>
     <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 ❤️ 25 . 10 . 2026</p>
-    <p class="text-white/40 text-xs mt-4">Rất hân hạnh được đón tiếp bạn trong ngày trọng đại của chúng con/em 💚</p>
+    <p class="text-white/40 text-xs mt-4">We can't wait to celebrate our big day with you 💚</p>
   </footer>
 
 <script>
@@ -1304,7 +1304,7 @@
 
   rsvpForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    const guestName = rsvpForm.querySelector('input[name="guestName"]').value.trim() || 'Khách mời';
+    const guestName = rsvpForm.querySelector('input[name="guestName"]').value.trim() || 'Guest';
     const isAttending = rsvpForm.querySelector('input[name="attend"]:checked').value === 'yes';
     const guestCount = rsvpForm.querySelector('select[name="guestCount"]').value;
     const guestWish = rsvpForm.querySelector('textarea[name="guestWish"]').value.trim();
@@ -1318,12 +1318,12 @@
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({
-          name: guestName,
+          name: guestName + ' (EN)',
           attending: isAttending ? 'Có tham dự' : 'Không tham dự',
           guestCount: guestCount,
           wish: guestWish
         })
-      }).catch((err) => console.error('Không gửi được lên Google Sheet:', err));
+      }).catch((err) => console.error('Could not send to Google Sheet:', err));
     }
 
     rsvpMessage.classList.remove('hidden');
@@ -1355,7 +1355,7 @@
     const toast = document.createElement('div');
     toast.className = 'live-toast';
     const initial = name.trim().charAt(0).toUpperCase() || '💌';
-    const message = isAttending ? 'vừa xác nhận tham dự! 🎉' : 'vừa gửi lời chúc 💌';
+    const message = isAttending ? 'just RSVP\'d! 🎉' : 'just sent their wishes 💌';
     toast.innerHTML = `<span class="live-avatar">${initial}</span><span>${name} ${message}</span>`;
 
     liveFeed.appendChild(toast);
