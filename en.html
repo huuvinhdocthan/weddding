@@ -16,10 +16,11 @@
       extend: {
         colors: {
           cream: '#FFFDF9',
-          blush: '#E9F1E1',
-          blushdark: '#CFE0C2',
-          gold: '#75915F',
-          goldlight: '#A9C48C',
+          blush: '#F7EFE4',
+          blushdark: '#E6D3B3',
+          gold: '#8E1B2E',
+          goldlight: '#C9A96E',
+          burgundydeep: '#5E0F1D',
           maroon: '#7E2434',
           maroonlight: '#A8455A',
           ink: '#3A2E2A'
@@ -45,14 +46,14 @@
   .gold-divider {
     width: 90px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #75915F, transparent);
+    background: linear-gradient(90deg, transparent, #C9A96E, transparent);
     margin: 0 auto;
   }
 
   .section-title {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(2.5rem, 6vw, 4rem);
-    color: #5C7449;
+    color: #6E1424;
     line-height: 1.2;
   }
 
@@ -80,6 +81,12 @@
   #introContent.is-hiding {
     opacity: 0;
     pointer-events: none;
+  }
+  .intro-paper {
+    background: radial-gradient(ellipse 120% 70% at 100% 50%, #FFFDF9 0%, #FBF7F0 55%, #F1E6D3 100%);
+  }
+  #introRight.intro-paper {
+    background: radial-gradient(ellipse 120% 70% at 0% 50%, #FFFDF9 0%, #FBF7F0 55%, #F1E6D3 100%);
   }
   .tap-hint {
     animation: tapPulse 1.8s ease-in-out infinite;
@@ -115,7 +122,7 @@
   }
 
   .timeline-line {
-    background: linear-gradient(180deg, transparent, #75915F 10%, #75915F 90%, transparent);
+    background: linear-gradient(180deg, transparent, #C9A96E 10%, #C9A96E 90%, transparent);
   }
 
   .hero-photo { width: min(88vw, 400px); }
@@ -217,7 +224,7 @@
   }
 
   .music-btn {
-    box-shadow: 0 6px 20px rgba(117,145,95,0.4);
+    box-shadow: 0 6px 20px rgba(142,27,46,0.4);
   }
   .vinyl {
     animation: spin 4s linear infinite;
@@ -249,12 +256,12 @@
 
   .form-input {
     background: #FFFDF9;
-    border: 1px solid #CFE0C2;
+    border: 1px solid #E6D3B3;
   }
   .form-input:focus {
     outline: none;
-    border-color: #75915F;
-    box-shadow: 0 0 0 3px rgba(117,145,95,0.15);
+    border-color: #8E1B2E;
+    box-shadow: 0 0 0 3px rgba(142,27,46,0.15);
   }
 
   .btn-gold {
@@ -277,7 +284,7 @@
     padding: 3px;
     border-radius: 9999px;
     background: rgba(255,253,249,0.85);
-    border: 1px solid rgba(117,145,95,0.4);
+    border: 1px solid rgba(142,27,46,0.4);
     box-shadow: 0 4px 14px rgba(58,46,42,0.12);
     font-size: 0.7rem;
     font-weight: 600;
@@ -285,24 +292,45 @@
   }
   .lang-switch a,
   .lang-switch span {
-    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px 4px 6px;
     border-radius: 9999px;
-    color: #5C7449;
+    color: #8B2E3C;
+    transition: background 0.2s, color 0.2s;
   }
+  .lang-switch a:hover {
+    background: rgba(139,46,60,0.1);
+    color: #6E1F2C;
+  }
+  .lang-switch [data-flag]::before {
+    content: "";
+    flex: none;
+    width: 18px;
+    height: 12px;
+    border-radius: 2px;
+    background: center / cover no-repeat;
+    box-shadow: 0 0 0 1px rgba(58,46,42,0.2);
+  }
+  .lang-switch [data-flag="vi"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23DA251D'/%3E%3Cpolygon fill='%23FFFF00' points='15,4 16.18,7.63 20,7.63 16.91,9.87 18.09,13.5 15,11.26 11.91,13.5 13.09,9.87 10,7.63 13.82,7.63'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="en"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%23012169'/%3E%3Cpath d='M0,0L60,30M60,0L0,30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0,0L60,30M60,0L0,30' stroke='%23C8102E' stroke-width='2'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="zh"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23EE1C25'/%3E%3Cpolygon fill='%23FFFF00' points='5,2 5.71,4.03 7.85,4.07 6.14,5.37 6.76,7.43 5,6.2 3.24,7.43 3.86,5.37 2.15,4.07 4.29,4.03'/%3E%3Ccircle cx='10' cy='2' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='12' cy='4' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='12' cy='7' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='10' cy='9' r='0.9' fill='%23FFFF00'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="ko"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23fff'/%3E%3Ccircle cx='15' cy='10' r='5' fill='%230047A0'/%3E%3Cpath d='M10,10A5,5 0 0 1 20,10A2.5,2.5 0 0 1 15,10A2.5,2.5 0 0 0 10,10Z' fill='%23CD2E3A'/%3E%3Cg stroke='%23000' stroke-width='0.8'%3E%3Cpath transform='translate(15 10) rotate(33.69)' d='M-8,-2v4M-9.2,-2v4M-10.4,-2v4M8,-2v4M9.2,-2v4M10.4,-2v4'/%3E%3Cpath transform='translate(15 10) rotate(-33.69)' d='M-8,-2v4M-9.2,-2v4M-10.4,-2v4M8,-2v4M9.2,-2v4M10.4,-2v4'/%3E%3C/g%3E%3C/svg%3E"); }
   .lang-switch .lang-switch-active {
-    background: linear-gradient(135deg, #75915F, #A9C48C);
+    background: linear-gradient(135deg, #8E1B2E, #5E0F1D);
     color: #FFFDF9;
   }
 
   ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-thumb { background: #75915F; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #8E1B2E; border-radius: 4px; }
 
   img { background: #F3ECDD; }
 
   .attend-option:has(input:checked) {
-    border-color: #75915F;
-    background: rgba(117,145,95,0.08);
-    color: #5C7449;
+    border-color: #8E1B2E;
+    background: rgba(142,27,46,0.08);
+    color: #6E1424;
     font-weight: 500;
   }
 
@@ -312,7 +340,7 @@
     transition: all 0.25s ease;
   }
   .video-tab.is-active {
-    background: linear-gradient(135deg, #75915F, #A9C48C);
+    background: linear-gradient(135deg, #8E1B2E, #5E0F1D);
     border-color: transparent;
     color: #FFFDF9;
   }
@@ -361,11 +389,12 @@
     position: relative;
   }
   .envelope-card {
-    background: linear-gradient(160deg, #75915F, #A9C48C);
+    background: linear-gradient(160deg, #8E1B2E, #5E0F1D);
+    border: 2px solid #C9A96E;
     border-radius: 32px;
     padding: 46px 20px 32px;
     text-align: center;
-    box-shadow: 0 16px 34px rgba(117,145,95,0.35);
+    box-shadow: 0 16px 34px rgba(142,27,46,0.35);
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
   .envelope-card:hover {
@@ -430,7 +459,7 @@
     width: 22px;
     height: 22px;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #75915F, #A9C48C);
+    background: linear-gradient(135deg, #8E1B2E, #5E0F1D);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -449,27 +478,28 @@
 <body class="bg-cream font-sans intro-active">
 
   <nav class="lang-switch" aria-label="Choose language">
-    <a href="index.html" hreflang="vi" lang="vi">VI</a>
-    <span class="lang-switch-active">EN</span>
-    <a href="zh.html" hreflang="zh-CN" lang="zh-CN">中文</a>
-    <a href="ko.html" hreflang="ko" lang="ko">한국어</a>
+    <a href="index.html" hreflang="vi" lang="vi" data-flag="vi">VI</a>
+    <span class="lang-switch-active" data-flag="en">EN</span>
+    <a href="zh.html" hreflang="zh-CN" lang="zh-CN" data-flag="zh">中文</a>
+    <a href="ko.html" hreflang="ko" lang="ko" data-flag="ko">한국어</a>
   </nav>
 
   <div id="introOverlay" class="fixed inset-0 z-[100] flex">
-    <div id="introLeft" class="intro-panel w-1/2 h-full bg-gradient-to-br from-gold to-goldlight"></div>
-    <div id="introRight" class="intro-panel w-1/2 h-full bg-gradient-to-bl from-gold to-goldlight"></div>
+    <div id="introLeft" class="intro-panel intro-paper w-1/2 h-full"></div>
+    <div id="introRight" class="intro-panel intro-paper w-1/2 h-full"></div>
 
     <div id="introContent" class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 cursor-pointer" onclick="openInvitation()">
-      <p class="uppercase tracking-[0.35em] text-[11px] md:text-xs text-cream/80 mb-4 fade-in-up">Wedding Invitation</p>
-      <p class="font-script text-4xl sm:text-5xl md:text-6xl text-cream leading-tight fade-in-up" style="animation-delay:0.2s;">
-        Hữu Vinh <span class="text-white">&amp;</span> Yến Thi
+      <p class="uppercase tracking-[0.35em] text-[11px] md:text-xs text-[#A88A52] mb-4 fade-in-up">Wedding Invitation</p>
+      <p class="font-script text-4xl sm:text-5xl md:text-6xl text-gold leading-tight fade-in-up" style="animation-delay:0.2s;">
+        Hữu Vinh <span class="text-goldlight">&amp;</span> Yến Thi
       </p>
-      <p class="text-cream/80 text-sm md:text-base tracking-[0.3em] mt-3 fade-in-up" style="animation-delay:0.4s;">24 ❤️ 25 . 10 . 2026</p>
+      <div class="gold-divider my-4 fade-in-up" style="animation-delay:0.3s;"></div>
+      <p class="text-gold/80 text-sm md:text-base tracking-[0.15em] mt-3 fade-in-up" style="animation-delay:0.4s;">October 24 &amp; 25, 2026</p>
 
       <div class="tap-hint mt-10 fade-in-up" style="animation-delay:0.7s;">
-        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-cream/50 flex items-center justify-center text-2xl md:text-3xl">💌</div>
+        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-goldlight/70 flex items-center justify-center text-2xl md:text-3xl">💌</div>
       </div>
-      <p class="text-cream/80 text-[11px] md:text-xs uppercase tracking-[0.3em] mt-4 fade-in-up" style="animation-delay:0.9s;">Tap to open</p>
+      <p class="text-gold/70 text-[11px] md:text-xs uppercase tracking-[0.3em] mt-4 fade-in-up" style="animation-delay:0.9s;">Tap to open</p>
     </div>
   </div>
 
@@ -479,10 +509,10 @@
 
   <div class="fixed bottom-5 right-5 z-50">
     <button id="musicToggle" aria-label="Toggle background music"
-      class="music-btn w-14 h-14 rounded-full bg-gradient-to-br from-gold to-goldlight flex items-center justify-center border-2 border-white/70">
+      class="music-btn w-14 h-14 rounded-full bg-gradient-to-br from-gold to-burgundydeep flex items-center justify-center border-2 border-white/70">
       <svg id="vinylIcon" class="vinyl w-8 h-8 text-ink" viewBox="0 0 24 24" fill="currentColor">
         <circle cx="12" cy="12" r="10" fill="#3A2E2A"/>
-        <circle cx="12" cy="12" r="4" fill="#75915F"/>
+        <circle cx="12" cy="12" r="4" fill="#8E1B2E"/>
         <circle cx="12" cy="12" r="1.4" fill="#3A2E2A"/>
       </svg>
     </button>
@@ -515,7 +545,7 @@
         "Happiness is holding each other's hand for the rest of our lives"
       </p>
       <p class="text-maroon text-lg md:text-2xl font-sans tracking-widest mt-5 fade-in-up" style="animation-delay:1.4s;">
-        24 ❤️ 25 . 10 . 2026
+        October 24 &amp; 25, 2026
       </p>
     </div>
 
@@ -560,7 +590,7 @@
 
         <div class="my-6 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-3 font-script text-4xl md:text-5xl text-maroon">
           <span class="whitespace-nowrap">Hữu Vinh</span>
-          <span class="text-gold">&amp;</span>
+          <span class="text-goldlight">&amp;</span>
           <span class="whitespace-nowrap">Yến Thi</span>
         </div>
 
@@ -571,14 +601,14 @@
           on this joyful day.
         </p>
 
-        <p class="text-gold font-serif2 text-lg md:text-xl tracking-widest mt-6">24 & 25 . 10 . 2026</p>
+        <p class="text-gold font-serif2 text-lg md:text-xl tracking-wide mt-6">Saturday &amp; Sunday · October 24 &amp; 25, 2026</p>
       </div>
     </div>
   </section>
 
   <section id="countdown" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 Counting down to the big day</span>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌹 Counting down to the big day</span>
       <h2 class="section-title">We're Getting Married</h2>
       <div class="gold-divider my-6"></div>
 
@@ -602,7 +632,7 @@
       </div>
 
       <div class="max-w-xs mx-auto mt-12 bg-white/70 border border-gold/30 rounded-3xl p-5 shadow-sm">
-        <p class="font-serif2 text-lg text-ink mb-3">October . 2026</p>
+        <p class="font-serif2 text-lg text-ink mb-3">October 2026</p>
         <div class="grid grid-cols-7 gap-1 text-ink/50 text-[10px] uppercase mb-2">
           <div class="calendar-day">Mo</div><div class="calendar-day">Tu</div><div class="calendar-day">We</div>
           <div class="calendar-day">Th</div><div class="calendar-day">Fr</div><div class="calendar-day">Sa</div>
@@ -629,7 +659,7 @@
 
   <section id="story" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌿 Our Love Story</span>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌹 Our Love Story</span>
       <h2 class="section-title">Our Story</h2>
       <div class="gold-divider my-6"></div>
     </div>
@@ -879,10 +909,10 @@
           <textarea name="guestWish" rows="3" placeholder="Drop your 'happiness vitamins' here..."
                     class="form-input w-full rounded-lg px-4 py-3 text-sm"></textarea>
         </div>
-        <button type="submit" class="bg-gradient-to-br from-gold to-goldlight text-cream w-full rounded-full py-3 font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
+        <button type="submit" class="bg-gradient-to-br from-gold to-burgundydeep text-cream w-full rounded-full py-3 font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
           Send RSVP!
         </button>
-        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 Thank you for your RSVP!</p>
+        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">❤️ Thank you for your RSVP!</p>
       </form>
     </div>
 
@@ -890,8 +920,8 @@
 
       <div class="text-center mb-10">
         <button id="sendHeartBtn" type="button"
-          class="bg-gradient-to-br from-gold to-goldlight text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
-          💚 Send your love
+          class="bg-gradient-to-br from-gold to-burgundydeep text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
+          ❤️ Send your love
         </button>
       </div>
 
@@ -931,8 +961,8 @@
 
   <footer class="py-10 bg-ink text-center">
     <p class="font-script text-3xl text-goldlight">Hữu Vinh &amp; Yến Thi</p>
-    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 ❤️ 25 . 10 . 2026</p>
-    <p class="text-white/40 text-xs mt-4">We can't wait to celebrate our big day with you 💚</p>
+    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">October 24 &amp; 25, 2026</p>
+    <p class="text-white/40 text-xs mt-4">We can't wait to celebrate our big day with you ❤️</p>
   </footer>
 
 <script>
@@ -1434,7 +1464,7 @@
   });
 
   const fallingContainer = document.getElementById('falling-container');
-  const petalEmojis = ['🌸', '🍃', '🌿', '💮'];
+  const petalEmojis = ['🌹', '🌸', '💮', '🌺'];
   const isMobileScreen = window.matchMedia('(max-width: 768px)').matches;
   const MAX_PETALS = isMobileScreen ? 9 : 18;
   const PETAL_INTERVAL = isMobileScreen ? 1500 : 900;

@@ -16,17 +16,17 @@
       extend: {
         colors: {
           cream: '#FFFDF9',
-          blush: '#E9F1E1',
-          blushdark: '#CFE0C2',
-          gold: '#75915F',
-          goldlight: '#A9C48C',
-          maroon: '#7E2434',
-          maroonlight: '#A8455A',
+          blush: '#FCEEF1',
+          blushdark: '#F3CCD5',
+          gold: '#D4798A',
+          goldlight: '#F0B8C4',
+          maroon: '#2C3E63',
+          maroonlight: '#4A5F8C',
           ink: '#3A2E2A'
         },
         fontFamily: {
           script: ['"Great Vibes"', '"Gowun Batang"', 'cursive'],
-          serif2: ['"Cormorant Garamond"', '"Noto Serif KR"', 'serif'],
+          serif2: ['"Cormorant Garamond"', '"Gowun Batang"', '"Noto Serif KR"', 'serif'],
           sans: ['Montserrat', '"Noto Sans KR"', 'sans-serif']
         }
       }
@@ -45,7 +45,7 @@
   .gold-divider {
     width: 90px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #75915F, transparent);
+    background: linear-gradient(90deg, transparent, #D4798A, transparent);
     margin: 0 auto;
   }
 
@@ -53,7 +53,7 @@
     font-family: 'Great Vibes', "Gowun Batang", cursive;
     font-size: clamp(2.2rem, 5.5vw, 3.4rem);
     letter-spacing: 0.06em;
-    color: #5C7449;
+    color: #2C3E63;
     line-height: 1.2;
   }
 
@@ -111,12 +111,12 @@
 
   .count-box {
     background: linear-gradient(145deg, #FFFDF9, #FBF3EC);
-    border: 1.5px solid #7E2434;
-    box-shadow: 0 4px 18px rgba(126,36,52,0.16);
+    border: 1.5px solid #2C3E63;
+    box-shadow: 0 4px 18px rgba(44,62,99,0.16);
   }
 
   .timeline-line {
-    background: linear-gradient(180deg, transparent, #75915F 10%, #75915F 90%, transparent);
+    background: linear-gradient(180deg, transparent, #D4798A 10%, #D4798A 90%, transparent);
   }
 
   .hero-photo { width: min(88vw, 400px); }
@@ -180,7 +180,7 @@
     align-items: center;
     justify-content: center;
     background: rgba(255, 253, 249, 0.92);
-    color: #7E2434;
+    color: #2C3E63;
     box-shadow: 0 6px 18px rgba(60, 35, 25, 0.2);
     transition: transform 0.2s ease, background 0.2s ease;
   }
@@ -218,7 +218,7 @@
   }
 
   .music-btn {
-    box-shadow: 0 6px 20px rgba(117,145,95,0.4);
+    box-shadow: 0 6px 20px rgba(212,121,138,0.4);
   }
   .vinyl {
     animation: spin 4s linear infinite;
@@ -250,22 +250,22 @@
 
   .form-input {
     background: #FFFDF9;
-    border: 1px solid #CFE0C2;
+    border: 1px solid #F3CCD5;
   }
   .form-input:focus {
     outline: none;
-    border-color: #75915F;
-    box-shadow: 0 0 0 3px rgba(117,145,95,0.15);
+    border-color: #D4798A;
+    box-shadow: 0 0 0 3px rgba(212,121,138,0.15);
   }
 
   .btn-gold {
-    background: linear-gradient(135deg, #7E2434, #A8455A);
+    background: linear-gradient(135deg, #2C3E63, #4A5F8C);
     color: #FFFDF9;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .btn-gold:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(126,36,52,0.4);
+    box-shadow: 0 8px 20px rgba(44,62,99,0.4);
   }
 
   .lang-switch {
@@ -278,7 +278,7 @@
     padding: 3px;
     border-radius: 9999px;
     background: rgba(255,253,249,0.85);
-    border: 1px solid rgba(117,145,95,0.4);
+    border: 1px solid rgba(212,121,138,0.4);
     box-shadow: 0 4px 14px rgba(58,46,42,0.12);
     font-size: 0.7rem;
     font-weight: 600;
@@ -286,24 +286,45 @@
   }
   .lang-switch a,
   .lang-switch span {
-    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px 4px 6px;
     border-radius: 9999px;
-    color: #5C7449;
+    color: #8B2E3C;
+    transition: background 0.2s, color 0.2s;
   }
+  .lang-switch a:hover {
+    background: rgba(139,46,60,0.1);
+    color: #6E1F2C;
+  }
+  .lang-switch [data-flag]::before {
+    content: "";
+    flex: none;
+    width: 18px;
+    height: 12px;
+    border-radius: 2px;
+    background: center / cover no-repeat;
+    box-shadow: 0 0 0 1px rgba(58,46,42,0.2);
+  }
+  .lang-switch [data-flag="vi"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23DA251D'/%3E%3Cpolygon fill='%23FFFF00' points='15,4 16.18,7.63 20,7.63 16.91,9.87 18.09,13.5 15,11.26 11.91,13.5 13.09,9.87 10,7.63 13.82,7.63'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="en"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%23012169'/%3E%3Cpath d='M0,0L60,30M60,0L0,30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0,0L60,30M60,0L0,30' stroke='%23C8102E' stroke-width='2'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="zh"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23EE1C25'/%3E%3Cpolygon fill='%23FFFF00' points='5,2 5.71,4.03 7.85,4.07 6.14,5.37 6.76,7.43 5,6.2 3.24,7.43 3.86,5.37 2.15,4.07 4.29,4.03'/%3E%3Ccircle cx='10' cy='2' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='12' cy='4' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='12' cy='7' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='10' cy='9' r='0.9' fill='%23FFFF00'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="ko"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23fff'/%3E%3Ccircle cx='15' cy='10' r='5' fill='%230047A0'/%3E%3Cpath d='M10,10A5,5 0 0 1 20,10A2.5,2.5 0 0 1 15,10A2.5,2.5 0 0 0 10,10Z' fill='%23CD2E3A'/%3E%3Cg stroke='%23000' stroke-width='0.8'%3E%3Cpath transform='translate(15 10) rotate(33.69)' d='M-8,-2v4M-9.2,-2v4M-10.4,-2v4M8,-2v4M9.2,-2v4M10.4,-2v4'/%3E%3Cpath transform='translate(15 10) rotate(-33.69)' d='M-8,-2v4M-9.2,-2v4M-10.4,-2v4M8,-2v4M9.2,-2v4M10.4,-2v4'/%3E%3C/g%3E%3C/svg%3E"); }
   .lang-switch .lang-switch-active {
-    background: linear-gradient(135deg, #75915F, #A9C48C);
+    background: linear-gradient(135deg, #D4798A, #F0B8C4);
     color: #FFFDF9;
   }
 
   ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-thumb { background: #75915F; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #D4798A; border-radius: 4px; }
 
   img { background: #F3ECDD; }
 
   .attend-option:has(input:checked) {
-    border-color: #75915F;
-    background: rgba(117,145,95,0.08);
-    color: #5C7449;
+    border-color: #D4798A;
+    background: rgba(212,121,138,0.08);
+    color: #2C3E63;
     font-weight: 500;
   }
 
@@ -313,7 +334,7 @@
     transition: all 0.25s ease;
   }
   .video-tab.is-active {
-    background: linear-gradient(135deg, #75915F, #A9C48C);
+    background: linear-gradient(135deg, #D4798A, #F0B8C4);
     border-color: transparent;
     color: #FFFDF9;
   }
@@ -341,6 +362,32 @@
     z-index: 1;
   }
 
+  /* Chữ Hàn không dùng in nghiêng */
+  .italic { font-style: normal !important; }
+  .sat { color: #3B6FB6; }
+  .sun { color: #D9485F; }
+  .dday-badge {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #D4798A, #E59AAA);
+    color: #FFFDF9;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .copy-btn {
+    margin-top: 10px;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    border: 1px solid #D4798A;
+    color: #2C3E63;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: #FFFDF9;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: #FCEEF1; }
+
   .calendar-day {
     aspect-ratio: 1 / 1;
     display: flex;
@@ -350,7 +397,7 @@
     border-radius: 9999px;
   }
   .calendar-day.highlight {
-    background: linear-gradient(135deg, #7E2434, #A8455A);
+    background: linear-gradient(135deg, #D4798A, #E59AAA);
     color: #FFFDF9;
     font-weight: 600;
     position: relative;
@@ -362,11 +409,11 @@
     position: relative;
   }
   .envelope-card {
-    background: linear-gradient(160deg, #75915F, #A9C48C);
+    background: linear-gradient(160deg, #D4798A, #F0B8C4);
     border-radius: 32px;
     padding: 46px 20px 32px;
     text-align: center;
-    box-shadow: 0 16px 34px rgba(117,145,95,0.35);
+    box-shadow: 0 16px 34px rgba(212,121,138,0.35);
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
   .envelope-card:hover {
@@ -431,7 +478,7 @@
     width: 22px;
     height: 22px;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #75915F, #A9C48C);
+    background: linear-gradient(135deg, #D4798A, #F0B8C4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -451,10 +498,10 @@
 <body class="bg-cream font-sans intro-active">
 
   <nav class="lang-switch" aria-label="언어 선택">
-    <a href="index.html" hreflang="vi" lang="vi">VI</a>
-    <a href="en.html" hreflang="en" lang="en">EN</a>
-    <a href="zh.html" hreflang="zh-CN" lang="zh-CN">中文</a>
-    <span class="lang-switch-active">한국어</span>
+    <a href="index.html" hreflang="vi" lang="vi" data-flag="vi">VI</a>
+    <a href="en.html" hreflang="en" lang="en" data-flag="en">EN</a>
+    <a href="zh.html" hreflang="zh-CN" lang="zh-CN" data-flag="zh">中文</a>
+    <span class="lang-switch-active" data-flag="ko">한국어</span>
   </nav>
 
   <div id="introOverlay" class="fixed inset-0 z-[100] flex">
@@ -466,7 +513,8 @@
       <p class="font-script text-4xl sm:text-5xl md:text-6xl text-cream leading-tight fade-in-up" style="animation-delay:0.2s;">
         Hữu Vinh <span class="text-white">&amp;</span> Yến Thi
       </p>
-      <p class="text-cream/80 text-sm md:text-base tracking-[0.3em] mt-3 fade-in-up" style="animation-delay:0.4s;">24 ❤️ 25 . 10 . 2026</p>
+      <p class="text-cream/80 text-xs md:text-sm tracking-[0.2em] mt-2 fade-in-up" style="animation-delay:0.3s;">흐우 빈 ♥ 옌 티</p>
+      <p class="text-cream/80 text-sm md:text-base tracking-[0.2em] mt-3 fade-in-up" style="animation-delay:0.4s;">2026. 10. 24 (토) · 25 (일)</p>
 
       <div class="tap-hint mt-10 fade-in-up" style="animation-delay:0.7s;">
         <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-cream/50 flex items-center justify-center text-2xl md:text-3xl">💌</div>
@@ -484,7 +532,7 @@
       class="music-btn w-14 h-14 rounded-full bg-gradient-to-br from-gold to-goldlight flex items-center justify-center border-2 border-white/70">
       <svg id="vinylIcon" class="vinyl w-8 h-8 text-ink" viewBox="0 0 24 24" fill="currentColor">
         <circle cx="12" cy="12" r="10" fill="#3A2E2A"/>
-        <circle cx="12" cy="12" r="4" fill="#75915F"/>
+        <circle cx="12" cy="12" r="4" fill="#D4798A"/>
         <circle cx="12" cy="12" r="1.4" fill="#3A2E2A"/>
       </svg>
     </button>
@@ -517,7 +565,7 @@
         “행복이란 평생 서로의 손을 잡고 걷는 것”
       </p>
       <p class="text-maroon text-lg md:text-2xl font-sans tracking-widest mt-5 fade-in-up" style="animation-delay:1.4s;">
-        24 ❤️ 25 . 10 . 2026
+        2026. 10. 24 (토) · 25 (일)
       </p>
     </div>
 
@@ -543,14 +591,14 @@
         <div class="grid sm:grid-cols-2 gap-6 mt-6 text-sm md:text-base">
           <div>
             <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">신랑 측 혼주</p>
-            <p class="text-ink font-medium">Đoàn Văn Phúc</p>
-            <p class="text-ink font-medium">Lê Thị Ngọc Thảo</p>
+            <p class="text-ink font-medium">Đoàn Văn Phúc · Lê Thị Ngọc Thảo</p>
+            <p class="text-ink/70 text-sm mt-1">의 아들 <span class="text-ink font-semibold">Hữu Vinh (흐우 빈)</span></p>
             <p class="text-ink/60 text-xs md:text-sm"> Khu phố 4, xã Bến Cầu, tỉnh Tây Ninh</p>
           </div>
           <div>
             <p class="text-gold uppercase tracking-widest text-xs mb-2 font-medium">신부 측 혼주</p>
-            <p class="text-ink font-medium">Huỳnh Cẩm Tú</p>
-            <p class="text-ink font-medium">Đỗ Thị Yến Nhi</p>
+            <p class="text-ink font-medium">Huỳnh Cẩm Tú · Đỗ Thị Yến Nhi</p>
+            <p class="text-ink/70 text-sm mt-1">의 딸 <span class="text-ink font-semibold">Yến Thi (옌 티)</span></p>
             <p class="text-ink/60 text-xs md:text-sm"> Ô 4/19 Khu Phố Thanh Bình C, Phường Gò Dầu, Tây Ninh</p>
           </div>
         </div>
@@ -565,6 +613,7 @@
           <span class="text-gold">&amp;</span>
           <span class="whitespace-nowrap">Yến Thi</span>
         </div>
+        <p class="text-ink/60 text-sm tracking-[0.2em] -mt-2">흐우 빈 ♥ 옌 티</p>
 
         <div class="gold-divider my-6"></div>
 
@@ -573,16 +622,17 @@
           저희 가족에게 더없는 영광이겠습니다.
         </p>
 
-        <p class="text-gold font-serif2 text-lg md:text-xl tracking-widest mt-6">24 & 25 . 10 . 2026</p>
+        <p class="text-gold font-serif2 text-lg md:text-xl tracking-wide mt-6">2026년 10월 24일 토요일 · 25일 일요일</p>
       </div>
     </div>
   </section>
 
   <section id="countdown" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🍃 결혼식까지 카운트다운</span>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌸 결혼식까지 카운트다운</span>
       <h2 class="section-title">저희 결혼합니다</h2>
       <div class="gold-divider my-6"></div>
+      <p class="text-ink/80 text-sm md:text-base">흐우 빈 ♥ 옌 티의 결혼식이 <span id="ddayCount" class="dday-badge">D-00</span> 남았습니다</p>
 
       <div class="grid grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto mt-10">
         <div class="count-box rounded-2xl py-5 sm:py-8">
@@ -606,32 +656,25 @@
       <div class="max-w-xs mx-auto mt-12 bg-white/70 border border-gold/30 rounded-3xl p-5 shadow-sm">
         <p class="font-serif2 text-lg text-ink mb-3">2026년 10월</p>
         <div class="grid grid-cols-7 gap-1 text-ink/50 text-[10px] uppercase mb-2">
-          <div class="calendar-day">월</div><div class="calendar-day">화</div><div class="calendar-day">수</div>
-          <div class="calendar-day">목</div><div class="calendar-day">금</div><div class="calendar-day">토</div>
-          <div class="calendar-day">일</div>
+          <div class="calendar-day sun">일</div><div class="calendar-day">월</div><div class="calendar-day">화</div><div class="calendar-day">수</div>
+          <div class="calendar-day">목</div><div class="calendar-day">금</div><div class="calendar-day sat">토</div>
         </div>
         <div class="grid grid-cols-7 gap-1 text-ink/80">
-          <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
-          <div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div>
-          <div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div>
-          <div class="calendar-day">9</div><div class="calendar-day">10</div><div class="calendar-day">11</div>
-          <div class="calendar-day">12</div><div class="calendar-day">13</div><div class="calendar-day">14</div>
-          <div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div><div class="calendar-day">18</div>
-          <div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div>
-          <div class="calendar-day">22</div><div class="calendar-day">23</div>
-          <div class="calendar-day highlight">24</div>
-          <div class="calendar-day highlight">25</div>
-          <div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div>
-          <div class="calendar-day">29</div><div class="calendar-day">30</div><div class="calendar-day">31</div>
+          <div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div><div class="calendar-day"></div>
+<div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day sat">3</div>
+          <div class="calendar-day sun">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day sat">10</div>
+          <div class="calendar-day sun">11</div><div class="calendar-day">12</div><div class="calendar-day">13</div><div class="calendar-day">14</div><div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day sat">17</div>
+          <div class="calendar-day sun">18</div><div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div><div class="calendar-day">22</div><div class="calendar-day">23</div><div class="calendar-day sat highlight">24</div>
+          <div class="calendar-day sun highlight">25</div><div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day">28</div><div class="calendar-day">29</div><div class="calendar-day">30</div><div class="calendar-day sat">31</div>
         </div>
-        <p class="text-xs text-ink/50 mt-3">24일: 신부 측 &nbsp;•&nbsp; 25일: 신랑 측</p>
+        <p class="text-xs text-ink/50 mt-3">24일 (토): 신부 측 &nbsp;•&nbsp; 25일 (일): 신랑 측</p>
       </div>
     </div>
   </section>
 
   <section id="story" class="py-16 md:py-24 bg-blush/30 reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">🌿 우리의 러브 스토리</span>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💐 우리의 러브 스토리</span>
       <h2 class="section-title">우리 이야기</h2>
       <div class="gold-divider my-6"></div>
     </div>
@@ -840,7 +883,7 @@
 
   <section id="rsvp" class="py-16 md:py-24 bg-cream reveal">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 RSVP</span>
+      <span class="inline-block bg-blush text-gold uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 py-1.5 rounded-full mb-3 font-medium">💌 참석 의사 전달</span>
       <h2 class="section-title">함께해 주실 거죠?</h2>
       <div class="gold-divider my-6"></div>
       <p class="text-ink/70 max-w-xl mx-auto text-sm md:text-base">여러분이 함께해 주신다면 Hữu Vinh &amp; Yến Thi에게 큰 의미가 됩니다. 저희가 모든 준비를 할 수 있도록 결혼식 전에 꼭 알려 주세요!</p>
@@ -884,7 +927,7 @@
         <button type="submit" class="bg-gradient-to-br from-gold to-goldlight text-cream w-full rounded-full py-3 font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
           회신 보내기!
         </button>
-        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💚 회신해 주셔서 감사합니다!</p>
+        <p id="rsvpMessage" class="text-center text-sm text-gold hidden">💗 회신해 주셔서 감사합니다!</p>
       </form>
     </div>
 
@@ -893,7 +936,7 @@
       <div class="text-center mb-10">
         <button id="sendHeartBtn" type="button"
           class="bg-gradient-to-br from-gold to-goldlight text-cream inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium tracking-wide shadow-md hover:-translate-y-0.5 transition-transform">
-          💚 하트로 축하하기
+          💗 하트로 축하하기
         </button>
       </div>
 
@@ -916,6 +959,7 @@
             </div>
             <p class="text-sm text-ink/70 mt-3">Cake 은행</p>
             <p class="text-sm font-medium tracking-wide text-ink">계좌번호: 0986 416 678</p>
+            <button type="button" class="copy-btn" onclick="copyAccount(this, '0986416678')">계좌번호 복사하기</button>
           </div>
 
           <div class="bg-white/70 border border-gold/30 rounded-3xl p-6 text-center shadow-sm">
@@ -925,6 +969,7 @@
             </div>
             <p class="text-sm text-ink/70 mt-3">Cake 은행</p>
             <p class="text-sm font-medium tracking-wide text-ink">계좌번호: 0326 358 906</p>
+            <button type="button" class="copy-btn" onclick="copyAccount(this, '0326358906')">계좌번호 복사하기</button>
           </div>
         </div>
       </div>
@@ -933,8 +978,8 @@
 
   <footer class="py-10 bg-ink text-center">
     <p class="font-script text-3xl text-goldlight">Hữu Vinh &amp; Yến Thi</p>
-    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">24 ❤️ 25 . 10 . 2026</p>
-    <p class="text-white/40 text-xs mt-4">여러분과 함께할 그날을 손꼽아 기다립니다 💚</p>
+    <p class="text-white/60 text-xs mt-2 tracking-widest uppercase">2026. 10. 24 (토) · 25 (일)</p>
+    <p class="text-white/40 text-xs mt-4">여러분과 함께할 그날을 손꼽아 기다립니다 💗</p>
   </footer>
 
 <script>
@@ -943,6 +988,9 @@
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const dday = Math.round((new Date(2026, 9, 24) - today) / 86400000);
+    document.getElementById('ddayCount').textContent = dday > 0 ? 'D-' + dday : 'D-DAY';
 
     if (distance <= 0) {
       document.getElementById('cd-days').textContent = '00';
@@ -963,6 +1011,19 @@
     document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
   }
   updateCountdown();
+
+  function copyAccount(btn, number) {
+    const done = () => {
+      const label = btn.textContent;
+      btn.textContent = '복사되었습니다 ✓';
+      setTimeout(() => { btn.textContent = label; }, 2000);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(number).then(done).catch(() => prompt('계좌번호', number));
+    } else {
+      prompt('계좌번호', number);
+    }
+  }
   setInterval(updateCountdown, 1000);
 
   const galleryImages = Array.from({ length: 40 }, (_, i) => `images/gallery-${i + 1}.webp`);
@@ -1436,7 +1497,7 @@
   });
 
   const fallingContainer = document.getElementById('falling-container');
-  const petalEmojis = ['🌸', '🍃', '🌿', '💮'];
+  const petalEmojis = ['🌸', '🌸', '💮', '🩷'];
   const isMobileScreen = window.matchMedia('(max-width: 768px)').matches;
   const MAX_PETALS = isMobileScreen ? 9 : 18;
   const PETAL_INTERVAL = isMobileScreen ? 1500 : 900;

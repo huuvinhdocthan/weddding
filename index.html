@@ -285,10 +285,31 @@
   }
   .lang-switch a,
   .lang-switch span {
-    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px 4px 6px;
     border-radius: 9999px;
-    color: #5C7449;
+    color: #8B2E3C;
+    transition: background 0.2s, color 0.2s;
   }
+  .lang-switch a:hover {
+    background: rgba(139,46,60,0.1);
+    color: #6E1F2C;
+  }
+  .lang-switch [data-flag]::before {
+    content: "";
+    flex: none;
+    width: 18px;
+    height: 12px;
+    border-radius: 2px;
+    background: center / cover no-repeat;
+    box-shadow: 0 0 0 1px rgba(58,46,42,0.2);
+  }
+  .lang-switch [data-flag="vi"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23DA251D'/%3E%3Cpolygon fill='%23FFFF00' points='15,4 16.18,7.63 20,7.63 16.91,9.87 18.09,13.5 15,11.26 11.91,13.5 13.09,9.87 10,7.63 13.82,7.63'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="en"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%23012169'/%3E%3Cpath d='M0,0L60,30M60,0L0,30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0,0L60,30M60,0L0,30' stroke='%23C8102E' stroke-width='2'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30,0v30M0,15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="zh"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23EE1C25'/%3E%3Cpolygon fill='%23FFFF00' points='5,2 5.71,4.03 7.85,4.07 6.14,5.37 6.76,7.43 5,6.2 3.24,7.43 3.86,5.37 2.15,4.07 4.29,4.03'/%3E%3Ccircle cx='10' cy='2' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='12' cy='4' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='12' cy='7' r='0.9' fill='%23FFFF00'/%3E%3Ccircle cx='10' cy='9' r='0.9' fill='%23FFFF00'/%3E%3C/svg%3E"); }
+  .lang-switch [data-flag="ko"]::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23fff'/%3E%3Ccircle cx='15' cy='10' r='5' fill='%230047A0'/%3E%3Cpath d='M10,10A5,5 0 0 1 20,10A2.5,2.5 0 0 1 15,10A2.5,2.5 0 0 0 10,10Z' fill='%23CD2E3A'/%3E%3Cg stroke='%23000' stroke-width='0.8'%3E%3Cpath transform='translate(15 10) rotate(33.69)' d='M-8,-2v4M-9.2,-2v4M-10.4,-2v4M8,-2v4M9.2,-2v4M10.4,-2v4'/%3E%3Cpath transform='translate(15 10) rotate(-33.69)' d='M-8,-2v4M-9.2,-2v4M-10.4,-2v4M8,-2v4M9.2,-2v4M10.4,-2v4'/%3E%3C/g%3E%3C/svg%3E"); }
   .lang-switch .lang-switch-active {
     background: linear-gradient(135deg, #75915F, #A9C48C);
     color: #FFFDF9;
@@ -449,10 +470,10 @@
 <body class="bg-cream font-sans intro-active">
 
   <nav class="lang-switch" aria-label="Chọn ngôn ngữ">
-    <span class="lang-switch-active">VI</span>
-    <a href="en.html" hreflang="en" lang="en">EN</a>
-    <a href="zh.html" hreflang="zh-CN" lang="zh-CN">中文</a>
-    <a href="ko.html" hreflang="ko" lang="ko">한국어</a>
+    <span class="lang-switch-active" data-flag="vi">VI</span>
+    <a href="en.html" hreflang="en" lang="en" data-flag="en">EN</a>
+    <a href="zh.html" hreflang="zh-CN" lang="zh-CN" data-flag="zh">中文</a>
+    <a href="ko.html" hreflang="ko" lang="ko" data-flag="ko">한국어</a>
   </nav>
 
   <div id="introOverlay" class="fixed inset-0 z-[100] flex">
