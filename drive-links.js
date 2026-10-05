@@ -2,8 +2,8 @@
 // Khi có link, dán vào giữa hai dấu nháy '' bên dưới, lưu file là hộp album tự hiện ra.
 // Cả hai để trống '' thì hộp album bị ẩn khỏi trang; bên nào trống thì ẩn nút bên đó.
 window.DRIVE_LINKS = {
-  groom: 'https://huuvinhyenthi.io.vn', // Nhà trai
-  bride: 'https://huuvinhyenthi.io.vn', // Nhà gái
+  groom: '', // Nhà trai
+  bride: '', // Nhà gái
 };
 
 document.querySelectorAll('[data-drive]').forEach((btn) => {
